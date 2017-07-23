@@ -27,7 +27,7 @@ class RecruitsController < ApplicationController
 
   def update
     if @recruit.update(recruit_params)
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: show_users_path)
     else
       render 'edit'
     end

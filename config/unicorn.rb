@@ -3,7 +3,6 @@ working_directory "/home/sagae/girujinia/current"
 
 timeout 3600
 
-
 listen "/var/run/unicorn/girujinia.sock"
 pid "/var/run/unicorn/girujinia.pid"
 
