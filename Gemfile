@@ -9,7 +9,7 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -28,8 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'unicorn'
 
 # Use Capistrano for deployment
@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-bundler' #追加
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
+  gem 'sqlite3' # heroku アップロードのため 追加
 end
 
 group :development do
@@ -52,5 +53,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+group :production do
+  gem 'pg' #heroku アップロードのため
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
