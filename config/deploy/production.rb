@@ -10,9 +10,9 @@
 
 set :branch, 'master'
 
-role :app, %w{anime@52.199.223.195}
-role :web, %w{anime@52.199.223.195}
-role :db,  %w{anime@52.199.223.195}
+role :app, %w{sagae@52.199.223.195}
+role :web, %w{sagae@52.199.223.195}
+role :db,  %w{sagae@52.199.223.195}
 
 server '52.199.223.195', user: 'sagae', roles: %w{web app db}
 
