@@ -11,8 +11,11 @@
   <body>
     <header>
          <nav>
+             <%= link_to 'トップ', recruits_path %>
              <% if user_signed_in? %>
-             ようこそ <%= current_user.user_name %> さん
+             ようこそ
+             <a href="/users/<%= current_user.id %>"><%= current_user.user_name %></a>
+             さん
              <%= link_to 'プロフィール変更', edit_user_registration_path %>
              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
          <% else %>

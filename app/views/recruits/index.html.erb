@@ -3,16 +3,19 @@
   <%= link_to '作成', new_recruit_path %>
 </p>
 <table>
-  <th>作成者</th>
-  <th>作りたいもの</th>
-  <th>期間</th>
-  <th>募集人数</th>
+  <tr>
+    <th>作成者</th>
+    <th>作りたいもの</th>
+  <!-- <th>期間</th> -->
+    <th>照会</th>
+  </tr>
 <% @recruits.each do |recruit| %>
-  <td><%= recruit.user.user_name %></td>
-  <td><%= recruit.create_title%></td>
-  <td><%= recruit.period %></td>
-  <td><%= recruit.people %></td>
+  <tr>
+    <td><%= recruit.user.user_name %></td>
+    <td><%= recruit.create_title%></td>
+  <!-- <td><%= recruit.period %></td> -->
+    <td><%= link_to '詳しく見てみる', recruit_path(recruit) %></td>
+  </tr>
 
-  <td><%= link_to '詳しく見てみる', recruits_path(recruit) %></td>
 <% end %>
 </table>
