@@ -2,7 +2,7 @@ class CreateRecruits < ActiveRecord::Migration[5.1]
   def change
     create_table :recruits do |t|
       t.string :create_title #作りたいもの
-      t.integer :period #期間
+      t.string :period #期間
       t.integer :people #募集人数
       t.text :contents #内容
       t.string :work_method #作業方法

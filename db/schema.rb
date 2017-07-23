@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20170722165324) do
 
   create_table "recruits", force: :cascade do |t|
     t.string "create_title"
-    t.integer "period"
+    t.string "period"
     t.integer "people"
     t.text "contents"
     t.string "work_method"

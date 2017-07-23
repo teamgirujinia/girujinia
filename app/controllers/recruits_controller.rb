@@ -1,21 +1,25 @@
 class RecruitsController < ApplicationController
-  before_action :set_Recruit, only: [:show, :new, :create, :destroy, :edit]
-
+  before_action :set_recruit, only: [:show, :destroy, :edit,]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def new
-  end
-
-  def show
+    @recruit = Recruit.new
   end
 
   def index
     @recruits = Recruit.all
   end
 
+  def show
+  end
+
   def create
     @recruit = Recruit.new(recruit_params)
 
-    @recruit.save
-    redirect_to @article
+    if @recruit.save
+      redirect_back(fallback_location: root_path)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -31,7 +35,7 @@ class RecruitsController < ApplicationController
 
   private
     # Recruitテーブルから値をとってきて変数にいれる
-    def set_Recruit
+    def set_recruit
       @recruit = Recruit.find(params[:id])
     end
     # 入力カラムを記述
