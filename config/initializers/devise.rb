@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '42e8371ff507297a27897ee02b622ddee4cac6634497516fc06fb75753992e3a7087749301481598aee86c09b57f78679862dfd89748414490f71eeea5d0c150'
+  config.secret_key = '42e8371ff507297a27897ee02b622ddee4cac6634497516fc06fb75753992e3a7087749301481598aee86c09b57f78679862dfd89748414490f71eeea5d0c150'
   # ================ アカウント認証を5回失敗するとロック ======================
   config.unlock_strategy = :email
     config.maximum_attempts = 4
@@ -250,7 +250,6 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.8.1"
+lock "3.8.2"
 
 set :application, "girujinia"
 set :repo_url, "https://github.com/orokamono11/giruginia.git"
