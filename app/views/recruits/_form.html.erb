@@ -1,5 +1,5 @@
 
-<%= form_for @recruit, url: recruits_path do |f| %>
+<%= form_for @recruit do |f| %>
   <% if @recruit.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@recruit.errors.count, "error") %> 保存されませんでした:</h2>

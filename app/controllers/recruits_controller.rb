@@ -28,6 +28,8 @@ class RecruitsController < ApplicationController
   def update
     if @recruit.update(recruit_params)
       redirect_back(fallback_location: root_path)
+      # update完了後メッセージを出す
+      flash[:notice] = "編集を完了しました"
     else
       render 'edit'
     end
