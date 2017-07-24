@@ -6,7 +6,4 @@ class UsersController < ApplicationController
     @recruits = Recruit.where(:user_id => @user.id)
   end
 
-  def index
-  end
-  
 end
