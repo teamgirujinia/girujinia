@@ -90,9 +90,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = {  host: '52.193.137.191', port: 80 }
-  
-  # ↓ 寒河江が開発環境の時に使います。
-  # config.action_mailer.default_url_options = { host: 'girujinia-v2-sagae.c9users.io', port: 8080 }
 
  # mail setting
  config.action_mailer.raise_delivery_errors = true
