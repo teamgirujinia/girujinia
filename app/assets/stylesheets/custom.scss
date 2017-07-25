@@ -2,7 +2,7 @@
 
 
 .contents {
-    min-height: 1500px;
+    min-height: 720px;
     height: auto !important;
     height: 50px;
 }
@@ -15,4 +15,8 @@ line-height: 50px;
 text-align:center;
 font-size:0.85em;
 box-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+
+.padding10 {
+    padding: 10px;
 }

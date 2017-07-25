@@ -1,28 +1,42 @@
-<h1><%= current_user.user_name %>
-  さんの画面</h1>
 
-<%= link_to '投稿する', new_recruit_path %>
-<%= link_to 'プロフィール変更', edit_user_registration_path %>
-<h2>投稿された募集ページ</h2>
-<table>
-  <tr>
-    <td>作りたいもの</td>
-    <td>照会</td>
-    <td>編集</td>
-    <td>削除</td>
-  </tr>
-  <% @recruits.each do |r| %>
-  <tr>
-    <td><%= r.create_title %></td>
 
-    <td><%= link_to '詳しく見る', recruit_path(r) %></td>
-
-  <!-- 自分で投稿したものにしか編集・削除できない -->
-    <% if r.user_id == current_user.id %>
-      <td><%= link_to '編集',     edit_recruit_path(r) %></td>
-      <td><%= link_to '削除', recruit_path(r),
-                   method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+<div class="ui internally celled grid">
+  <div class="row">
+    <div class="three wide column">
+      <img>
+    </div>
+    <div class="ten wide column">
+    <h1><%= current_user.user_name %>
+      さんの画面</h1>
+    
+    <%= link_to '投稿する', new_recruit_path %>
+    <%= link_to 'プロフィール変更', edit_user_registration_path %>
+    <h2>投稿された募集ページ</h2>
+    <table>
+      <tr>
+        <td>作りたいもの</td>
+        <td>照会</td>
+        <td>編集</td>
+        <td>削除</td>
+      </tr>
+      <% @recruits.each do |r| %>
+      <tr>
+        <td><%= r.create_title %></td>
+    
+        <td><%= link_to '詳しく見る', recruit_path(r) %></td>
+    
+      <!-- 自分で投稿したものにしか編集・削除できない -->
+        <% if r.user_id == current_user.id %>
+          <td><%= link_to '編集',     edit_recruit_path(r) %></td>
+          <td><%= link_to '削除', recruit_path(r),
+                       method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        <% end %>
+      </tr>
     <% end %>
-  </tr>
-<% end %>
-</table>
+    </table>
+    </div>
+    <div class="three wide column">
+      <img>
+    </div>
+  </div>
+</div>

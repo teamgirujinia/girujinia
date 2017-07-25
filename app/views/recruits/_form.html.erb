@@ -1,44 +1,55 @@
 
-<%= form_for @recruit do |f| %>
-  <% if @recruit.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@recruit.errors.count, "error") %> 保存されませんでした:</h2>
-    <ul>
-    <% @recruit.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <!-- current_user.idを入れる -->
-  <%= f.hidden_field :user_id, value: current_user.id %>
-<p>
-  <%= f.label :作りたいもの %>
-  <%= f.text_field :create_title %>
-</p>
-  <%= f.label :期間 %>
-  <%= f.text_field :period %>
-<p>
-  <%= f.label :募集人数 %>
-  <%= f.number_field :people %><span>人</span>
-</p>
-<p>
-  <%= f.label :内容 %>
-  <%= f.text_area :contents %>
-</p>
-<p>
-  <%= f.label :作業方法 %>
-  <%= f.text_field :work_method %>
-</p>
-<p>
-  <%= f.label :連絡方法 %>
-  <%= f.text_field :communication %>
-</p>
-<p>
-  <%= f.label :募集職種 %>
-  <%= f.text_field :wanted_jobs %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
+
+<div class="ui grid">
+    <div class="eight wide column">
+  
+      <%= form_for(@recruit,  html: {class: 'ui form'}) do |f| %>
+        <% if @recruit.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@recruit.errors.count, "error") %> 保存されませんでした:</h2>
+          <ul>
+          <% @recruit.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+        <% end %>
+        <!-- current_user.idを入れる -->
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      <p>
+        <%= f.label :作りたいもの %>
+        <%= f.text_field :create_title %>
+      </p>
+        <%= f.label :期間 %>
+        <%= f.text_field :period %>
+      <p>
+        <%= f.label :募集人数 %>
+        <%= f.number_field :people %><span>人</span>
+      </p>
+      <p>
+        <%= f.label :作業方法 %>
+        <%= f.text_field :work_method %>
+      </p>
+      <p>
+        <%= f.label :連絡方法 %>
+        <%= f.text_field :communication %>
+      </p>
+      <p>
+        <%= f.label :募集職種 %>
+        <%= f.text_field :wanted_jobs %>
+      </p>
+    </div>
+  
+    <div class="eight wide column ui form">
+      <p>
+        <%= f.label :内容 %>
+        <%= f.text_area :contents %>
+      </p>
+      <p>
+        <%= f.submit "投稿", class: :"ui submit button" %>
+      </p>
 <% end %>
+
+    </div>
+
+</div>
