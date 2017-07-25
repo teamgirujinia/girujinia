@@ -2,7 +2,7 @@
 lock "3.8.2"
 
 set :application, "girujinia"
-set :repo_url, "https://github.com/orokamono11/giruginia.git"
+set :repo_url, "https://github.com/teamgirujinia/girujinia.git"
 
 
 
