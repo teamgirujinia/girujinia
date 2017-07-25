@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/doabit/semantic-ui-sass.git
+  revision: ddb56eebc86ec4c2d9d634b6b6b16d561cacdc84
+  specs:
+    semantic-ui-sass (2.2.11.0)
+      sass (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -226,6 +233,7 @@ DEPENDENCIES
   rails (~> 5.1.2)
   sass-rails (~> 5.0)
   selenium-webdriver
+  semantic-ui-sass!
   sqlite3
   turbolinks (~> 5)
   tzinfo-data

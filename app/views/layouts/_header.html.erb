@@ -1,0 +1,13 @@
+<div class="ui segment">
+  <h3 class="ui right aligned header">
+         <%= link_to 'Home', root_path %>
+         <% if user_signed_in? %>
+         <a href="/users/<%= current_user.id %>"><%= current_user.user_name %></a>
+         <!-- <%= link_to 'プロフィール変更', edit_user_registration_path %> -->
+         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+     <% else %>
+         <%= link_to 'サインアップ', new_user_registration_path %>
+         <%= link_to 'ログイン', new_user_session_path %>
+         <% end %>
+  </h3>
+</div>

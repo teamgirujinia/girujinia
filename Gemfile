@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'unicorn'
 
+# デザイン
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

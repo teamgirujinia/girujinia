@@ -7,22 +7,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header>
-         <nav>
-             <%= link_to 'トップ', recruits_path %>
-             <% if user_signed_in? %>
-             ようこそ
-             <a href="/users/<%= current_user.id %>"><%= current_user.user_name %></a>
-             さん
-             <!-- <%= link_to 'プロフィール変更', edit_user_registration_path %> -->
-             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-         <% else %>
-             <%= link_to 'サインアップ', new_user_registration_path %>
-             <%= link_to 'ログイン', new_user_session_path %>
-             ようこそ ゲスト さん
-             <% end %>
-         </nav>
-     </header>
+    <%= render 'layouts/header' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
