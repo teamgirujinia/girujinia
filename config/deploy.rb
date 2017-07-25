@@ -13,7 +13,7 @@ set :deploy_to, '/home/sagae/girujinia/'
 set :keep_releases, 5
 
 set :rbenv_type, :system # :system or :user
-set :rbenv_ruby, '2.3.0'
+set :rbenv_ruby, '2.3.1'
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
 set :rbenv_custom_path, '~/.rbenv'
