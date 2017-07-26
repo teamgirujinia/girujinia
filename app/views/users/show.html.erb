@@ -18,16 +18,16 @@
         <td>編集</td>
         <td>削除</td>
       </tr>
-      <% @recruits.each do |r| %>
+      <% @projects.each do |p| %>
       <tr>
-        <td><%= r.create_title %></td>
+        <td><%= p.create_title %></td>
     
-        <td><%= link_to '詳しく見る', recruit_path(r) %></td>
+        <td><%= link_to '詳しく見る', project_path(p) %></td>
     
       <!-- 自分で投稿したものにしか編集・削除できない -->
-        <% if r.user_id == current_user.id %>
-          <td><%= link_to '編集',     edit_recruit_path(r) %></td>
-          <td><%= link_to '削除', recruit_path(r),
+        <% if p.user_id == current_user.id %>
+          <td><%= link_to '編集',     edit_project_path(p) %></td>
+          <td><%= link_to '削除', project_path(p),
                        method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
         <% end %>
       </tr>

@@ -32,6 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.datetime :locked_at
 
       t.text     :self_introduction
+      t.string   :language_used
 
       t.timestamps null: false
     end

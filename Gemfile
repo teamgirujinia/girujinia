@@ -28,9 +28,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-# gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
-gem 'unicorn'
+# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt' # 3.1.7だとエラーになるためバージョン修正
+
+gem 'unicorn', :group => :server # サーバ指定追加 (windowsではunicornが使えない)
 
 # デザイン
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
