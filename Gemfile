@@ -28,15 +28,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-# gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
-gem 'unicorn'
+# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt' # 3.1.7だとエラーになるためバージョン修正
 
 # デザイン
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'unicorn', :group => :server
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,6 +49,7 @@ group :development, :test do
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
   gem 'sqlite3' # heroku アップロードのため 追加
+  
 end
 
 group :development do
