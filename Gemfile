@@ -49,7 +49,7 @@ group :development, :test do
   gem 'capistrano-bundler' #追加
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
-  gem 'sqlite3' # heroku アップロードのため 追加
+  gem 'sqlite3' #  追加
 end
 
 group :development do
@@ -58,7 +58,7 @@ group :development do
 end
 
 group :production do
-  gem 'sqlite3' # heroku アップロードのため 追加
+  gem 'sqlite3' #  追加
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

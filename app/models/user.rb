@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable
 
          has_many :projects
+         has_many :comments
 end

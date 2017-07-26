@@ -1,0 +1,12 @@
+
+<%= form_for([@project, @project.comments.build]) do |f| %>
+    <!-- user_idを入れる -->
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
