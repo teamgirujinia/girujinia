@@ -1,9 +1,17 @@
 class CommentsController < ApplicationController
+<<<<<<< HEAD
   
   # projectに対するコメントを作成
   def create
     @project = Project.find(params[:project_id]) # idを検索して標識につめる
     @comment = @project.comments.create(comment_params)
+=======
+  before_action :authenticate_user!
+  # projectに対するコメントを作成
+  def create
+    @project = Project.find(params[:project_id]) # idを検索して標識につめる
+    @comment = @project.comments.create(comment_params) 
+>>>>>>> hotfixes
     redirect_to project_path(@project)
   end
   # コメントを削除する設定
