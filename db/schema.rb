@@ -10,20 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170722165324) do
+ActiveRecord::Schema.define(version: 20170726020646) do
 
-  create_table "recruits", force: :cascade do |t|
+  create_table "projects", force: :cascade do |t|
     t.string "create_title"
     t.string "period"
-    t.integer "people"
-    t.text "contents"
+    t.integer "capacity"
+    t.text "content"
     t.string "work_method"
     t.string "communication"
     t.string "wanted_jobs"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["create_title"], name: "index_recruits_on_create_title", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170722165324) do
     t.string "unlock_token"
     t.datetime "locked_at"
     t.text "self_introduction"
+    t.string "language_used"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

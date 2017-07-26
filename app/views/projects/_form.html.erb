@@ -3,12 +3,12 @@
 <div class="ui grid">
     <div class="eight wide column">
   
-      <%= form_for(@recruit,  html: {class: 'ui form'}) do |f| %>
-        <% if @recruit.errors.any? %>
+      <%= form_for(@project,  html: {class: 'ui form'}) do |f| %>
+        <% if @project.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@recruit.errors.count, "error") %> 保存されませんでした:</h2>
+          <h2><%= pluralize(@project.errors.count, "error") %> 保存されませんでした:</h2>
           <ul>
-          <% @recruit.errors.full_messages.each do |msg| %>
+          <% @project.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
           </ul>
@@ -24,7 +24,7 @@
         <%= f.text_field :period %>
       <p>
         <%= f.label :募集人数 %>
-        <%= f.number_field :people %><span>人</span>
+        <%= f.number_field :capacity %><span>人</span>
       </p>
       <p>
         <%= f.label :作業方法 %>
@@ -43,7 +43,7 @@
     <div class="eight wide column ui form">
       <p>
         <%= f.label :内容 %>
-        <%= f.text_area :contents %>
+        <%= f.text_area :content %>
       </p>
       <p>
         <%= f.submit "投稿", class: :"ui submit button" %>

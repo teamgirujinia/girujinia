@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recruits = Recruit.where(:user_id => @user.id)
+    @projects = Project.where(:user_id => @user.id)
   end
 
 end

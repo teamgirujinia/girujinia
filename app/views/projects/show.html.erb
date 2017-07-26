@@ -1,34 +1,34 @@
 <p>
   <strong>作成者</strong>
-  <%= @recruit.user.user_name %>
+  <%= @project.user.user_name %>
 </p>
 <p>
   <strong>作りたいもの</strong>
-  <%= @recruit.create_title %>
+  <%= @project.create_title %>
 </p>
 <p>
   <strong>期間</strong>
-  <%= @recruit.period %>
+  <%= @project.period %>
 </p>
 <p>
   <strong>募集人数</strong>
-  <%= @recruit.people %>
+  <%= @project.capacity %>
 </p>
 <p>
   <strong>内容</strong>
-  <%= @recruit.contents %>
+  <%= @project.content %>
 </p>
 <p>
   <storng>作業方法</storng>
-  <%= @recruit.work_method %>
+  <%= @project.work_method %>
 </p>
 <p>
   <strong>連絡方法</strong>
-  <%= @recruit.communication %>
+  <%= @project.communication %>
 </p>
 <p>
   <strong>募集職種</strong>
-  <%= @recruit.wanted_jobs %>
+  <%= @project.wanted_jobs %>
 </p>
 
-<%= link_to 'トップ', recruits_path %>
+<%= link_to 'トップ', projects_path %>
