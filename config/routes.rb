@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :projects do
-    resources :comments
+    resources :comments # コメントをネスト
   end
   
   root 'projects#index'
