@@ -1,32 +1,33 @@
-class RecruitsController < ApplicationController
-  before_action :set_recruit, only: [:show, :destroy, :edit, :update]
+class ProjectsController < ApplicationController
+  before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def new
-    @recruit = Recruit.new
+    @project = Project.new
   end
 
   def index
-    @recruits = Recruit.all
+    @projects = Project.all
   end
 
   def create
-    @recruit = Recruit.new(recruit_params)
+    @project = Project.new(project_params)
 
-    if @recruit.save
-      redirect_to @recruit
+    if @project.save
+      redirect_to @project
     else
       render 'new'
     end
   end
 
   def show
+    
   end
 
   def edit
   end
 
   def update
-    if @recruit.update(recruit_params)
+    if @project.update(project_params)
       redirect_back(fallback_location: root_path)
       # update完了後メッセージを出す
       flash[:notice] = "編集を完了しました"
@@ -36,7 +37,7 @@ class RecruitsController < ApplicationController
   end
 
   def destroy
-    @recruit.destroy
+    @project.destroy
 
     redirect_back(fallback_location: root_path)
   end
@@ -45,11 +46,11 @@ class RecruitsController < ApplicationController
 
   private
     # Recruitテーブルから値をとってきて変数にいれる
-    def set_recruit
-      @recruit = Recruit.find(params[:id])
+    def set_project
+      @project = Project.find(params[:id])
     end
     # 入力カラムを記述
-    def recruit_params
-      params.require(:recruit).permit(:create_title, :period, :people, :contents, :work_method, :communication, :wanted_jobs, :user_id).merge(user_id: current_user.id)
+    def project_params
+      params.require(:project).permit(:create_title, :period, :capacity, :content, :work_method, :communication, :wanted_jobs, :user_id).merge(user_id: current_user.id)
     end
 end

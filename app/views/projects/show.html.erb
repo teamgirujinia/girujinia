@@ -1,0 +1,42 @@
+<p>
+  <strong>作成者</strong>
+  <%= @project.user.user_name %>
+</p>
+<p>
+  <strong>作りたいもの</strong>
+  <%= @project.create_title %>
+</p>
+<p>
+  <strong>期間</strong>
+  <%= @project.period %>
+</p>
+<p>
+  <strong>募集人数</strong>
+  <%= @project.capacity %>
+</p>
+<p>
+  <strong>内容</strong>
+  <%= @project.content %>
+</p>
+<p>
+  <storng>作業方法</storng>
+  <%= @project.work_method %>
+</p>
+<p>
+  <strong>連絡方法</strong>
+  <%= @project.communication %>
+</p>
+<p>
+  <strong>募集職種</strong>
+  <%= @project.wanted_jobs %>
+</p>
+
+ <h2>Comments</h2>
+ 
+<%= render @project.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render "comments/form" %> 
+
+
+<%= link_to 'トップ', projects_path %>

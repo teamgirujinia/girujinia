@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  create_title: MyString
+  period: MyString
+  capacity: 1
+  content: MyText
+  work_method: MyString
+  communication: MyString
+  wanted_jobs: MyString
+
+two:
+  create_title: MyString
+  period: MyString
+  capacity: 1
+  content: MyText
+  work_method: MyString
+  communication: MyString
+  wanted_jobs: MyString

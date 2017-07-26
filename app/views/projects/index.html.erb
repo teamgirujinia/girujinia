@@ -12,12 +12,12 @@
         <!-- <th>期間</th> -->
           <th>照会</th>
         </tr>
-      <% @recruits.each do |recruit| %>
+      <% @projects.each do |project| %>
         <tr>
-          <td><%= recruit.user.user_name %></td>
-          <td><%= recruit.create_title%></td>
-        <!-- <td><%= recruit.period %></td> -->
-          <td><%= link_to '詳しく見てみる', recruit_path(recruit) %></td>
+          <td><%= project.user.user_name %></td>
+          <td><%= project.create_title%></td>
+        <!-- <td><%= project.period %></td> -->
+          <td><%= link_to '詳しく見てみる', project_path(project) %></td>
         </tr>
       
       <% end %>

@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
 
-         has_many :recruits
+
+      # 関連付け
+         has_many :projects 
+         has_many :comments
 end
