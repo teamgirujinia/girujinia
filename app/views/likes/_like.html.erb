@@ -1,4 +1,4 @@
-<!-- ココ追記 -->
+<!-- ココ追記 カウントのため -->
 <h3>いいね件数: <%= @project.likes.count %></h3>
 
 <% if current_user.already_liked?(@project) %>
@@ -15,7 +15,7 @@
   <% end %>
 <% end %>
 
-<!-- <h2>この記事にいいねしたユーザー</h2>
+ <h2>このプロジェクトにいいねしたユーザー</h2>
 <% @project.liked_users.each do |user| %>
   <li><%= user.user_name %></li>
-<% end %> -->
+<% end %> 
