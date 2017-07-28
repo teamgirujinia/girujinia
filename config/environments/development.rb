@@ -52,10 +52,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #default url
-  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
   
   # ↓ 寒河江が開発環境の時に使います。
-  # config.action_mailer.default_url_options = { host: 'girujinia-v2-sagae.c9users.io', port: 8080 }
+  config.action_mailer.default_url_options = { host: 'girujinia-v2-sagae.c9users.io', port: 8080 }
 
  # mail setting
  config.action_mailer.raise_delivery_errors = true

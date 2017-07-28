@@ -51,12 +51,7 @@ group :development, :test do
   gem 'capistrano-bundler' #追加
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
-<<<<<<< HEAD
-  gem 'sqlite3' # 追加
-  
-=======
   gem 'sqlite3' #  追加
->>>>>>> feature
 end
 
 group :development do
