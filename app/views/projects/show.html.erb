@@ -31,12 +31,13 @@
   <%= @project.wanted_jobs %>
 </p>
 
+ <%= render "likes/like" %>
+
  <h2>Comments</h2>
  
 <%= render @project.comments %>
  
 <h2>Add a comment:</h2>
 <%= render "comments/form" %> 
-
 
 <%= link_to 'トップ', projects_path %>

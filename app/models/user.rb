@@ -7,6 +7,13 @@ class User < ApplicationRecord
 
 
       # 関連付け
-         has_many :projects 
+         has_many :projects, dependent: :destroy
          has_many :comments
+         has_many :likes, dependent: :destroy
+         has_many :liked_projects, through: :likes, source: :project
+
+  def already_liked?(project)
+    self.likes.exists?(project_id: project.id)
+  end
+
 end
