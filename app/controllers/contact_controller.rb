@@ -1,4 +1,5 @@
 class ContactController < ApplicationController
+
   def index
     @contact = Contact.new
     render :action => 'index'
