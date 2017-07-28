@@ -1,8 +1,4 @@
 class ContactController < ApplicationController
-<<<<<<< HEAD
-skip_before_filter :verify_authenticity_token
-=======
->>>>>>> develop
 
   def index
     @contact = Contact.new
