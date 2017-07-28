@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    
+    @like = Like.new() # 追記
   end
 
   def edit

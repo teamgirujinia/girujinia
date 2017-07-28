@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :projects do
-    resources :comments # コメントをネスト
+    resources :comments, only: [:create, :destroy] # コメントをネスト
+    resources :likes, only: [:create, :destroy] # いいね機能
   end
   
   root 'projects#index'
