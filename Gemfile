@@ -39,8 +39,6 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development 
 
-gem 'unicorn', :group => :server # windowsでは使えないため group指定
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -51,7 +49,11 @@ group :development, :test do
   gem 'capistrano-bundler' #追加
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
+<<<<<<< HEAD
   gem 'sqlite3' #  追加
+=======
+  gem 'sqlite3' # 追加
+>>>>>>> develop
   
 end
 
