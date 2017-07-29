@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'pages/index'
 
   devise_for :users, :controllers => {
    :registrations => 'users/registrations'
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy] # いいね機能
   end
   
-  root 'projects#index'
+  root 'pages#index'
   resources :users, only: [:show]
   resources :socialstyles
   

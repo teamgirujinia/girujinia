@@ -7,8 +7,8 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  # 検索結果の表示用
   def index
-    @projects = Project.all.reverse
     @results = @q.result(distinct: true)
   end
 
