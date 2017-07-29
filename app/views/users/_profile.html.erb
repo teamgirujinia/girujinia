@@ -1,0 +1,71 @@
+      <table class="ui celled striped table">
+        <thead>
+          <tr><th colspan="3">
+            <%= @user.user_name %>
+          </th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="single line">
+              <i class="folder icon"></i> 年齢
+            </td>
+            <td><%= @user.age %></td>
+          </tr>
+          <tr>
+            <td class="single line">
+              <i class="folder icon"></i> ソーシャルスタイル
+            </td>
+            <td><%= @user.socialstyle %></td>
+          </tr>
+          <tr>
+            <td>
+              <i class="folder icon"></i> ランク
+            </td>
+            <td><%= @user.rank %></td>
+          </tr>
+          <tr>
+            <td>
+              <i class="folder link icon"></i> 外部リンク
+            </td>
+            <td>
+              
+              <% if !@user.facebook.blank? %>
+                  <a href="<%= @user.facebook %>" target="_blank"><i class="facebook icon"></i></a>
+              <% end %>
+              
+              <% if !@user.twitter.blank? %>
+                  <a href="<%= @user.twitter %>" target="_blank"><i class="twitter icon"></i></a>
+              <% end %>
+              
+              <% if !@user.qiita.blank? %>
+                  <a href="<%= @user.qiita %>" target="_blank"><i class="qiita icon"></i></a>
+              <% end %>
+              
+              <% if !@user.teratail.blank? %>
+                  <a href="<%= @user.teratail %>" target="_blank"><i class="teratail icon"></i></a>
+              <% end %>
+              
+              <% if !@user.git.blank? %>
+                  <a href="<%= @user.git %>" target="_blank"><i class="github icon"></i></a>
+              <% end %>
+              
+              <% if !@user.blog.blank? %>
+                  <a href="<%= @user.blog %>" target="_blank"><i class="wordpress icon"></i></a>
+              <% end %>
+             
+             </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="folder icon"></i> 居住地
+            </td>
+            <td  class="word-break"><%= @user.address %></td>
+          </tr>
+          <tr>
+            <td>
+              <i class="folder icon"></i> プロフィール
+            </td>
+            <td class="word-break"><%= @user.profile %></td>
+          </tr>
+        </tbody>
+      </table>

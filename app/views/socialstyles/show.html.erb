@@ -1,0 +1,71 @@
+<div class="ui grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+          <h1><%= @socialstyle.name %></h1>
+          
+        <%= image_tag("emiable.gif", class: :"ui fluid image") if @socialstyle.name == "エミアブル" %>
+        <%= image_tag("analytical.jpg", class: :"ui fluid image") if @socialstyle.name == "アナリティカル" %>
+        <%= image_tag("driver.png", class: :"ui fluid image") if @socialstyle.name == "ドライバー" %>
+        <%= image_tag("expressive.jpg", class: :"ui fluid image") if @socialstyle.name == "エクスプレッシブ" %>
+          
+          <h2>特徴</h2>
+          <hr></hr>
+          <p><%= @socialstyle.characteristic %></p>
+          <hr></hr>
+          <h2>有名人</h2>
+          <hr></hr>
+          <p><%= @socialstyle.celebrities %></p>
+          <hr></hr>
+          <h2>弱み</h2>
+          <hr></hr>
+          <p><%= @socialstyle.weakness %></p>
+          <hr></hr>
+          <h2>相性</h2>
+          <hr></hr>
+          <p><%= @socialstyle.compatibility %></p>
+          <hr></hr>
+          <h2>付き合い方</h2>
+          <hr></hr>
+          <p><%= @socialstyle.relationship %></p>
+    </div>
+    <div class="column"></div>
+  </div>
+</div>
+
+<br><br><br>
+
+<h1 style="text-align:center;">他のソーシャルスタイル</h1>
+<hr></hr>
+
+<br><br><br>
+
+<div class="ui three column grid">
+  <% @socialstyles.each do |socialstyle| %>
+    <% if socialstyle.name != @socialstyle.name %>
+        <div class="column">
+    
+          <div class="ui card" style="text-align:center; margin: auto;">
+          
+            <%= link_to image_tag("emiable.gif", :size => "285x285"), socialstyle if socialstyle.name == "エミアブル" %>
+            <%= link_to image_tag("analytical.jpg", :size => "285x285"), socialstyle if socialstyle.name == "アナリティカル" %>
+            <%= link_to image_tag("driver.png", :size => "285x285"), socialstyle if socialstyle.name == "ドライバー" %>
+            <%= link_to image_tag("expressive.jpg", :size => "285x285"), socialstyle if socialstyle.name == "エクスプレッシブ" %>
+          <div class="content">
+            <span class="header"><%= socialstyle.name %></span>
+            <div class="description">
+              <%= socialstyle.characteristic.truncate(20) %>
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="user icon"></i>
+              他の<%= socialstyle.name %>をみる
+            </a>
+          </div>
+          </div>
+    
+        </div>
+    <% end %>
+  <% end %>
+</div>

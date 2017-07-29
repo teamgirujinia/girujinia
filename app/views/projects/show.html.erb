@@ -78,6 +78,18 @@
             </td>
             <td><%= @project.communication %></td>
           </tr>
+          <tr>
+            <td>
+              <i class="folder icon"></i> 管理
+            </td>
+            <td>
+            <!-- 自分で投稿したものにしか編集・削除できない -->
+              <% if @project.user_id == current_user.id %>
+                <%= link_to "編集", edit_project_path(@project.id), { :class => "" } %>
+                <%= link_to "削除", @project, { :class => "", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+              <% end %>
+            </td>
+          </tr>
         </tbody>
       </table>
 
