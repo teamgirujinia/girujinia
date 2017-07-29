@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170728072454) do
-=======
 ActiveRecord::Schema.define(version: 20170729064109) do
->>>>>>> d09d7b8887d504e138dd69c2fbcbd34a146affcc
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -62,8 +58,6 @@ ActiveRecord::Schema.define(version: 20170729064109) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-=======
   create_table "socialstyles", force: :cascade do |t|
     t.text "name"
     t.text "characteristic"
@@ -75,22 +69,10 @@ ActiveRecord::Schema.define(version: 20170729064109) do
     t.datetime "updated_at", null: false
   end
 
->>>>>>> d09d7b8887d504e138dd69c2fbcbd34a146affcc
   create_table "users", force: :cascade do |t|
     t.string "user_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "profile", default: "", null: false
-    t.string "socialstyle", default: "", null: false
-    t.string "rank", default: "E", null: false
-    t.string "facebook", default: "", null: false
-    t.string "twitter", default: "", null: false
-    t.string "qiita", default: "", null: false
-    t.string "teratail", default: "", null: false
-    t.string "git", default: "", null: false
-    t.string "blog", default: "", null: false
-    t.string "address", default: "", null: false
-    t.string "age", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
