@@ -1,4 +1,5 @@
 class ContactController < ApplicationController
+  before_action :set_ransack, only: [:index, :confirm, :thanks]
 
   def index
     @contact = Contact.new
@@ -25,4 +26,5 @@ class ContactController < ApplicationController
     def contact_params
       params.require(:contact).permit(:name, :email, :message)
     end
+
 end

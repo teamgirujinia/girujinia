@@ -1,19 +1,21 @@
-<div class="ui card">
-  <%= link_to image_tag("emiable.gif", :size => "220x220"), socialstyle_path(3) if @user.socialstyle == "エミアブル" %>
-  <%= link_to image_tag("analytical.jpg", :size => "220x220"), socialstyle_path(4) if @user.socialstyle == "アナリティカル" %>
-  <%= link_to image_tag("driver.png", :size => "220x220"), socialstyle_path(1) if @user.socialstyle == "ドライバー" %>
-  <%= link_to image_tag("expressive.jpg", :size => "220x220"), socialstyle_path(2) if @user.socialstyle == "エクスプレッシブ" %>
-
-<div class="content">
-  <span class="header"><%= @socialstyle.name %></span>
-  <div class="description">
-    <%= @socialstyle.characteristic.truncate(40) %>
+<% if !@socialstyle.blank? %>
+  <div class="ui card">
+    <%= link_to image_tag("emiable.gif", :size => "220x220"), socialstyle_path(3) if @user.socialstyle == "エミアブル" %>
+    <%= link_to image_tag("analytical.jpg", :size => "220x220"), socialstyle_path(4) if @user.socialstyle == "アナリティカル" %>
+    <%= link_to image_tag("driver.png", :size => "220x220"), socialstyle_path(1) if @user.socialstyle == "ドライバー" %>
+    <%= link_to image_tag("expressive.jpg", :size => "220x220"), socialstyle_path(2) if @user.socialstyle == "エクスプレッシブ" %>
+  
+  <div class="content">
+    <span class="header"><%= @socialstyle.name %></span>
+    <div class="description">
+      <%= @socialstyle.characteristic.truncate(40) %>
+    </div>
   </div>
-</div>
-<div class="extra content">
-  <a>
-    <i class="user icon"></i>
-    他の<%= @user.socialstyle %>をみる
-  </a>
-</div>
-</div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      他の<%= @user.socialstyle %>をみる
+    </a>
+  </div>
+  </div>
+<% end %>
