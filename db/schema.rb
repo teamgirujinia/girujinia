@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170729064109) do
     t.string "communication"
     t.string "wanted_jobs"
     t.integer "user_id"
+    t.integer "pv", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

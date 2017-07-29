@@ -23,6 +23,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project.pv = @project.pv + 1
+    @project.save!
     @like = Like.new() # 追記
   end
 

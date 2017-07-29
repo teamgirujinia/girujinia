@@ -9,6 +9,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :communication
       t.string :wanted_jobs
       t.integer :user_id
+      t.integer :pv, null: false, default: 0
       
       t.timestamps
     end
