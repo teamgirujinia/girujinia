@@ -1,20 +1,67 @@
-<div class="ui segment">
-  <h3 class="ui right aligned header">
-         <%= link_to 'Home', root_path %>
-         <% if user_signed_in? %>
+ <% if user_signed_in? %>
 
-        <%= link_to current_user, class: "" do %>
+    <!-- 上部ナビゲーションメニュー -->
+    <div class="ui fixed menu" style="background-color: #2f4f4f;">
+      <div class="menu">
+        <div id="js-sidebar" class="item">
+        <i class="icon large grey content"></i></div>
+      </div>
+
+
+        <div class="ui form header_title">
+          <div class="inline fields header_content">
+            <div class="ten wide field">
+                     <%= search_form_for @q do |f| %>
+                       <div class="inline"><%= f.search_field :create_title_or_content_cont %></div>
+                       <div class="inline"><%= f.submit "検索", class: :"ui submit button" %></div>
+                     <% end %>
+            </div>
+             <%= link_to 'Home', root_path, class: :"ui item h_100", style: :"color: white;" %>
+
+             <%= link_to current_user, class: "item h_100" do %>
+                  <i class="write icon"  style="color: white;"></i>
+                  <span class="my_name" style="color: white;">募集する</span>
+             <% end %>
+             
+             <%= link_to current_user, class: "item h_100" do %>
+                  <%= image_tag(current_user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
+                  <span class="my_name" style="color: white;"><%= current_user.user_name %></span>
+             <% end %>
+
+            </div>
+          </div>
+        </div>
+        
+    </div>
+    <br><br><br><br>
+
+    <!-- サイドバーメニュー -->
+    <div class="ui sidebar inverted vertical menu">
+
+     <%= link_to current_user, class: "item" do %>
           <%= image_tag(current_user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
           <span class="my_name"><%= current_user.user_name %></span>
-        <% end %>
-         
-         <!-- <%= link_to 'プロフィール変更', edit_user_registration_path %> -->
-         <%= link_to '作成', new_project_path, class: :"ui green submit button" %>
-         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+     <% end %>
+     
+     <%= link_to 'Home', root_path, class: :"item" %>
+        
+     <%= link_to '募集する', new_project_path, class: :"item" %>
 
-     <% else %>
-         <%= link_to 'サインアップ', new_user_registration_path %>
-         <%= link_to 'ログイン', new_user_session_path %>
-         <% end %>
-  </h3>
-</div>
+     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :"item" %>
+    </div>
+
+ <% else %>
+     <%= link_to 'Home', root_path, class: :"ui teal basic button" %>
+     <%= link_to 'サインアップ', new_user_registration_path, class: :"ui pink basic button" %>
+     <%= link_to 'ログイン', new_user_session_path, class: :"ui grey basic button" %>
+     
+ <% end %>
+
+
+    
+<!-- サイドバーの開閉処理 -->
+<script>
+  $('#js-sidebar').click(function() {
+    $('.ui.sidebar').sidebar('toggle');
+  });
+</script>

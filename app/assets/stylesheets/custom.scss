@@ -41,3 +41,29 @@ hr {
   border: none;
   border-top: 1px #f5f5f5 solid;
 }
+
+
+.header_title {
+  height: 60px;
+  width: 60%;
+  margin: auto;
+}
+
+
+.inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header_content {
+  height: 60px;
+  width: 100%;
+  display: flex;          /* 2 */
+  justify-content: center;/* 3 */
+  align-items: center;    /* 4 */
+}
+
+
+.h_100 {
+  height: 100%;
+}
