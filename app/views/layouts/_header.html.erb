@@ -2,17 +2,22 @@
   <h3 class="ui right aligned header">
          <%= link_to 'Home', root_path %>
          <% if user_signed_in? %>
-         <a href="/users/<%= current_user.id %>"><%= current_user.user_name %></a>
+
+        <%= link_to root_path, class: "" do %>
+          <%= image_tag(current_user.gravatar_url, :size => "25x25", :class => "my_icon") %>
+          <span class="my_name"><%= current_user.user_name %></span>
+        <% end %>
+         
          <!-- <%= link_to 'プロフィール変更', edit_user_registration_path %> -->
          <%= link_to '作成', new_project_path, class: :"ui green submit button" %>
          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
      <% else %>
          <%= link_to 'サインアップ', new_user_registration_path %>
          <%= link_to 'ログイン', new_user_session_path %>
          <% end %>
   </h3>
 </div>
-
 
 <div class="ui dropdown">
   <input type="hidden" name="gender">

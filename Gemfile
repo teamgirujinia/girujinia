@@ -34,8 +34,9 @@ gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt' # 3.1.7だとエラーに�
 
 gem 'unicorn', :group => :server # サーバ指定追加 (windowsではunicornが使えない)
 
-# デザイン
-gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git' # デザイン
+
+gem 'gravtastic' #ユーザー画像
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development 
