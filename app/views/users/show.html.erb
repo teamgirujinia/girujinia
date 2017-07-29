@@ -4,34 +4,69 @@
   <div class="row">
     <div class="three wide column">
       <%= link_to 'プロフィール変更', edit_user_registration_path, class: :"fluid ui brown button" %>
+
+      <div class="ui card">
+        <div class="image">
+          <%= image_tag(@user.gravatar_url) %>
+        </div>
+        <div class="content">
+          <span class="header"><%= @user.user_name %></span>
+          <div class="meta">
+            <span class="date"><%= @user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
+          </div>
+          <div class="description">
+            Kristy is an art director living in New York.
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="user icon"></i>
+            22 Friends
+          </a>
+        </div>
+      </div>
+      
     </div>
     <div class="ten wide column">
     <%= render 'users/profile' %>
-    <table>
-      <tr>
-        <td>作りたいもの</td>
-        <td>照会</td>
-        <td>編集</td>
-        <td>削除</td>
-      </tr>
-      <% @projects.each do |p| %>
-      <tr>
-        <td><%= p.create_title %></td>
     
-        <td><%= link_to '詳しく見る', project_path(p) %></td>
-    
-      <!-- 自分で投稿したものにしか編集・削除できない -->
-        <% if p.user_id == current_user.id %>
-          <td><%= link_to '編集',     edit_project_path(p) %></td>
-          <td><%= link_to '削除', project_path(p),
-                       method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
-        <% end %>
-      </tr>
+      <% @projects.each do |project| %>
+
+      <div class="timeline">
+        <span class="timeline_font_tt"><%= link_to "#{project.create_title.truncate(42)}", project %></span>
+        <hr></hr>
+        <span class="timeline_font_st"><%= project.content.truncate(249) %></span>
+        <hr></hr>
+
+        <div class="table_size">
+        <table class="ui very basic table">
+          <tbody>
+            <tr>
+              <td>募集人数: <%= project.capacity%></td>
+              <td>期間: <%= project.period %></td>
+              <td>募集職種: <%= project.wanted_jobs %></td>
+              <td><%= time_ago_in_words(project.created_at) +"前" %></td>
+            </tr>
+          </tbody>
+        </table>
+        </div><br>
+
+        <hr></hr>
+
+        <div class="timeline_icon">
+          <%= link_to project.user, class: "" do %>
+            <%= image_tag(project.user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
+            <span class="my_name"><%= project.user.user_name %></span>
+          <% end %>
+        </div>
+        
+      </div>
+
+        
     <% end %>
-    </table>
     </div>
     <div class="three wide column">
-      <img>
+      <%= render "users/socialstyle" %>
     </div>
   </div>
 </div>

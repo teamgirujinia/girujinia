@@ -4,7 +4,7 @@
          <% if user_signed_in? %>
 
         <%= link_to current_user, class: "" do %>
-          <%= image_tag(current_user.gravatar_url, :size => "25x25", :class => "my_icon") %>
+          <%= image_tag(current_user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
           <span class="my_name"><%= current_user.user_name %></span>
         <% end %>
          

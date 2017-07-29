@@ -9,5 +9,13 @@ class Project < ApplicationRecord
      # 2の関係
     has_many :liked_users, through: :likes, source: :user
 
+    validates :create_title, presence: true, length: { maximum: 50 }
+    validates :period, presence: true
+    validates :capacity, presence: true
+    validates :content, presence: true, length: { maximum: 5000 }
+    validates :work_method, presence: true
+    validates :communication, presence: true
+    validates :wanted_jobs, presence: true
+    validates :user_id, presence: true
 
 end
