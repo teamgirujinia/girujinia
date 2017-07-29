@@ -1,0 +1,58 @@
+<div class="ui grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+  
+      <%= form_for(@socialstyle,  html: {class: 'ui form'}) do |f| %>
+        <% if @socialstyle.errors.any? %>
+        <div id="error_explanation">
+          <div class="ui red message">
+            <h2><%= pluralize(@socialstyle.errors.count, "error") %> 保存されませんでした:</h2>
+            <ul>
+            <% @socialstyle.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+
+      <p>
+        <%= f.label :名前 %>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :特徴 %>
+        <%= f.text_area :characteristic %>
+      </p>
+      
+      <p>
+        <%= f.label :有名人 %>
+        <%= f.text_area :celebrities %>
+      </p>
+      
+      <p>
+        <%= f.label :弱み %>
+        <%= f.text_area :weakness %>
+      </p>
+      
+      <p>
+        <%= f.label :相性 %>
+        <%= f.text_area :compatibility %>
+      </p>
+      
+      <p>
+        <%= f.label :付き合い方 %>
+        <%= f.text_area :relationship %>
+      </p>
+      
+      <p>
+        <%= f.submit "投稿", class: :"ui submit button" %>
+      </p>
+    <% end %>
+
+    </div>
+    <div class="column"></div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+class Socialstyle < ApplicationRecord
+end

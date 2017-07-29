@@ -1,12 +1,16 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  
   def new
     @project = Project.new
   end
 
   def index
-    @projects = Project.all
+    @projects = Project.all.reverse
+    # 検索
+    @q        = Project.search(params[:q])
+    @results = @q.result(distinct: true)
   end
 
   def create

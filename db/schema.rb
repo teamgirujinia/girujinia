@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728024358) do
+ActiveRecord::Schema.define(version: 20170729064109) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -48,24 +48,32 @@ ActiveRecord::Schema.define(version: 20170728024358) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recruits", force: :cascade do |t|
-    t.string "create_title"
-    t.string "period"
-    t.integer "people"
-    t.text "contents"
-    t.string "work_method"
-    t.string "communication"
-    t.string "wanted_jobs"
-    t.integer "user_id"
+  create_table "socialstyles", force: :cascade do |t|
+    t.text "name"
+    t.text "characteristic"
+    t.text "celebrities"
+    t.text "weakness"
+    t.text "compatibility"
+    t.text "relationship"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["create_title"], name: "index_recruits_on_create_title", unique: true
   end
 
   create_table "users", force: :cascade do |t|
     t.string "user_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "profile", default: "", null: false
+    t.string "socialstyle", default: "", null: false
+    t.string "rank", default: "E", null: false
+    t.string "facebook", default: "", null: false
+    t.string "twitter", default: "", null: false
+    t.string "qiita", default: "", null: false
+    t.string "teratail", default: "", null: false
+    t.string "git", default: "", null: false
+    t.string "blog", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "age", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -82,6 +90,7 @@ ActiveRecord::Schema.define(version: 20170728024358) do
     t.string "unlock_token"
     t.datetime "locked_at"
     t.text "self_introduction"
+    t.string "language_used"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

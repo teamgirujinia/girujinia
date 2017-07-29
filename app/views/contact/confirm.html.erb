@@ -1,26 +1,48 @@
-<%= form_for @contact, :url => contact_thanks_path do |f| %>
-  <table>
-    <tr>
-      <th>名前</th>
-      <td>
+
+
+
+
+<div class="ui grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+
+
+      <%= form_for(@contact, :url => contact_thanks_path, html: {class: 'ui form'}) do |f| %>     
+        <% if @contact.errors.any? %>
+          <div class="ui red message">
+            <strong>入力内容にエラーがあります</strong>
+            <ul>
+              <% @contact.errors.each do |attr, msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+           
+      <p>
+        <h1>名前（必須）</h1>
         <%= f.hidden_field :name %>
         <%= @contact.name %>
-      </td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <td>
+      </p>
+      
+      <p>
+        <h1>メールアドレス（必須）</h1>
         <%= f.hidden_field :email %>
         <%= @contact.email %>
-      </td>
-    </tr>
-    <tr>
-      <th>お問い合わせ内容</th>
-      <td>
+      </p>
+      
+      <p>
+        <h1>お問い合わせ内容</h1>
         <%= f.hidden_field :message %>
         <%= simple_format(@contact.message) %>
-      </td>
-    </tr>
-  </table>
- <%= f.submit '送信' %>
-<% end %>
+      </p>
+
+      <%= f.submit "送信", class: :"ui submit button" %>
+      <% end %>
+
+
+    </div>
+    <div class="column"></div>
+  </div>
+</div>

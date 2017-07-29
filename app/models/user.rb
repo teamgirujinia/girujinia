@@ -1,9 +1,14 @@
 class User < ApplicationRecord
+
+  # ユーザー画像
+  include Gravtastic
+  gravtastic
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable
+         :confirmable, :lockable
 
 
       # 関連付け
@@ -15,5 +20,7 @@ class User < ApplicationRecord
   def already_liked?(project)
     self.likes.exists?(project_id: project.id)
   end
+  
+  
 
 end

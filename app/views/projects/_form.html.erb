@@ -6,44 +6,48 @@
       <%= form_for(@project,  html: {class: 'ui form'}) do |f| %>
         <% if @project.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@project.errors.count, "error") %> 保存されませんでした:</h2>
-          <ul>
-          <% @project.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
+          <div class="ui red message">
+            <h2><%= pluralize(@project.errors.count, "error") %> 保存されませんでした:</h2>
+            <ul>
+            <% @project.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
         </div>
         <% end %>
+        
         <!-- current_user.idを入れる -->
         <%= f.hidden_field :user_id, value: current_user.id %>
+        
       <p>
         <%= f.label :作りたいもの %>
-        <%= f.text_field :create_title %>
+        <%= f.text_field :create_title, placeholder: :"例：YouTubeの曲をアーティストごとに設定できるアドオン" %>
       </p>
         <%= f.label :期間 %>
-        <%= f.text_field :period %>
+        <%= f.select :period, options_for_select(["", "~1ヶ月", "1~3ヶ月", "3ヶ月~"]), {}, { class: 'ui fluid dropdown' } %>
       <p>
         <%= f.label :募集人数 %>
-        <%= f.number_field :capacity %><span>人</span>
+        <%= f.number_field :capacity %>
       </p>
       <p>
         <%= f.label :作業方法 %>
-        <%= f.text_field :work_method %>
+        <%= f.select :work_method, options_for_select(["", "オフライン", "オンライン"]), {}, { class: 'ui fluid dropdown' } %>
       </p>
       <p>
         <%= f.label :連絡方法 %>
-        <%= f.text_field :communication %>
+        <%= f.select :communication, options_for_select(["", "チャットワーク", "Slack", "LINE", "Skype", "その他"]), {}, { class: 'ui fluid dropdown' } %>
       </p>
       <p>
         <%= f.label :募集職種 %>
-        <%= f.text_field :wanted_jobs %>
+        <%= f.select :wanted_jobs, options_for_select(["", "PG", "PD", "WEデザイナー", "SE", "その他"]), {}, { class: 'ui fluid dropdown' }  %>
       </p>
     </div>
   
     <div class="eight wide column ui form">
       <p>
         <%= f.label :内容 %>
-        <%= f.text_area :content %>
+        <%= f.text_area :content, placeholder: :"概要・理由・どうやって作るのか・参考文献など"%>
       </p>
       <p>
         <%= f.submit "投稿", class: :"ui submit button" %>
