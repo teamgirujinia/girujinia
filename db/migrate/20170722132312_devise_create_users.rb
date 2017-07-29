@@ -15,6 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :git, null: false, default: ""
       t.string :blog, null: false, default: ""
       t.string :address, null: false, default: ""
+      t.string :age, null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token

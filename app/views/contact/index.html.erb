@@ -1,26 +1,41 @@
-<%= form_for @contact, :url => contact_confirm_path do |f| %>     
-  <% if @contact.errors.any? %>
-      <strong>入力内容にエラーがあります</strong>
-      <ul>
-        <% @contact.errors.each do |attr, msg| %>
-          <li><%= msg %></li>
+<div class="ui grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+
+
+      <%= form_for(@contact, :url => contact_confirm_path, html: {class: 'ui form'}) do |f| %>     
+        <% if @contact.errors.any? %>
+          <div class="ui red message">
+            <strong>入力内容にエラーがあります</strong>
+            <ul>
+              <% @contact.errors.each do |attr, msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-  <% end %>
-     
-  <table>
-    <tr>
-      <th>名前（必須）</th>
-      <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス（必須）</th>
-      <td><%= f.text_field :email %></td>
-    </tr>
-    <tr>
-      <th>お問い合わせ内容</th>
-      <td><%= f.text_area :message %></td>
-    </tr>
-  </table>
-  <%= f.submit '確認' %>
-<% end %>
+           
+      <p>
+        <%= f.label :名前（必須） %>
+        <%= f.text_field :name %>
+      </p>
+      
+      <p>
+        <%= f.label :メールアドレス（必須） %>
+        <%= f.text_field :email %>
+      </p>
+      
+      <p>
+        <%= f.label :お問い合わせ内容） %>
+        <%= f.text_area :message %>
+      </p>
+
+      <%= f.submit "確認", class: :"ui submit button" %>
+      <% end %>
+
+
+    </div>
+    <div class="column"></div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="ui grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+          <h1>ソーシャルスタイル理論</h1>
+          <p>ソーシャルスタイル理論は、人のタイプを大まかに４つに分類する理論です。</p>
+    </div>
+    <div class="column"></div>
+  </div>
+</div>
+
+
+<br><br><br>
+
+<h1 style="text-align:center;">ソーシャルスタイル一覧</h1>
+<hr></hr>
+
+<br><br><br>
+
+<div class="ui four column grid">
+  <% @socialstyles.each do |socialstyle| %>
+    <div class="column">
+
+      <div class="ui card" style="text-align:center; margin: auto;">
+      
+        <%= link_to image_tag("emiable.gif", :size => "285x285"), socialstyle if socialstyle.name == "エミアブル" %>
+        <%= link_to image_tag("analytical.jpg", :size => "285x285"), socialstyle if socialstyle.name == "アナリティカル" %>
+        <%= link_to image_tag("driver.png", :size => "285x285"), socialstyle if socialstyle.name == "ドライバー" %>
+        <%= link_to image_tag("expressive.jpg", :size => "285x285"), socialstyle if socialstyle.name == "エクスプレッシブ" %>
+      <div class="content">
+        <span class="header"><%= socialstyle.name %></span>
+        <div class="description">
+          <%= socialstyle.characteristic.truncate(20) %>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          他の<%= socialstyle.name %>をみる
+        </a>
+      </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>

@@ -14,8 +14,13 @@
   </div>
   
   <div class="field">
+    <%= f.label :年齢 %><br />
+    <%= f.text_field :age, autofocus: true %>
+  </div>
+  
+  <div class="field">
     <%= f.label :ソーシャルスタイル %><br />
-    <%= f.select :socialstyle, options_for_select(["", "ドライバー", "エミアブル", "アナリティクス", "エクスプレッシブ"]), {}, { class: 'ui fluid dropdown' } %>
+    <%= f.select :socialstyle, options_for_select(["", "ドライバー", "エミアブル", "アナリティカル", "エクスプレッシブ"]), {}, { class: 'ui fluid dropdown' } %>
   </div>
   
   <div class="field">
