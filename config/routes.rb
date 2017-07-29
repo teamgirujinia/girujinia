@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  get 'pages/index'
+
+  devise_for :users, :controllers => {
+   :registrations => 'users/registrations'
+  }
+
   resources :projects do
     resources :comments, only: [:create, :destroy] # コメントをネスト
     resources :likes, only: [:create, :destroy] # いいね機能

@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
   def after_update_path_for(resource)
     user_path
   end
+  
+    # 検索
+  def set_ransack
+    @q        = Project.search(params[:q])
+  end
 
   # def update_resource(resource, params)
   #     resource.update_without_password(params)

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :set_ransack, only: [:new, :show, :edit, :index]
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   
@@ -8,8 +9,6 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all.reverse
-    # 検索
-    @q        = Project.search(params[:q])
     @results = @q.result(distinct: true)
   end
 
@@ -42,13 +41,13 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-
-    redirect_back(fallback_location: root_path)
+    redirect_to root_path
   end
 
 
 
   private
+    
     # Recruitテーブルから値をとってきて変数にいれる
     def set_project
       @project = Project.find(params[:id])
