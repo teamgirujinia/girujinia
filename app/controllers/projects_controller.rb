@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 
   def show
     @like = Like.new() # 追記
+    @entry = Entry.new()
   end
 
   def edit

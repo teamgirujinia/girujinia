@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728024358) do
+ActiveRecord::Schema.define(version: 20170728072454) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20170728024358) do
   create_table "contacts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
+    t.integer "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_entries_on_project_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -48,20 +58,6 @@ ActiveRecord::Schema.define(version: 20170728024358) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recruits", force: :cascade do |t|
-    t.string "create_title"
-    t.string "period"
-    t.integer "people"
-    t.text "contents"
-    t.string "work_method"
-    t.string "communication"
-    t.string "wanted_jobs"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["create_title"], name: "index_recruits_on_create_title", unique: true
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "user_name", default: "", null: false
     t.string "email", default: "", null: false
@@ -82,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170728024358) do
     t.string "unlock_token"
     t.datetime "locked_at"
     t.text "self_introduction"
+    t.string "language_used"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
     # 関連付け
+
     belongs_to :user
     has_many :comments, dependent: :destroy # プロジェクトが消失するとコメントも消える    
 
@@ -9,5 +10,7 @@ class Project < ApplicationRecord
      # 2の関係
     has_many :liked_users, through: :likes, source: :user
 
+    has_many :entries, dependent: :destroy
 
+   
 end

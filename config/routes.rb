@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :comments, only: [:create, :destroy] # コメントをネスト
     resources :likes, only: [:create, :destroy] # いいね機能
+    resources :entries, only: [:create, :destroy]
   end
   
   root 'projects#index'
