@@ -3,14 +3,10 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
-      <img>
+      <%= link_to 'プロフィール変更', edit_user_registration_path, class: :"fluid ui brown button" %>
     </div>
     <div class="ten wide column">
-    <h1><%= current_user.user_name %>
-      さんの画面</h1>
-    
-    <%= link_to 'プロフィール変更', edit_user_registration_path %>
-    <h2>投稿された募集ページ</h2>
+    <%= render 'users/profile' %>
     <table>
       <tr>
         <td>作りたいもの</td>

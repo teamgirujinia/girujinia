@@ -30,3 +30,14 @@ box-shadow: 0 0 15px rgba(0,0,0,.3);
   display: inline;
   vertical-align: middle;
 }
+
+.word-break {
+    word-break:break-all;
+}
+
+
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px #f5f5f5 solid;
+}

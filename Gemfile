@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt' # 3.1.7だとエラーになるためバージョン修正
 
 gem 'unicorn', :group => :server # サーバ指定追加 (windowsではunicornが使えない)
@@ -38,6 +37,8 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git' # 
 
 gem 'gravtastic' #ユーザー画像
 
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development 
 

@@ -5,23 +5,40 @@
       <img>
     </div>
     <div class="ten wide column">
-      <table>
-        <tr>
-          <th>作成者</th>
-          <th>作りたいもの</th>
-        <!-- <th>期間</th> -->
-          <th>照会</th>
-        </tr>
+
       <% @projects.each do |project| %>
-        <tr>
-          <td><%= project.user.user_name %></td>
-          <td><%= project.create_title%></td>
-        <!-- <td><%= project.period %></td> -->
-          <td><%= link_to '詳しく見てみる', project_path(project) %></td>
-        </tr>
+        
+      <div class="timeline">
+        <span class="timeline_font_tt"><%= link_to "#{project.create_title.truncate(42)}", project %></span>
+        <hr></hr>
+        <span class="timeline_font_st"><%= project.content.truncate(249) %></span>
+        <hr></hr>
+
+        <div class="table_size">
+        <table class="ui very basic table">
+          <tbody>
+            <tr>
+              <td>募集人数: <%= project.capacity%></td>
+              <td>期間: <%= project.period %></td>
+              <td>募集職種: <%= project.wanted_jobs %></td>
+              <td><%= time_ago_in_words(project.created_at) +"前" %></td>
+            </tr>
+          </tbody>
+        </table>
+        </div><br>
+
+        <hr></hr>
+
+        <div class="timeline_icon">
+          <%= link_to project.user, class: "" do %>
+            <%= image_tag(project.user.gravatar_url, :size => "25x25", :class => "my_icon") %>
+            <span class="my_name"><%= project.user.user_name %></span>
+          <% end %>
+        </div>
+        
+      </div>
       
       <% end %>
-      </table>
       </p>
     </div>
     <div class="three wide column">

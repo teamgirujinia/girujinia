@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name])
     # user_name更新
-    devise_parameter_sanitizer.permit(:account_update, keys: [:user_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:user_name, :profile, :socialstyle, :facebook, :twitter, :qiita, :teratail, :git, :blog, :address])
   end
 
   # プロフィール変更後myページにリダイレクト
