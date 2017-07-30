@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   
   # ホーム関連ページ
   get 'sudden' => 'pages#sudden'
+  get 'wanted' => 'pages#wanted'
+  get 'doing' => 'pages#doing'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
