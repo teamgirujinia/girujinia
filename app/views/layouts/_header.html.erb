@@ -52,11 +52,11 @@
     </div>
 
  <% else %>
-    <div class="ui segment">
+    <div class="ui segment" style="background-color: #2f4f4f;">
       <h3 class="ui right aligned header">
-         <%= link_to 'Home', root_path, class: :"ui teal basic button" %>
-         <%= link_to 'サインアップ', new_user_registration_path, class: :"ui pink basic button" %>
-         <%= link_to 'ログイン', new_user_session_path, class: :"ui grey basic button" %>
+         <%= link_to 'Home', root_path, class: :"ui inverted basic button" %>
+         <%= link_to 'サインアップ', new_user_registration_path, class: :"ui inverted basic button" %>
+         <%= link_to 'ログイン', new_user_session_path, class: :"ui inverted basic button" %>
       </h3>
     </div>
  <% end %>

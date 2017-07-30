@@ -23,7 +23,7 @@
     </div>
     <div class="ten wide column">
 
-      <% if search == 1 %>
+      <% if page == 1 %>
           <div class="search">
             検索結果 <%= projects.count %> 件
           </div><br>
@@ -43,7 +43,7 @@
             <tr>
               <td>募集人数: <%= project.capacity%></td>
               <td>期間: <%= project.period %></td>
-              <td>募集職種: <%= project.wanted_jobs %></td>
+              <td>募集職種: <%= project.job_first %></td>
               <td><%= time_ago_in_words(project.created_at) +"前" %></td>
             </tr>
           </tbody>
@@ -66,22 +66,36 @@
     </div>
     <div class="three wide column">
       <div class="ui segments">
-        <div class="ui segment">
-          <p><i class="line chart icon"></i>　急上昇</p>
-        </div>
+          <% if page == 3%>
+            <div class="ui segment tertiary">
+              <p><i class="line chart icon"></i>　<%= link_to "急上昇", sudden_path %></p>
+            </div>
+          <% else %>
+            <div class="ui segment">
+              <p><i class="line chart icon"></i>　<%= link_to "急上昇", sudden_path %></p>
+            </div>
+          <% end %>
         <div class="ui red segment">
-          <p>Middle</p>
+          <p><i class="user icon"></i>　募集中</p>
         </div>
         <div class="ui blue segment">
-          <p>Middle</p>
+          <p><i class="users icon"></i>　進行中</p>
         </div>
         <div class="ui green segment">
-          <p>Middle</p>
+          <p><i class="fire icon"></i>　ニュース</p>
         </div>
         <div class="ui yellow segment">
-          <p>Bottom</p>
+          <p><i class="flag icon"></i>　キャンペーン</p>
         </div>
       </div>
+
+      <h3><i class="rocket icon"></i>人気の言語</h3>
+      <hr></hr>
+      
+      <div class="popular_lang word-break">
+        a
+      </div>
+      
     </div>
   </div>
 </div>

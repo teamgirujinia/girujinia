@@ -29,6 +29,9 @@
           </a>
         </div>
       </div>
+
+      <h3 style="text-align:center;"><i class="users icon"></i>チームメンバー</h3>
+      <hr></hr>
       
     </div>
     <div class="ten wide column">
@@ -59,7 +62,7 @@
             <tr>
               <td>募集人数: <%= project.capacity%></td>
               <td>期間: <%= project.period %></td>
-              <td>募集職種: <%= project.wanted_jobs %></td>
+              <td>募集職種: <%= project.job_first %></td>
               <td><%= time_ago_in_words(project.created_at) +"前" %></td>
             </tr>
           </tbody>
@@ -81,41 +84,17 @@
     <% end %>
     </div>
     <div class="three wide column">
-      <h3><i class="user circle outline icon"></i>ソーシャルスタイル</h3>
+      <h3 style="text-align:center;"><i class="user circle outline icon"></i>ソーシャルスタイル</h3>
       
       <hr></hr>
 
       <%= render "users/socialstyle" %>
-      <h3><i class="write square icon"></i>人気のプロジェクト</h3>
+      <h3 style="text-align:center;"><i class="write square icon"></i>人気のプロジェクト</h3>
       
       <hr></hr>
       
-      <% @populars.each do |popular|%>
-        <div class="ui card">
-          <div class="content">
-            <div class="header"><%= link_to "#{popular.create_title.truncate(30)}", popular %></div>
-          </div>
-          <div class="content">
-              <table class="ui celled table">
-                <thead>
-                  <tr><th><i class="thumbs up icon"></i></th>
-                  <th><i class="unhide icon"></i></th>
-                  <th><i class="talk icon"></i></th>
-                </tr></thead>
-                <tbody>
-                  <tr>
-                    <td><%= popular.likes.count %></td>
-                    <td><%= popular.pv %></td>
-                    <td><%= popular.comments.count %></td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
-          <div class="extra content">
-            <span class="date"><%= popular.created_at.strftime("%Y年%m月%d日")%></span>
-          </div>
-        </div>
-      <% end %>
+      <!--  人気のプロジェクト -->
+      <%= render "shares/side_project", projects: @populars %>
     </div>
   </div>
 </div>

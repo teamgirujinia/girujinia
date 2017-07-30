@@ -1,6 +1,5 @@
 
 
-
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
@@ -106,11 +105,17 @@
       </table>
 
 
-      <div class="ui segments">
+      <div class="ui segments padding10">
       <%= render @project.comments %>
       </div>
       
       <%= render "comments/form" %>
+
+       <!-- 応募ボタン -->
+       <%= render "entries/entry" %>
+
+        <!-- いいねボタン -->
+        <%= render "likes/like" %>
       
       <table class="ui celled padded table">
         <thead>
@@ -129,7 +134,8 @@
               <%= @project.comments.count %>
             </td>
             <td>
-              <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
+              <div class="ui star rating" data-rating="3" data-max-rating="3">
+              </div>
             </td>
             <td class="right aligned">
             </td>
@@ -139,7 +145,13 @@
       </table>
     </div>
     <div class="three wide column">
-      <h1>関連するプロジェクト</h1>
+      <h3 style="text-align:center;"><i class="sticky note icon"></i>関連するプロジェクト</h3>
+      
+      <hr></hr>
+      
+      <!--  関連するプロジェクト -->
+      <%= render "shares/side_project", projects: @relateds %>
+      
     </div>
   </div>
 </div>

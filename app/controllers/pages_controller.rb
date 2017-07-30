@@ -4,4 +4,21 @@ class PagesController < ApplicationController
   def index
     @projects = Project.all.reverse
   end
+  
+  def sudden
+    @projects = Project.all.reverse
+  end
+  
+  def wanted
+  end
+  
+  def doing
+  end
+  
+  def news
+  end
+  
+  def campaign
+  end
+  
 end

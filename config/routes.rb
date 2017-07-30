@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :comments, only: [:create, :destroy] # コメントをネスト
     resources :likes, only: [:create, :destroy] # いいね機能
+    resources :entries, only: [:create, :destroy]
   end
   
   root 'pages#index'
@@ -21,5 +22,8 @@ Rails.application.routes.draw do
   post 'contact/confirm' => 'contact#confirm'
   post 'contact/thanks' => 'contact#thanks'
   
+  # ホーム関連ページ
+  get 'sudden' => 'pages#sudden'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

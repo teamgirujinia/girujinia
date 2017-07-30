@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20170729154328) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
+    t.integer "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_entries_on_project_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "user_id", null: false
