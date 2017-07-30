@@ -4,6 +4,8 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic
 
+  default_scope -> { order(experience_value: :asc) }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,6 +22,12 @@ class User < ApplicationRecord
     
   def already_liked?(project)
     self.likes.exists?(project_id: project.id)
+  end
+  
+  # Homeのユーザーランキングデータの取得
+  # rankの数値が高い順に取得
+  def self.users_rank
+      self.all.order("experience_value").first(10)
   end
   
   

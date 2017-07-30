@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20170729154211) do
     t.string "blog", default: "", null: false
     t.string "address", default: "", null: false
     t.string "age", default: "", null: false
+    t.integer "experience_value", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -6,21 +6,30 @@
       <!--左サイド-->
       <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
       <div class="ui segments">
-        <div class="ui segment">
-          <p>Top</p>
-        </div>
-        <div class="ui segment">
-          <p>Middle</p>
-        </div>
-        <div class="ui segment">
-          <p>Middle</p>
-        </div>
-        <div class="ui segment">
-          <p>Middle</p>
-        </div>
-        <div class="ui segment">
-          <p>Bottom</p>
-        </div>
+        <% @users_rank.each do |user| %>
+          <div class="ui segment">
+            <div class="ui feed">
+              <div class="event">
+                <div class="label">
+                  <%= @num += 1 %>
+                </div>
+                <div class="label">
+                  <%= link_to user, class: "" do %>
+                    <%= image_tag(user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
+                  <% end %>
+                </div>
+                <div class="content">
+                  <div class="summary">
+                    <%= link_to "#{user.user_name}", user %>　
+                    <%= user.experience_value %>　
+                    <%= user.rank %>　
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
       </div>
     </div>
     

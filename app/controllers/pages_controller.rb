@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_ransack
+  before_action :set_users_rank
   
   def index
     @projects = Project.all.reverse
@@ -30,5 +31,14 @@ class PagesController < ApplicationController
   
   def campaign
   end
+  
+  
+  private
+  
+    # Userランキング
+    def set_users_rank
+      @users_rank = User.users_rank
+      @num = 0
+    end
   
 end
