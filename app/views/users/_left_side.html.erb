@@ -1,0 +1,54 @@
+<div class="three wide column">
+  
+   <%= link_to edit_user_registration_path, class: "fluid ui brown button" do %>
+        <i class="address book icon" style="color: white;"></i>
+        <span class="my_name" style="color: white;">プロフィールを編集する</span>
+   <% end %>
+
+  <div class="ui card">
+    <div class="image">
+      <%= image_tag(@user.gravatar_url) %>
+    </div>
+    <div class="content">
+      <span class="header"><%= @user.user_name %></span>
+      <div class="meta">
+        <span class="date"><i class="child icon"></i><%= @user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
+      </div>
+    </div>
+  </div>
+  
+  <% if @user.id == current_user.id %>
+    <h3 style="text-align:center;"><i class="users icon"></i>新着応募</h3>
+
+    <div class="ui feed">
+      <% @new_apps.each do |new_app| %>
+    <hr></hr>
+      <div class="event">
+        <div class="label">
+          
+         <%= link_to new_app.user, class: "item h_100" do %>
+              <%= image_tag(new_app.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
+         <% end %>
+         
+        </div>
+        <div class="content">
+          <div class="date">
+            <label class="ui red horizontal label">New!</label>
+            <%= time_ago_in_words(new_app.project.created_at) +"前"%>
+          </div>
+          <div class="summary">
+             <%= link_to "#{new_app.user.user_name}",  new_app.user %> さんが
+             <%= link_to "#{new_app.project.create_title.truncate(10)}",  new_app.project %> に応募しました。
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  <% end %>
+  <hr></hr>
+
+  <h3 style="text-align:center;"><i class="users icon"></i>チームメンバー</h3>
+  <hr></hr>
+  
+</div>

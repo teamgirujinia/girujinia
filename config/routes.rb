@@ -5,14 +5,31 @@ Rails.application.routes.draw do
    :registrations => 'users/registrations'
   }
 
+  # プロジェクト
   resources :projects do
     resources :comments, only: [:create, :destroy] # コメントをネスト
     resources :likes, only: [:create, :destroy] # いいね機能
-    resources :entries, only: [:create, :destroy]
+    resources :entries, only: [:create, :destroy] do
+      member do
+        post 'approval' => 'entries#approval'
+        post 'disapproval' => 'entries#disapproval'
+      end
+    end
+  end
+
+  # ユーザー
+  resources :users, only: [:show] do
+    member do
+      get 'show_recruit' => 'users#show_recruit'
+      get 'show_no_recruit' => 'users#show_no_recruit'
+      get 'show_member' => 'users#show_member'
+      get 'show_pick' => 'users#show_pick'
+    end
   end
   
+  
   root 'pages#index'
-  resources :users, only: [:show]
+  
   resources :socialstyles
   resources :tags do
   end
