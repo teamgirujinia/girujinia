@@ -1,0 +1,34 @@
+<div class="three ui buttons">
+  <%= link_to "タグ作成", new_tag_path, { :class => "ui olive button" } %>
+  <%= link_to "タグ作成", new_tag_path, { :class => "ui olive button" } %>
+  <%= link_to "タグ作成", new_tag_path, { :class => "ui olive button" } %>
+</div>
+
+<br><br>
+
+<div class="ui grid">
+  <div class="eight wide column">
+
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>タグ名</th>
+          <th>管理</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tags.each do |tag| %>
+            <tr>
+              <td><a class="ui green label"><%= tag.name %></a></td>
+             　 <td>
+                  <%= link_to "編集", edit_tag_path(tag.id), { :class => "ui olive button" } %>
+                  <%= link_to "削除", tag, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+                </td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+  <div class="eight wide column"></div>
+</div>

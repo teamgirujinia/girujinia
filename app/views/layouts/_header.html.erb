@@ -13,12 +13,13 @@
             <div class="ten wide field">
                      <%= search_form_for @q do |f| %>
                        <div class="inline"><%= f.search_field :create_title_or_content_cont %></div>
+                       <%= f.hidden_field :search, :value => 1 %>
                        <div class="inline"><%= f.submit "検索", class: :"ui submit button" %></div>
                      <% end %>
             </div>
              <%= link_to 'Home', root_path, class: :"ui item h_100", style: :"color: white;" %>
 
-             <%= link_to current_user, class: "item h_100" do %>
+             <%= link_to new_project_path, class: "item h_100" do %>
                   <i class="write icon"  style="color: white;"></i>
                   <span class="my_name" style="color: white;">募集する</span>
              <% end %>
@@ -51,10 +52,13 @@
     </div>
 
  <% else %>
-     <%= link_to 'Home', root_path, class: :"ui teal basic button" %>
-     <%= link_to 'サインアップ', new_user_registration_path, class: :"ui pink basic button" %>
-     <%= link_to 'ログイン', new_user_session_path, class: :"ui grey basic button" %>
-     
+    <div class="ui segment" style="background-color: #2f4f4f;">
+      <h3 class="ui right aligned header">
+         <%= link_to 'Home', root_path, class: :"ui inverted basic button" %>
+         <%= link_to 'サインアップ', new_user_registration_path, class: :"ui inverted basic button" %>
+         <%= link_to 'ログイン', new_user_session_path, class: :"ui inverted basic button" %>
+      </h3>
+    </div>
  <% end %>
 
 

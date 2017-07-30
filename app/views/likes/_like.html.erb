@@ -1,5 +1,19 @@
 <!-- ココ追記 カウントのため -->
-<h3>いいね件数: <%= @project.likes.count %></h3>
+
+<table class="ui celled table">
+  <thead>
+    <tr><th><i class="thumbs up icon"></i></th>
+    <th><i class="unhide icon"></i></th>
+    <th><i class="talk icon"></i></th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><%= @project.likes.count %></td>
+      <td><%= @project.pv %></td>
+      <td><%= @project.comments.count %></td>
+    </tr>
+  </tbody>
+</table>
 
 <% if current_user.already_liked?(@project) %>
   <%= button_to 'いいねを取り消す', project_like_path(@project), method: :delete, class: :"fluid ui brown button" %>
@@ -15,7 +29,8 @@
   <% end %>
 <% end %>
 
- <h2>このプロジェクトにいいねしたユーザー</h2>
-<% @project.liked_users.each do |user| %>
-  <li><%= user.user_name %></li>
-<% end %> 
+<div class="liking_users">
+  <% @project.liked_users.each do |user| %>
+    <%= link_to image_tag(user.gravatar_url, :size => "15x15", :class => "ui rounded mini image"), user %>
+  <% end %> 
+</div>

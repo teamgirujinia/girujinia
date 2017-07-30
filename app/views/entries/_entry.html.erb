@@ -1,0 +1,12 @@
+
+<%= form_for [@project, @project.entries.build] do |f| %>
+    <!-- user_idを入れる -->
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <!-- project_idを入れる -->
+    <%= f.hidden_field :projec_id, :value => @project.id %>
+    <!-- owner_idを入れる -->
+    <%= f.hidden_field :owner_id, :value => @project.user.id %>
+    <p>
+    <%= f.submit '応募' %>
+  </p>
+<% end %>

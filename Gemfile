@@ -40,7 +40,7 @@ gem 'gravtastic' #ユーザー画像
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem "ransack"
-
+gem 'jquery-ui-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development 
 

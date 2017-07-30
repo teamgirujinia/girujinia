@@ -1,0 +1,26 @@
+      <% projects.each do |project|%>
+        <div class="ui card word-break">
+          <div class="content">
+            <div class="header"><%= link_to "#{project.create_title.truncate(30)}", project %></div>
+          </div>
+          <div class="content">
+              <table class="ui celled table">
+                <thead>
+                  <tr><th><i class="thumbs up icon"></i></th>
+                  <th><i class="unhide icon"></i></th>
+                  <th><i class="talk icon"></i></th>
+                </tr></thead>
+                <tbody>
+                  <tr>
+                    <td><%= project.likes.count %></td>
+                    <td><%= project.pv %></td>
+                    <td><%= project.comments.count %></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="extra content">
+            <span class="date"><%= project.created_at.strftime("%Y年%m月%d日")%></span>
+          </div>
+        </div>
+      <% end %>

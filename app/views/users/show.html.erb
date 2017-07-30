@@ -3,7 +3,11 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
-      <%= link_to 'プロフィール変更', edit_user_registration_path, class: :"fluid ui brown button" %>
+      
+       <%= link_to edit_user_registration_path, class: "fluid ui brown button" do %>
+            <i class="address book icon" style="color: white;"></i>
+            <span class="my_name" style="color: white;">プロフィールを編集する</span>
+       <% end %>
 
       <div class="ui card">
         <div class="image">
@@ -12,7 +16,7 @@
         <div class="content">
           <span class="header"><%= @user.user_name %></span>
           <div class="meta">
-            <span class="date"><%= @user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
+            <span class="date"><i class="child icon"></i><%= @user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
           </div>
           <div class="description">
             Kristy is an art director living in New York.
@@ -25,11 +29,25 @@
           </a>
         </div>
       </div>
+
+      <h3 style="text-align:center;"><i class="users icon"></i>チームメンバー</h3>
+      <hr></hr>
       
     </div>
     <div class="ten wide column">
     <%= render 'users/profile' %>
-    
+
+    <div class="five ui buttons">
+      <button class="ui button">Overview</button>
+      <button class="ui button">Specs</button>
+      <button class="ui button">Warranty</button>
+      <button class="ui button">Reviews</button>
+      <button class="ui button">Support</button>
+    </div>
+
+    <br><br>
+
+
       <% @projects.each do |project| %>
 
       <div class="timeline">
@@ -44,7 +62,7 @@
             <tr>
               <td>募集人数: <%= project.capacity%></td>
               <td>期間: <%= project.period %></td>
-              <td>募集職種: <%= project.wanted_jobs %></td>
+              <td>募集職種: <%= project.job_first %></td>
               <td><%= time_ago_in_words(project.created_at) +"前" %></td>
             </tr>
           </tbody>
@@ -66,7 +84,17 @@
     <% end %>
     </div>
     <div class="three wide column">
+      <h3 style="text-align:center;"><i class="user circle outline icon"></i>ソーシャルスタイル</h3>
+      
+      <hr></hr>
+
       <%= render "users/socialstyle" %>
+      <h3 style="text-align:center;"><i class="write square icon"></i>人気のプロジェクト</h3>
+      
+      <hr></hr>
+      
+      <!--  人気のプロジェクト -->
+      <%= render "shares/side_project", projects: @populars %>
     </div>
   </div>
 </div>
