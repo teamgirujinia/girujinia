@@ -1,9 +1,9 @@
 class EntriesController < ApplicationController
     before_action :authenticate_user!
+    
     def create
     
     @project = Project.find(params[:project_id])
-
     @entry = @project.entries.create(entry_params)
     
         if @entry.save

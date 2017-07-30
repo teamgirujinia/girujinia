@@ -29,7 +29,36 @@
           </a>
         </div>
       </div>
-
+      
+      <% if @user.id == current_user.id %>
+        <h3 style="text-align:center;"><i class="users icon"></i>新着応募</h3>
+        <hr></hr>
+        
+        <div class="ui feed">
+          <% @new_apps.each do |new_app| %>
+          <div class="event">
+            <div class="label">
+              
+             <%= link_to new_app.user, class: "item h_100" do %>
+                  <%= image_tag(new_app.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
+             <% end %>
+             
+            </div>
+            <div class="content">
+              <div class="date">
+                <%= time_ago_in_words(new_app.project.created_at) +"前"%>
+              </div>
+              <div class="summary">
+                 <%= link_to "#{new_app.user.user_name}",  new_app.user %> が
+                 <%= link_to "#{new_app.project.create_title}",  new_app.project %> に応募しました。
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+  
+      <% end %>
+      
       <h3 style="text-align:center;"><i class="users icon"></i>チームメンバー</h3>
       <hr></hr>
       

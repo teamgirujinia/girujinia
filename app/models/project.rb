@@ -21,4 +21,8 @@ class Project < ApplicationRecord
     validates :communication, presence: true
     validates :user_id, presence: true
 
+    #応募しているかどうかを試す
+    def entried_by? user
+         entries.where(user_id: user.id).exists?
+    end
 end
