@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :set_ransack
   before_action :authenticate_user!, only: [:create, :destroy]
   def create
     @project = Project.find(params[:project_id])

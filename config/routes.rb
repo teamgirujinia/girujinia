@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root 'pages#index'
   resources :users, only: [:show]
   resources :socialstyles
+  resources :tags do
+  end
   
   # お問い合わせ
   get 'contact' => 'contact#index'

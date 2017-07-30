@@ -1,5 +1,5 @@
 class ContactController < ApplicationController
-  before_action :set_ransack, only: [:index, :confirm, :thanks]
+  before_action :set_ransack
 
   def index
     @contact = Contact.new

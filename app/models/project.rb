@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+    default_scope -> { order(created_at: :asc) }
+
     # 関連付け
     belongs_to :user
     has_many :comments, dependent: :destroy # プロジェクトが消失するとコメントも消える    
@@ -15,7 +17,6 @@ class Project < ApplicationRecord
     validates :content, presence: true, length: { maximum: 5000 }
     validates :work_method, presence: true
     validates :communication, presence: true
-    validates :wanted_jobs, presence: true
     validates :user_id, presence: true
-
+    
 end

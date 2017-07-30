@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
-  before_action :set_ransack, only: [:new, :show, :edit, :index]
+  before_action :set_ransack
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  
+
   def new
     @project = Project.new
   end
@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-
     if @project.save
       redirect_to @project
     else
@@ -56,6 +55,6 @@ class ProjectsController < ApplicationController
     end
     # 入力カラムを記述
     def project_params
-      params.require(:project).permit(:create_title, :period, :capacity, :content, :work_method, :communication, :wanted_jobs, :user_id).merge(user_id: current_user.id)
+      params.require(:project).permit(:create_title, :period, :capacity, :content, :work_method, :communication, :job_first, :user_id, :job_secound, :jobs_third, :lang1, :lang2, :lang3, :dev_type, :tool).merge(user_id: current_user.id)
     end
 end
