@@ -6,36 +6,41 @@
   <% end %>
 
   <% projects.each do |project| %>
-    
-  <div class="timeline">
-    <span class="timeline_font_tt"><%= link_to "#{project.create_title.truncate(42)}", project %></span>
-    <hr></hr>
-    <span class="timeline_font_st"><%= project.content.truncate(249) %></span>
-    <hr></hr>
 
-    <div class="table_size">
-    <table class="ui very basic table">
-      <tbody>
-        <tr>
-          <td>募集人数: <%= project.capacity%></td>
-          <td>期間: <%= project.period %></td>
-          <td>募集職種: <%= project.job_first %></td>
-          <td><%= time_ago_in_words(project.created_at) +"前" %></td>
-        </tr>
-      </tbody>
-    </table>
-    </div><br>
+<div class="ui feed">
 
-    <hr></hr>
-
-    <div class="timeline_icon">
+  <div class="event">
+    <div class="label">
       <%= link_to project.user, class: "" do %>
         <%= image_tag(project.user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
-        <span class="my_name"><%= project.user.user_name %></span>
       <% end %>
     </div>
-    
+    <div class="content">
+      <div class="summary">
+        <%= link_to "#{project.create_title.truncate(42)}", project %>
+        <div class="date">
+          <%= time_ago_in_words(project.created_at) +"前" %>
+        </div>
+      </div>
+      <div class="extra text">
+        <%= project.content.truncate(249) %>
+      </div>
+      <div class="extra text">
+        <a class="ui horizontal yellow label"><%= project.lang1 %></a>
+        <a class="ui horizontal yellow basic label"><%= project.lang2 %></a>
+        <a class="ui horizontal yellow basic label"><%= project.lang3 %></a>
+      </div>
+      <div class="meta">
+        <a class="like">
+          <i class="like pink icon"></i> <%= project.likes.count %>　
+          <i class="unhide icon"></i> <%= project.pv %>　
+          <i class="talk icon"></i> <%= project.comments.count %>
+        </a>
+      </div>
+    </div>
   </div>
+  <hr></hr>
+</div>
   
   <% end %>
 </p>
