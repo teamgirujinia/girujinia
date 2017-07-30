@@ -71,11 +71,70 @@
 </table>
 
 <div class="five ui buttons">
-  <%= link_to "プロジェクト", @user, class: :"ui button" %>
-  <%= link_to "採用", show_recruit_user_path, class: :"ui button" %>
-  <%= link_to "不採用", show_no_recruit_user_path, class: :"ui button" %>
-  <%= link_to "メンバー", show_member_user_path, class: :"ui button" %>
-  <%= link_to "ピック", show_pick_user_path, class: :"ui button" %>
+  
+  
+ <!--アクションと一致したプロフィールバーの色を変更する。-->
+ <% if controller.action_name == "show" %>
+   <%= link_to @user, class: "ui green button" do %>
+        <i class="write square icon"></i>
+        <span>プロジェクト</span>
+   <% end %>
+ <% else %>
+   <%= link_to @user, class: "ui green basic button" do %>
+        <i class="write square icon"></i>
+        <span>プロジェクト</span>
+   <% end %>
+ <% end %>
+ 
+ <% if controller.action_name == "show_recruit" %>
+   <%= link_to show_recruit_user_path, class: "ui green button" do %>
+        <i class="address book icon"></i>
+        <span>採用</span>
+   <% end %>
+ <% else %>
+   <%= link_to show_recruit_user_path, class: "ui green basic button" do %>
+        <i class="address book icon"></i>
+        <span>採用</span>
+   <% end %>
+ <% end %>
+ 
+ <% if controller.action_name == "show_entry" %>
+   <%= link_to show_entry_user_path, class: "ui green button" do %>
+        <i class="mail icon"></i>
+        <span>応募</span>
+   <% end %>
+ <% else %>
+   <%= link_to show_entry_user_path, class: "ui green basic button" do %>
+        <i class="mail icon"></i>
+        <span>応募</span>
+   <% end %>
+ <% end %>
+
+ <% if controller.action_name == "show_member" %>
+   <%= link_to show_member_user_path, class: "ui green button" do %>
+        <i class="users icon"></i>
+        <span>メンバー</span>
+   <% end %>
+ <% else %>
+   <%= link_to show_member_user_path, class: "ui green basic button" do %>
+        <i class="users icon"></i>
+        <span>メンバー</span>
+   <% end %>
+ <% end %>
+ 
+ <% if controller.action_name == "show_pick" %>
+   <%= link_to show_pick_user_path, class: "ui green button" do %>
+        <i class="hand lizard icon"></i>
+        <span>ピック</span>
+   <% end %>
+ <% else %>
+   <%= link_to show_pick_user_path, class: "ui green basic button" do %>
+        <i class="hand lizard icon"></i>
+        <span>ピック</span>
+   <% end %>
+ <% end %>
+
+
 </div>
 
 <br><br>

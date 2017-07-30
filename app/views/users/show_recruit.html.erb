@@ -12,7 +12,7 @@
       
 
       <% @new_apps.each do |new_app| %>
-        <% if new_app.nil? %>
+        <% if new_app.owner_id == 0 %>
             <div class="ui segments">
               <div class="ui segment">
             <div class="ui feed">

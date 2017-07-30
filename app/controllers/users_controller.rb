@@ -9,7 +9,15 @@ class UsersController < ApplicationController
   def show_recruit
   end
   
-  def show_no_recruit
+  def show_entry
+    # 自分のIDが含まれるエントリーを全て取得
+    # エントリーのプロジェクトIDからプロジェクトを取得
+    @entring_projects = []
+    @my_entries = Entry.where(user_id: @user.id)
+    @my_entries.each do |entry|
+      project = Project.find_by(id: entry.project_id)
+      @entring_projects.push(project)
+    end
   end
   
   def show_member
@@ -21,6 +29,7 @@ class UsersController < ApplicationController
       private
 
         # Userテーブルから値をとってきて変数にいれる
+        # 後でmodelに移行!
         def set_user
           @user = User.find(params[:id])
           @projects = Project.where(:user_id => @user.id)
@@ -47,6 +56,5 @@ class UsersController < ApplicationController
             @new_apps.push(new_app) if !new_app.nil?
           end
         end
-
 
 end

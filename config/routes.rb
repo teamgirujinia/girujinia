@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     member do
       get 'show_recruit' => 'users#show_recruit'
-      get 'show_no_recruit' => 'users#show_no_recruit'
+      get 'show_entry' => 'users#show_entry'
       get 'show_member' => 'users#show_member'
       get 'show_pick' => 'users#show_pick'
     end

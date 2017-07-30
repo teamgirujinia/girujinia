@@ -5,6 +5,8 @@
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <!-- project_idを入れる -->
         <%= f.hidden_field :projec_id, :value => @project.id %>
+        <!-- owner_idを入れる -->
+        <%= f.hidden_field :owner_id, :value => 0 %>
         <p>
         <%= f.submit '応募', class: :"ui button" %>
       </p>

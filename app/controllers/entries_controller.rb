@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
     before_action :authenticate_user!
-    
+    before_action :set_request_from
+
     def create
     
     @project = Project.find(params[:project_id])
@@ -27,18 +28,35 @@ class EntriesController < ApplicationController
     def approval
         @entry = Entry.find_by(project_id: "#{params[:project_id]}", user_id: "#{params[:user_id]}")
         @entry.owner_id = params[:project_id]
-        @entry.save
+        if @entry.save
+             redirect_to show_recruit_user_path
+        else
+             render "show_recruit"
+        end
     end
     
     ## CurrentUserが応募に対して非承認を行う
     def disapproval
         @entry = Entry.find_by(project_id: "#{params[:project_id]}", user_id: "#{params[:user_id]}")
         @entry.owner_id = 0
-        @entry.save
+        if @entry.save
+             redirect_to show_recruit_user_path
+        else
+             render "show_recruit"
+        end
     end
 
     private
         def entry_params
           params.require(:entry).permit(:project_id, :user_id, :owner_id)
+        end
+        
+        # どこのページからリクエストが来たか保存しておく
+        def set_request_from
+          if session[:request_from]
+            @request_from = session[:request_from]
+          end
+          # 現在のURLを保存しておく
+          session[:request_from] = request.original_url
         end
 end
