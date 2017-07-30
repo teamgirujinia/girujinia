@@ -32,5 +32,5 @@
 <div class="liking_users">
   <% @project.liked_users.each do |user| %>
     <%= link_to image_tag(user.gravatar_url, :size => "15x15", :class => "ui rounded mini image"), user %>
-  <% end %> 
+  <% end %>
 </div>

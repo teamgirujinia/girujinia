@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_ransack, only: [:new, :show, :edit, :index]
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  
+
   def new
     @project = Project.new
   end
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
 
 
   private
-    
+
     # Recruitテーブルから値をとってきて変数にいれる
     def set_project
       @project = Project.find(params[:id])
