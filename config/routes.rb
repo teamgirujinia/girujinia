@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   # プロジェクト
   resources :projects do
     resource :picks, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy] # いいね機能
     resources :comments, only: [:create, :destroy] # コメントをネスト
-    resources :likes, only: [:create, :destroy] # いいね機能
-    resources :entries, only: [:create, :destroy] do
+    resource :entries, only: [:create, :destroy] do
       member do
         post 'approval' => 'entries#approval'
         post 'disapproval' => 'entries#disapproval'

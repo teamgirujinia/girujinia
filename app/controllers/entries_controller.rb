@@ -4,15 +4,10 @@ class EntriesController < ApplicationController
     before_action :set_alart
 
     def create
-    
-    @project = Project.find(params[:project_id])
-    @entry = @project.entries.create(entry_params)
-    
-        if @entry.save
-             redirect_to project_path(params[:project_id])
-        else
-             render "show"
-        end
+      @project = Project.find(params[:project_id])
+      @entry = @project.entries.build(project_id: @project.id, owner_id: 0, user_id: params[:user_id])
+      # mail_method(@project.user, "pick", @project)
+      @entry.save
     end
 
     def destroy
