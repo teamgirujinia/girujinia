@@ -29,15 +29,15 @@
         <div class="three fields">
           <div class="field">
             <%= f.label :期間 %>
-            <%= f.select :period, options_for_select(["", "~1ヶ月", "1~3ヶ月", "3ヶ月~"]), {}, { class: 'ui fluid dropdown' } %>
+            <%= f.select :period, ["", "~1ヶ月", "1~3ヶ月", "3ヶ月~"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.period}" } %>
           </div>
           <div class="field">
             <%= f.label :募集人数 %>
-            <%= f.number_field :capacity %>
+            <%= f.number_field :capacity, { class: 'ui fluid dropdown', in: 1...10 } %>
           </div>
           <div class="field">
             <%= f.label :作業方法 %>
-            <%= f.select :work_method, options_for_select(["", "オフライン", "オンライン"]), {}, { class: 'ui fluid dropdown' } %>
+            <%= f.select :work_method, ["", "オフライン", "オンライン"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.work_method}" } %>
           </div>
         </div>
       </div>
@@ -46,15 +46,15 @@
         <div class="three fields">
           <div class="field">
             <%= f.label :開発物のタイプ %>
-            <%= f.select :dev_type, options_for_select(["", "Webアプリ", "モバイルアプリ", "デスクトップアプリ"]), {}, { class: 'ui fluid dropdown' } %>
+            <%= f.select :dev_type, ["", "Webアプリ", "モバイルアプリ", "デスクトップアプリ"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.dev_type}" } %>
           </div>
           <div class="field">
             <%= f.label :ツール %>
-            <%= f.select :tool, options_for_select(["", "GitHub", "BitBucket"]), {}, { class: 'ui fluid dropdown' } %>
+            <%= f.select :tool, ["", "GitHub", "BitBucket"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.tool}" } %>
           </div>
           <div class="field">
             <%= f.label :連絡方法 %>
-            <%= f.select :communication, options_for_select(["", "チャットワーク", "Slack", "LINE", "Skype", "その他"]), {}, { class: 'ui fluid dropdown' } %>
+            <%= f.select :communication, ["", "チャットワーク", "Slack", "LINE", "Skype", "その他"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.communication}" } %>
           </div>
           </div>
         </div>
@@ -63,15 +63,15 @@
         <div class="three fields">
           <div class="field">
             <%= f.label :募集職種1 %>
-            <%= f.select :job_first, options_from_collection_for_select(Tag.all, :name, :name), {}, { class: 'ui fluid dropdown' }   %>
+            <%= f.select :job_first, ["", "PG", "PD", "WEデザイナー", "SE", "その他"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.job_first}" } %>
           </div>
           <div class="field">
             <%= f.label :募集職種2 %>
-            <%= f.select :job_secound, options_from_collection_for_select(Tag.all, :name, :name), {}, { class: 'ui fluid dropdown' }   %>
+            <%= f.select :job_secound, ["", "PG", "PD", "WEデザイナー", "SE", "その他"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.job_secound}" } %>
           </div>
           <div class="field">
             <%= f.label :募集職種3 %>
-            <%= f.select :job_third, options_from_collection_for_select(Tag.all, :name, :name), {}, { class: 'ui fluid dropdown' }   %>
+            <%= f.select :job_third, ["", "PG", "PD", "WEデザイナー", "SE", "その他"], {}, { class: 'ui fluid dropdown', selected: "#{f.object.job_third}" } %>
           </div>
         </div>
       </div>
@@ -80,15 +80,15 @@
         <div class="three fields">
           <div class="field">
             <%= f.label :言語1 %>
-            <%= f.select :lang1, options_for_select(["", "PG", "PD", "WEデザイナー", "SE", "その他"]), {}, { class: 'ui fluid dropdown' }  %>
+            <%= f.select :lang1, options_from_collection_for_select(Tag.all, :name, :name, f.object.lang1), {}, { class: 'ui fluid dropdown' }   %>
           </div>
           <div class="field">
             <%= f.label :言語2 %>
-            <%= f.select :lang2, options_for_select(["", "PG", "PD", "WEデザイナー", "SE", "その他"]), {}, { class: 'ui fluid dropdown' }  %>
+            <%= f.select :lang2, options_from_collection_for_select(Tag.all, :name, :name, f.object.lang2), {}, { class: 'ui fluid dropdown' }   %>
           </div>
           <div class="field">
             <%= f.label :言語3 %>
-            <%= f.select :lang3, options_for_select(["", "PG", "PD", "WEデザイナー", "SE", "その他"]), {}, { class: 'ui fluid dropdown' }  %>
+            <%= f.select :lang3, options_from_collection_for_select(Tag.all, :name, :name, f.object.lang3), {}, { class: 'ui fluid dropdown' }   %>
           </div>
         </div>
       </div>
@@ -102,7 +102,8 @@
         <%= f.text_area :content, placeholder: :"概要・理由・どうやって作るのか・参考文献など", style: :"height: 1000px;"%>
       </p>
       <p>
-        <%= f.submit "投稿", class: :"fluid ui submit green button" %>
+        <%= f.submit "更新", class: :"fluid ui submit green button" if controller.action_name == "edit" %>
+        <%= f.submit "投稿", class: :"fluid ui submit green button" if controller.action_name == "new" %>
       </p>
     <% end %>
 
