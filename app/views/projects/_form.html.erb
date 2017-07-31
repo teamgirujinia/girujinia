@@ -79,15 +79,15 @@
       <div class="ui form">
         <div class="three fields">
           <div class="field">
-            <%= f.label :言語1 %>
+            <%= f.label :メイン言語 %>
             <%= f.select :lang1, options_from_collection_for_select(Tag.all, :name, :name, f.object.lang1), {}, { class: 'ui fluid dropdown' }   %>
           </div>
           <div class="field">
-            <%= f.label :言語2 %>
+            <%= f.label :サブ言語1 %>
             <%= f.select :lang2, options_from_collection_for_select(Tag.all, :name, :name, f.object.lang2), {}, { class: 'ui fluid dropdown' }   %>
           </div>
           <div class="field">
-            <%= f.label :言語3 %>
+            <%= f.label :サブ言語2 %>
             <%= f.select :lang3, options_from_collection_for_select(Tag.all, :name, :name, f.object.lang3), {}, { class: 'ui fluid dropdown' }   %>
           </div>
         </div>

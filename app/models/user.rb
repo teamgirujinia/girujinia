@@ -19,6 +19,8 @@ class User < ApplicationRecord
          has_many :likes, dependent: :destroy
          has_many :liked_projects, through: :likes, source: :project
          has_many :entriesm, dependent: :destroy
+         has_many :picks, dependent: :destroy
+         has_many :pick_projects, through: :picks, source: :project
     
   def already_liked?(project)
     self.likes.exists?(project_id: project.id)

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # プロジェクト
   resources :projects do
+    resource :picks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy] # コメントをネスト
     resources :likes, only: [:create, :destroy] # いいね機能
     resources :entries, only: [:create, :destroy] do
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
         post 'approval' => 'entries#approval'
         post 'disapproval' => 'entries#disapproval'
       end
+    end
+    member do
+       get :pick_users
     end
   end
 
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
       get 'show_entry' => 'users#show_entry'
       get 'show_member' => 'users#show_member'
       get 'show_pick' => 'users#show_pick'
+      get :pick_posts
     end
   end
   

@@ -12,6 +12,10 @@ class Project < ApplicationRecord
      # 2の関係
     has_many :liked_users, through: :likes, source: :user
 
+     #--------------------クリップ！
+    has_many :picks, dependent: :destroy
+    has_many :pick_users, through: :picks, source: :user 
+  
     has_many :entries, dependent: :destroy
     validates :create_title, presence: true, length: { maximum: 50 }
     validates :period, presence: true
@@ -21,8 +25,13 @@ class Project < ApplicationRecord
     validates :communication, presence: true
     validates :user_id, presence: true
 
-    #応募しているかどうかを試す
+    #応募しているかどうかを返す
     def entried_by? user
          entries.where(user_id: user.id).exists?
     end
+    
+  #お気に入りしているかどうかを返す
+  def picked_by? user
+     picks.where(user_id: user.id).exists?
+  end
 end
