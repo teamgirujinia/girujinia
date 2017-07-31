@@ -37,10 +37,11 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git' # 
 
 gem 'gravtastic' #ユーザー画像
 
+gem 'rails-i18n' # エラーメッセージの日本語化
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem "ransack"
-
+gem 'jquery-ui-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development 
 

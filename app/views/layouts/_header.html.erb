@@ -19,6 +19,44 @@
             </div>
              <%= link_to 'Home', root_path, class: :"ui item h_100", style: :"color: white;" %>
 
+             
+             <!--お知らせ-->
+             <div class="ui dropdown">
+              <div class="default text"><i class="alarm icon"  style="color: white;"></i></div>
+              <div class="menu">
+                <div class="item" data-value="a">
+                    
+                    <div class="ui feed">
+                      <% @new_apps.each do |new_app| %>
+                    <hr></hr>
+                      <div class="event item">
+                        <div class="label">
+                          
+                         <%= link_to new_app.user, class: "item h_100" do %>
+                              <%= image_tag(new_app.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
+                         <% end %>
+                         
+                        </div>
+                        <div class="content">
+                          <div class="date">
+                            <label class="ui red horizontal label">New!</label>
+                            <%= time_ago_in_words(new_app.project.created_at) +"前"%>
+                          </div>
+                          <div class="summary">
+                             <%= link_to "#{new_app.user.user_name}",  new_app.user %> さんが
+                             <%= link_to "#{new_app.project.create_title.truncate(10)}",  new_app.project %> に応募しました。
+                          </div>
+                        </div>
+                      </div>
+                      <% end %>
+                    </div>
+            
+                </div>
+              </div>
+             </div>
+             
+        
+
              <%= link_to new_project_path, class: "item h_100" do %>
                   <i class="write icon"  style="color: white;"></i>
                   <span class="my_name" style="color: white;">募集する</span>
@@ -52,11 +90,11 @@
     </div>
 
  <% else %>
-    <div class="ui segment">
+    <div class="ui segment" style="background-color: #2f4f4f;">
       <h3 class="ui right aligned header">
-         <%= link_to 'Home', root_path, class: :"ui teal basic button" %>
-         <%= link_to 'サインアップ', new_user_registration_path, class: :"ui pink basic button" %>
-         <%= link_to 'ログイン', new_user_session_path, class: :"ui grey basic button" %>
+         <%= link_to 'Home', root_path, class: :"ui inverted basic button" %>
+         <%= link_to 'サインアップ', new_user_registration_path, class: :"ui inverted basic button" %>
+         <%= link_to 'ログイン', new_user_session_path, class: :"ui inverted basic button" %>
       </h3>
     </div>
  <% end %>
@@ -68,4 +106,7 @@
   $('#js-sidebar').click(function() {
     $('.ui.sidebar').sidebar('toggle');
   });
+$('.ui.dropdown')
+  .dropdown()
+;
 </script>

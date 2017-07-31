@@ -1,4 +1,6 @@
 class Users::UnlocksController < Devise::UnlocksController
+  before_action :set_ransack
+  before_action :set_alart
   # GET /resource/unlock/new
   # def new
   #   super

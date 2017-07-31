@@ -1,0 +1,48 @@
+
+
+<div class="ui internally celled grid">
+  <div class="row">
+    
+    <!--左サイドバー-->
+    <%= render "users/left_side" %>
+    
+    <div class="ten wide column">
+      <!--プロフィール & プロフィールリンク-->
+      <%= render 'users/profile' %>
+    
+      <% @new_apps.each do |new_app| %>
+        <% if new_app.owner_id == @user.id %>
+            
+            <div class="ui cards">
+              <div class="card">
+                <div class="content">
+                  <%= link_to new_app.user, class: "item h_100" do %>
+                       <%= image_tag(new_app.user.gravatar_url, :size => "20x20", :class => "right floated big ui avatar image") %>
+                  <% end %>
+                  <div class="header">
+                    <%= link_to "#{new_app.user.user_name}", new_app.user %>
+                  </div>
+                  <div class="meta">
+                    Friends of Veronika
+                  </div>
+                  <div class="description">
+                    Elliot requested permission to view your contact details
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="ui two buttons">
+                    <div class="ui basic green button">Approve</div>
+                    <div class="ui basic red button">Decline</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <!--右サイドバー-->
+    <%= render "users/right_side" %>
+    
+  </div>
+</div>

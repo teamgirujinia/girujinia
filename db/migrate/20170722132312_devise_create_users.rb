@@ -16,6 +16,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :blog, null: false, default: ""
       t.string :address, null: false, default: ""
       t.string :age, null: false, default: ""
+      t.integer :experience_value, null: false, default: 0
 
       ## Recoverable
       t.string   :reset_password_token

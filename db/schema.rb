@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170729064109) do
+ActiveRecord::Schema.define(version: 20170731050459) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20170729064109) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "picks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "create_title"
     t.string "period"
@@ -52,9 +59,17 @@ ActiveRecord::Schema.define(version: 20170729064109) do
     t.text "content"
     t.string "work_method"
     t.string "communication"
-    t.string "wanted_jobs"
+    t.string "job_first"
+    t.string "job_secound"
+    t.string "job_third"
     t.integer "user_id"
+    t.string "lang1"
+    t.string "lang2"
+    t.string "lang3"
+    t.string "dev_type"
+    t.string "tool"
     t.integer "pv", default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,10 +85,29 @@ ActiveRecord::Schema.define(version: 20170729064109) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "user_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "profile", default: "", null: false
+    t.string "socialstyle", default: "", null: false
+    t.string "rank", default: "E", null: false
+    t.string "facebook", default: "", null: false
+    t.string "twitter", default: "", null: false
+    t.string "qiita", default: "", null: false
+    t.string "teratail", default: "", null: false
+    t.string "git", default: "", null: false
+    t.string "blog", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "age", default: "", null: false
+    t.integer "experience_value", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

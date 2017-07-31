@@ -1,0 +1,33 @@
+<div class="ui grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+  
+      <%= form_for(@tag,  html: {class: 'ui form'}) do |f| %>
+        <% if @tag.errors.any? %>
+        <div id="error_explanation">
+          <div class="ui red message">
+            <h2><%= pluralize(@tag.errors.count, "error") %> 保存されませんでした:</h2>
+            <ul>
+            <% @tag.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+
+      <p>
+        <%= f.label :名前 %>
+        <%= f.text_field :name %>
+      </p>
+      
+      <p>
+        <%= f.submit "作成", class: :"ui submit button" %>
+      </p>
+    <% end %>
+
+    </div>
+    <div class="column"></div>
+  </div>
+</div>
