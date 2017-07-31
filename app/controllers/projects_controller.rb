@@ -2,10 +2,10 @@ class ProjectsController < ApplicationController
   before_action :set_ransack
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-<<<<<<< HEAD
-=======
+
+
   before_action :set_alart
->>>>>>> develop
+
 
   def new
     @project = Project.new
@@ -26,19 +26,19 @@ class ProjectsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
+
     # @project.pv = @project.pv + 1
-=======
+
     @project.pv = @project.pv + 1 #pvのカウント
->>>>>>> develop
+
     @project.save!
-    
+
     #関連のプロジェクトデータ
     # メイン言語が同じものを取得 → 自分以外のプロジェクトを取得 → created_at昇順で5件まで取得
     @relateds = Project.where(job_first: @project.job_first)
     # @relateds = @relateds.where.not(user_id: current_user.id)
     @relateds = @relateds.first(5)
-    
+
 
     @like = Like.new() # 追記
     @entry = Entry.new()

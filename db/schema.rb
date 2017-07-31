@@ -59,17 +59,9 @@ ActiveRecord::Schema.define(version: 20170731050459) do
     t.text "content"
     t.string "work_method"
     t.string "communication"
-    t.string "job_first"
-    t.string "job_secound"
-    t.string "job_third"
+    t.string "wanted_jobs"
     t.integer "user_id"
-    t.string "lang1"
-    t.string "lang2"
-    t.string "lang3"
-    t.string "dev_type"
-    t.string "tool"
     t.integer "pv", default: 0, null: false
-    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -107,10 +99,6 @@ ActiveRecord::Schema.define(version: 20170731050459) do
     t.string "blog", default: "", null: false
     t.string "address", default: "", null: false
     t.string "age", default: "", null: false
-<<<<<<< HEAD
-=======
-    t.integer "experience_value", default: 0, null: false
->>>>>>> develop
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
