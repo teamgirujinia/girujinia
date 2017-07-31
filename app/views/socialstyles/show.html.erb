@@ -11,23 +11,23 @@
           
           <h2>特徴</h2>
           <hr></hr>
-          <p><%= @socialstyle.characteristic %></p>
+          <p><%= simple_format(@socialstyle.characteristic) %></p>
           <hr></hr>
           <h2>有名人</h2>
           <hr></hr>
-          <p><%= @socialstyle.celebrities %></p>
+          <p><%= simple_format(@socialstyle.celebrities) %></p>
           <hr></hr>
           <h2>弱み</h2>
           <hr></hr>
-          <p><%= @socialstyle.weakness %></p>
+          <p><%= simple_format(@socialstyle.weakness) %></p>
           <hr></hr>
           <h2>相性</h2>
           <hr></hr>
-          <p><%= @socialstyle.compatibility %></p>
+          <p><%= simple_format(@socialstyle.compatibility) %></p>
           <hr></hr>
           <h2>付き合い方</h2>
           <hr></hr>
-          <p><%= @socialstyle.relationship %></p>
+          <p><%= simple_format(@socialstyle.relationship) %></p>
     </div>
     <div class="column"></div>
   </div>

@@ -7,7 +7,7 @@ one:
   content: MyText
   work_method: MyString
   communication: MyString
-  wanted_jobs: MyString
+  job_first: MyString
 
 two:
   create_title: MyString
@@ -16,4 +16,4 @@ two:
   content: MyText
   work_method: MyString
   communication: MyString
-  wanted_jobs: MyString
+  job_first: MyString

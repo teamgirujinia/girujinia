@@ -1,5 +1,6 @@
 class SocialstylesController < ApplicationController
-  before_action :set_ransack, only: [:new, :index, :show, :edit]
+  before_action :set_ransack
+  before_action :set_alart
 
     def new
      @socialstyle = Socialstyle.new
