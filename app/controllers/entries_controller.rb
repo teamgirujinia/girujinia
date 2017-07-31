@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
     def create
       @project = Project.find(params[:project_id])
       @entry = @project.entries.build(project_id: @project.id, owner_id: 0, user_id: params[:user_id])
+      @entry.pairs = params[:user_id].to_s + @project.user.id.to_s + @project.id.to_s
       # mail_method(@project.user, "pick", @project)
       @entry.save
     end
@@ -19,11 +20,16 @@ class EntriesController < ApplicationController
         redirect_to project_path(params[:project_id])    
     end
     
+    ## ---------------------------------------------------------------------------------------------------
     
-    ## CurrentUserが応募に対して承認を行う
+    ## 承認
+
+    ## ---------------------------------------------------------------------------------------------------
+    
     def approval
         @entry = Entry.find_by(project_id: "#{params[:project_id]}", user_id: "#{params[:user_id]}")
         @entry.owner_id = params[:project_id]
+        @entry.status = 1
         if @entry.save
              redirect_to show_recruit_user_path
         else
@@ -31,10 +37,15 @@ class EntriesController < ApplicationController
         end
     end
     
-    ## CurrentUserが応募に対して非承認を行う
+    ## ---------------------------------------------------------------------------------------------------
+    
+    ## 非承認
+
+    ## ---------------------------------------------------------------------------------------------------
+    
     def disapproval
         @entry = Entry.find_by(project_id: "#{params[:project_id]}", user_id: "#{params[:user_id]}")
-        @entry.owner_id = 0
+        @entry.status = 2
         if @entry.save
              redirect_to show_recruit_user_path
         else

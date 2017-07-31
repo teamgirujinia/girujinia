@@ -77,60 +77,70 @@
  <% if controller.action_name == "show" %>
    <%= link_to @user, class: "ui green button" do %>
         <i class="write square icon"></i>
-        <span>プロジェクト</span>
+        <span>プロジェクト　<%= @user.projects.count %></span>
    <% end %>
  <% else %>
    <%= link_to @user, class: "ui green basic button" do %>
         <i class="write square icon"></i>
-        <span>プロジェクト</span>
+        <span>プロジェクト　<%= @user.projects.count %></span>
    <% end %>
  <% end %>
+ 
+ 
+ <!----------------------------------------------------------------------------------->
+ <!--<! 採用 >-->
+ <!----------------------------------------------------------------------------------->
  
  <% if controller.action_name == "show_recruit" %>
    <%= link_to show_recruit_user_path, class: "ui green button" do %>
         <i class="address book icon"></i>
-        <span>採用</span>
+        <span>採用　<%= @recruit_projects.count %></span>
    <% end %>
  <% else %>
    <%= link_to show_recruit_user_path, class: "ui green basic button" do %>
         <i class="address book icon"></i>
-        <span>採用</span>
+        <span>採用　<%= @recruit_projects.count %></span>
    <% end %>
  <% end %>
+ 
+ 
+ <!----------------------------------------------------------------------------------->
+ <!--<! 応募 >-->
+ <!----------------------------------------------------------------------------------->
  
  <% if controller.action_name == "show_entry" %>
    <%= link_to show_entry_user_path, class: "ui green button" do %>
         <i class="mail icon"></i>
-        <span>応募</span>
+        <span>応募　<%= @entring_projects.count %></span>
    <% end %>
  <% else %>
    <%= link_to show_entry_user_path, class: "ui green basic button" do %>
         <i class="mail icon"></i>
-        <span>応募</span>
+        <span>応募　<%= @entring_projects.count %></span>
    <% end %>
  <% end %>
 
  <% if controller.action_name == "show_member" %>
    <%= link_to show_member_user_path, class: "ui green button" do %>
         <i class="users icon"></i>
-        <span>メンバー</span>
+        <span>メンバー　<%= @members.count %></span>
    <% end %>
  <% else %>
    <%= link_to show_member_user_path, class: "ui green basic button" do %>
         <i class="users icon"></i>
-        <span>メンバー</span>
+        <span>メンバー　<%= @members.count %></span>
    <% end %>
  <% end %>
  
  <% if controller.action_name == "show_pick" %>
    <%= link_to show_pick_user_path, class: "ui green button" do %>
         <i class="hand lizard icon"></i>
-        <span>ピック</span>
+        <span>ピック　<%= @picks.count %></span>
    <% end %>
  <% else %>
    <%= link_to show_pick_user_path, class: "ui green basic button" do %>
         <i class="hand lizard icon"></i>
-        <span>ピック</span>
+        <span>ピック　<%= @picks.count %></span>
    <% end %>
  <% end %>
 

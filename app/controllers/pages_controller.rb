@@ -17,11 +17,11 @@ class PagesController < ApplicationController
   # 募集中
   # Entryでowner_idが0のものを全て取得 → それらのEntryのproject_idに該当するプロジェクトを全て取得
   def wanted
-    @wanteds = Project.where(status: 0)
+    @wanteds = Project.where(status: 0).reverse
   end
   
   def doing
-    @doings = Project.where(status: 1)
+    @doings = Project.where(status: 1).reverse
   end
   
   def news

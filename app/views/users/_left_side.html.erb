@@ -23,27 +23,29 @@
     <h3 style="text-align:center;"><i class="users icon"></i>新着応募</h3>
 
     <div class="ui feed">
-      <% @new_apps.each do |new_app| %>
-    <hr></hr>
-      <div class="event">
-        <div class="label">
-          
-         <%= link_to new_app.user, class: "item h_100" do %>
-              <%= image_tag(new_app.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
-         <% end %>
-         
-        </div>
-        <div class="content">
-          <div class="date">
-            <label class="ui red horizontal label">New!</label>
-            <%= time_ago_in_words(new_app.project.created_at) +"前"%>
+      <% @recruit_projects.each do |recruit_project| %>
+        <% if recruit_project.project.user_id == @user.id %>
+      <hr></hr>
+        <div class="event">
+          <div class="label">
+            
+           <%= link_to recruit_project.user, class: "item h_100" do %>
+                <%= image_tag(recruit_project.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
+           <% end %>
+           
           </div>
-          <div class="summary">
-             <%= link_to "#{new_app.user.user_name}",  new_app.user %> さんが
-             <%= link_to "#{new_app.project.create_title.truncate(10)}",  new_app.project %> に応募しました。
+          <div class="content">
+            <div class="date">
+              <label class="ui red horizontal label">New!</label>
+              <%= time_ago_in_words(recruit_project.project.created_at) +"前"%>
+            </div>
+            <div class="summary">
+               <%= link_to "#{recruit_project.user.user_name}",  recruit_project.user %> さんが
+               <%= link_to "#{recruit_project.project.create_title.truncate(10)}",  recruit_project.project %> に応募しました。
+            </div>
           </div>
         </div>
-      </div>
+        <% end %>
       <% end %>
     </div>
 

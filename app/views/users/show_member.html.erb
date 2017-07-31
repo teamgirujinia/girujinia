@@ -10,17 +10,17 @@
       <!--プロフィール & プロフィールリンク-->
       <%= render 'users/profile' %>
     
-      <% @new_apps.each do |new_app| %>
-        <% if new_app.owner_id == @user.id %>
+      <% @members.each do |member| %>
+        <% if member.owner_id == @user.id %>
             
             <div class="ui cards">
               <div class="card">
                 <div class="content">
-                  <%= link_to new_app.user, class: "item h_100" do %>
-                       <%= image_tag(new_app.user.gravatar_url, :size => "20x20", :class => "right floated big ui avatar image") %>
+                  <%= link_to member.user, class: "item h_100" do %>
+                       <%= image_tag(member.user.gravatar_url, :size => "20x20", :class => "right floated big ui avatar image") %>
                   <% end %>
                   <div class="header">
-                    <%= link_to "#{new_app.user.user_name}", new_app.user %>
+                    <%= link_to "#{member.user.user_name}", member.user %>
                   </div>
                   <div class="meta">
                     Friends of Veronika
