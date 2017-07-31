@@ -1,4 +1,6 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  before_action :set_ransack
+  before_action :set_alart
   # GET /resource/confirmation/new
   # def new
   #   super

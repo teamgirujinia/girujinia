@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_ransack
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_alart
 
   def new
     @project = Project.new

@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_request_from
+    before_action :set_alart
 
     def create
     

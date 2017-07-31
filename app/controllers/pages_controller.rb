@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   before_action :set_ransack
-  before_action :set_users_rank
+  before_action :set_home_data
+  before_action :set_alart
+
   
   def index
     @projects = Project.all.reverse
@@ -32,7 +34,7 @@ class PagesController < ApplicationController
   private
   
     # Userランキング
-    def set_users_rank
+    def set_home_data
       @users_rank = User.users_rank
       @num = 0
     end
