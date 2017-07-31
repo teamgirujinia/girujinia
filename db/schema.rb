@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170729154211) do
     t.string "dev_type"
     t.string "tool"
     t.integer "pv", default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
