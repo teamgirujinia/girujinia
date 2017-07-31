@@ -31,6 +31,13 @@ class EntriesController < ApplicationController
         @entry.owner_id = params[:project_id]
         @entry.status = 1
         if @entry.save
+             # 応募の制限
+             @project = Project.find_by(id: params[:project_id])
+             @entries = Entry.where(project_id: params[:project_id], status: 1)
+             if @project.capacity == @entries.count
+                 @project.status = 1
+                 @project.save
+             end
              redirect_to show_recruit_user_path
         else
              render "show_recruit"

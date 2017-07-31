@@ -133,7 +133,13 @@
       <div class="five ui buttons">
         <button class="ui blue basic button"><%= render "picks/pick_links", project: @project %></button>
         <button class="ui blue basic button"><%= render "likes/like_links", project: @project %></button>
-        <button class="ui blue basic button"><%= render "entries/entry_links", project: @project  %></button>
+        <button class="ui blue basic button">
+          <% if @project.status == 1%>
+            <%= "満員御礼" %>
+          <% else %>
+            <%= render "entries/entry_links", project: @project  %>
+          <% end %>
+        </button>
       </div>
       
       

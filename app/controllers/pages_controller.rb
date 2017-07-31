@@ -5,23 +5,23 @@ class PagesController < ApplicationController
 
   
   def index
-    @projects = Project.all.reverse
+    @projects = Project.all
   end
   
   # 急上昇
   # いいね / PV ?
   def sudden
-    @projects = Project.all.reverse
+    @projects = Project.all
   end
 
   # 募集中
   # Entryでowner_idが0のものを全て取得 → それらのEntryのproject_idに該当するプロジェクトを全て取得
   def wanted
-    @wanteds = Project.where(status: 0).reverse
+    @wanteds = Project.where(status: 0)
   end
   
   def doing
-    @doings = Project.where(status: 1).reverse
+    @doings = Project.where(status: 1)
   end
   
   def news
