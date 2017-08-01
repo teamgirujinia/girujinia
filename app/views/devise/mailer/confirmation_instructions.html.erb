@@ -1,5 +1,11 @@
-<p>Welcome <%= @email %>!</p>
+<h1>girujinia</h1>
+<br>
+<p>ようこそ <strong><%= @email %></strong> さん!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<br>
+<h3>下記のアカウント登録を押下すると本登録されます</h3>
+<button><%= link_to 'アカウント登録', confirmation_url(@resource, confirmation_token: @token) %></button>
+<br>
+<h4>※アカウント登録を押下されないと本登録ができていない状態になります</h4>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<!--  ========================= デザイン ====================== -->

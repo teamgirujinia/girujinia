@@ -1,0 +1,5 @@
+<%= search_form_for @q do |f| %>
+  <div class="inline"><%= f.search_field :create_title_or_content_cont %></div>
+  <%= f.hidden_field :search, :value => 1 %>
+  <div class="inline"><%= f.submit "検索", class: :"ui submit button" %></div>
+<% end %>
