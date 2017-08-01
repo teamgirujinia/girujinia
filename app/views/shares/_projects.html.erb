@@ -32,7 +32,8 @@
         件
       </div><br>
       <% end %>
-
+        <!-- ページネーション -->
+        <%= paginate @results %>
       <% projects.each do |project| %>
 
       <div class="timeline">
