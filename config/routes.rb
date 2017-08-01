@@ -31,14 +31,9 @@ Rails.application.routes.draw do
       get :pick_posts
     end
   end
-<<<<<<< HEAD
   
-  
-=======
-
->>>>>>> hotfixes
   root 'pages#index'
-  
+
   resources :socialstyles
   resources :tags do
   end

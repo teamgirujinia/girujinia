@@ -1,14 +1,14 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
-<<<<<<< HEAD
-      
+
+
       <!--左サイド-->
       <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
-=======
+
       <h3 style="text-align:center;">
         <i class="users icon"></i>ユーザーランキング</h3>
->>>>>>> hotfixes
+
       <div class="ui segments">
         <% @users_rank.each do |user| %>
           <div class="ui segment">
@@ -34,13 +34,13 @@
         <% end %>
       </div>
     </div>
-    
+
     <!--フィード-->
     <div class="ten wide column">
-<<<<<<< HEAD
+
       <%= render "shares/main", projects: projects, page: page %>
     </div>
-    
+
     <!--右サイド-->
     <div class="three wide column">
       <div class="ui segments">
@@ -53,7 +53,7 @@
               <p><i class="line chart icon"></i>　<%= link_to "急上昇", sudden_path %></p>
             </div>
           <% end %>
-          
+
           <% if page == 4 %>
             <div class="ui red segment tertiary">
               <p><i class="user icon"></i>　<%= link_to "募集中", wanted_path %></p>
@@ -63,7 +63,7 @@
               <p><i class="user icon"></i>　<%= link_to "募集中", wanted_path %></p>
             </div>
           <% end %>
-          
+
           <% if page == 5 %>
             <div class="ui blue segment tertiary">
               <p><i class="users icon"></i>　<%= link_to "進行中", doing_path %></p>
@@ -73,9 +73,6 @@
               <p><i class="users icon"></i>　<%= link_to "進行中", doing_path %></p>
             </div>
           <% end %>
-          
-          
-=======
 
       <%= render 'projects/search' %>
 
@@ -131,7 +128,7 @@
         <p>
           <i class="line chart icon"></i>
           <%= link_to "急上昇", sudden_path %></p>
->>>>>>> hotfixes
+
       </div>
     <% else %>
       <div class="ui segment">

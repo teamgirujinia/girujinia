@@ -7,10 +7,7 @@ class Project < ApplicationRecord
 
     # -----------------------------------------------------------------------------------
     belongs_to :user
-<<<<<<< HEAD
 
-=======
->>>>>>> hotfixes
     has_many :comments, dependent: :destroy # プロジェクトが消失するとコメントも消える
 
     # いいね機能の likeと関連付け
@@ -55,7 +52,6 @@ class Project < ApplicationRecord
          entries.where(user_id: user.id).exists?
     end
 
-<<<<<<< HEAD
     #お気に入りしているかどうかを返す
     def picked_by? user
        picks.where(user_id: user.id).exists?
@@ -66,7 +62,7 @@ class Project < ApplicationRecord
        likes.where(user_id: user.id).exists?
     end
 
-=======
+
     paginates_per 10 # 11ページ目を分割
->>>>>>> hotfixes
+
 end

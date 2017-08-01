@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170731050459) do
-=======
-ActiveRecord::Schema.define(version: 20170729154211) do
->>>>>>> hotfixes
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -49,7 +45,6 @@ ActiveRecord::Schema.define(version: 20170729154211) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-<<<<<<< HEAD
   create_table "picks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "project_id"
@@ -57,8 +52,6 @@ ActiveRecord::Schema.define(version: 20170729154211) do
     t.datetime "updated_at", null: false
   end
 
-=======
->>>>>>> hotfixes
   create_table "projects", force: :cascade do |t|
     t.string "create_title"
     t.string "period"
@@ -66,8 +59,15 @@ ActiveRecord::Schema.define(version: 20170729154211) do
     t.text "content"
     t.string "work_method"
     t.string "communication"
-    t.string "wanted_jobs"
+    t.string "job_first"
+    t.string "job_secound"
+    t.string "job_third"
     t.integer "user_id"
+    t.string "lang1"
+    t.string "lang2"
+    t.string "lang3"
+    t.string "dev_type"
+    t.string "tool"
     t.integer "pv", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
