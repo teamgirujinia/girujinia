@@ -22,7 +22,8 @@ class ApplicationController < ActionController::Base
 
     # 検索
   def set_ransack
-    @q        = Project.search(params[:q])
+    @q        = Project.ransack(params[:q])
+    @results = @q.result(distinct: true).page(params[:page])
   end
 
 end
