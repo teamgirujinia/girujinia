@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_alart
 
+
   def new
     @project = Project.new
   end
@@ -11,6 +12,8 @@ class ProjectsController < ApplicationController
   # 検索結果の表示用
   def index
     @results = @q.result(distinct: true)
+    @users_rank = User.users_rank
+    @num = 0
   end
 
   def create

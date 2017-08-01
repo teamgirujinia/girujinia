@@ -30,7 +30,7 @@ class EntriesController < ApplicationController
         puts 1
         @entry = Entry.find_by(project_id: "#{params[:project_id]}", user_id: "#{params[:user_id]}")
         puts 2
-        @entry.owner_id = params[:project_id]
+        @entry.owner_id = params[:owner_id]
         puts 3
         @entry.status = 1
         puts 4
@@ -38,10 +38,15 @@ class EntriesController < ApplicationController
         puts 5
              # 応募の制限
              @project = Project.find_by(id: params[:project_id])
+        puts 6
              @entries = Entry.where(project_id: params[:project_id], status: 1)
+        puts 7
              if @project.capacity == @entries.count
+        puts 8
                  @project.status = 1
-                 @project.save
+                 if @project.save
+        puts 9
+                 end
              end
              redirect_to show_recruit_user_path
         else

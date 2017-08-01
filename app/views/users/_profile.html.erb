@@ -94,12 +94,12 @@
  <% if controller.action_name == "show_recruit" %>
    <%= link_to show_recruit_user_path, class: "ui green button" do %>
         <i class="address book icon"></i>
-        <span>採用　<%= @new_apps.count %></span>
+        <span>採用　<%= @recruit_projects.count %></span>
    <% end %>
  <% else %>
    <%= link_to show_recruit_user_path, class: "ui green basic button" do %>
         <i class="address book icon"></i>
-        <span>採用　<%= @new_apps.count %></span>
+        <span>採用　<%= @recruit_projects.count %></span>
    <% end %>
  <% end %>
  
