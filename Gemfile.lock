@@ -53,6 +53,9 @@ GEM
     bcrypt (3.1.11-x64-mingw32)
     bcrypt-ruby (3.1.1.rc1)
     bindex (0.5.0)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.2.3)
     byebug (9.0.6)
     capistrano (3.9.0)
@@ -122,9 +125,6 @@ GEM
     kaminari-activerecord (1.0.1)
       activerecord
       kaminari-core (= 1.0.1)
-    kaminari-bootstrap (3.0.1)
-      kaminari (>= 0.13.0)
-      rails
     kaminari-core (1.0.1)
     kgio (2.11.0)
     loofah (2.0.3)
@@ -251,6 +251,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (= 3.1.1.rc1)
+  bootstrap-kaminari-views
   byebug
   capistrano
   capistrano-bundler
@@ -265,7 +266,6 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   kaminari
-  kaminari-bootstrap (~> 3.0.1)
   puma (~> 3.7)
   rails (~> 5.1.2)
   rails-i18n
