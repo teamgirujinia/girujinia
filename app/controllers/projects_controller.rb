@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
   # 検索結果の表示用
   def index
     # ページネーション付き
-    @results = @q.result(distinct: true).page(params[:page])
+  
   end
 
   def create

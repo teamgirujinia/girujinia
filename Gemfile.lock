@@ -122,9 +122,6 @@ GEM
     kaminari-activerecord (1.0.1)
       activerecord
       kaminari-core (= 1.0.1)
-    kaminari-bootstrap (3.0.1)
-      kaminari (>= 0.13.0)
-      rails
     kaminari-core (1.0.1)
     kgio (2.11.0)
     loofah (2.0.3)
@@ -265,7 +262,6 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   kaminari
-  kaminari-bootstrap (~> 3.0.1)
   puma (~> 3.7)
   rails (~> 5.1.2)
   rails-i18n
