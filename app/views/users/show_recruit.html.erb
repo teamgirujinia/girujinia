@@ -11,24 +11,24 @@
       <%= render 'users/profile' %>
       
 
-      <% @recruit_projects.each do |recruit_project| %>
-        <% if recruit_project.project.user_id == @user.id  %>
+      <% @new_apps.each do |new_app| %>
+        <% if new_app.project.user_id == @user.id  %>
             <div class="ui segments">
               <div class="ui segment">
             <div class="ui feed">
               <div class="event">
                 <div class="label">
-                 <%= link_to recruit_project.user, class: "item h_100" do %>
-                      <%= image_tag(recruit_project.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
+                 <%= link_to new_app.user, class: "item h_100" do %>
+                      <%= image_tag(new_app.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
                  <% end %>
                 </div>
                 <div class="content">
                   <div class="date">
-                    <%= time_ago_in_words(recruit_project.project.created_at) +"前"%>
+                    <%= time_ago_in_words(new_app.project.created_at) +"前"%>
                   </div>
                   <div class="summary">
-                     <%= link_to "#{recruit_project.user.user_name}",  recruit_project.user %> さんが
-                     <%= link_to "#{recruit_project.project.create_title}",  recruit_project.project %> に応募しました。
+                     <%= link_to "#{new_app.user.user_name}",  new_app.user %> さんが
+                     <%= link_to "#{new_app.project.create_title}",  new_app.project %> に応募しました。
                   </div>
                 </div>
               </div>
@@ -36,10 +36,10 @@
               </div>
               <div class="ui horizontal segments">
                 <div class="ui segment" style="text-align:center;">
-                  <%= link_to "承認", approval_project_entry_path(project_id: recruit_project.project.id, user_id: recruit_project.user.id, owner_id: @user.id), method: :post, data: { confirm: "承認は取り消せません。それでも承認しますか？" } %>
+                  <%= link_to "承認", approval_project_entry_path(project_id: new_app.project.id, user_id: new_app.user.id, owner_id: @user.id), method: :post, data: { confirm: "承認は取り消せません。それでも承認しますか？" } %>
                 </div>
                 <div class="ui segment" style="text-align:center;">
-                  <%= link_to "非承認", disapproval_project_entry_path(project_id: recruit_project.project.id, user_id: recruit_project.user.id, owner_id: @user.id), method: :post, data: { confirm: "非承認は取り消せません。本当に承認しなくていいですか？" } %>
+                  <%= link_to "非承認", disapproval_project_entry_path(project_id: new_app.project.id, user_id: new_app.user.id, owner_id: @user.id), method: :post, data: { confirm: "非承認は取り消せません。本当に承認しなくていいですか？" } %>
                 </div>
               </div>
             </div>

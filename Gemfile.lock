@@ -100,6 +100,10 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     gravtastic (3.2.6)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (0.8.6)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -220,6 +224,7 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (0.1.1)
     unicorn (5.3.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -251,6 +256,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   gravtastic
+  hirb
+  hirb-unicode
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

@@ -49,7 +49,6 @@ class UsersController < ApplicationController
             @new_apps.push(new_app) if !new_app.nil? && new_app.status == 0
           end
           
-          
           # 採用データ
           # 自分のプロジェクトを全て取得
           # そのプロジェクトのIDが含まれる応募 & ステータスが0(承認非承認の可否なし)を取得

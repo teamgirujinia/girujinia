@@ -12,8 +12,10 @@
     
       <% @members.each do |member| %>
         <% if member.owner_id == @user.id %>
-            
-            <div class="ui cards">
+        <h3 style="text-align:center;"><i class="user circle outline icon"></i><%= member.project.create_title %></h3>
+        
+        <hr></hr>
+          <div class="ui cards">
               <div class="card">
                 <div class="content">
                   <%= link_to member.user, class: "item h_100" do %>
@@ -22,17 +24,8 @@
                   <div class="header">
                     <%= link_to "#{member.user.user_name}", member.user %>
                   </div>
-                  <div class="meta">
-                    Friends of Veronika
-                  </div>
                   <div class="description">
-                    Elliot requested permission to view your contact details
-                  </div>
-                </div>
-                <div class="extra content">
-                  <div class="ui two buttons">
-                    <div class="ui basic green button">Approve</div>
-                    <div class="ui basic red button">Decline</div>
+                    <%= link_to "#{member.project.create_title}", member.project %>にジョイン!
                   </div>
                 </div>
               </div>
