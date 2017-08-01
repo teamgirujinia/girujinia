@@ -10,7 +10,8 @@
       <!--プロフィール & プロフィールリンク-->
       <%= render 'users/profile' %>
     
-
+      <!--フィード-->
+      <%= render "shares/main", projects: @picks, page: 2 %>
     </div>
     
     <!--右サイドバー-->

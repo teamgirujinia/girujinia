@@ -133,7 +133,13 @@
       <div class="five ui buttons">
         <button class="ui blue basic button"><%= render "picks/pick_links", project: @project %></button>
         <button class="ui blue basic button"><%= render "likes/like_links", project: @project %></button>
-        <button class="ui blue basic button"><%= render "entries/entry_links", project: @project  %></button>
+        <button class="ui blue basic button">
+          <% if @project.status == 1 %>
+            <%= "満員御礼" %>
+          <% else %>
+            <%= render "entries/entry_links", project: @project  %>
+          <% end %>
+        </button>
       </div>
       
       
@@ -178,6 +184,19 @@
       </table>
     </div>
     <div class="three wide column">
+      
+      <div class="ui card">
+        <div class="image">
+          <%= image_tag(@project.user.gravatar_url) %>
+        </div>
+        <div class="content">
+          <span class="header"><%= @project.user.user_name %></span>
+          <div class="meta">
+            <span class="date"><i class="child icon"></i><%= @project.user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
+          </div>
+        </div>
+      </div>
+  
       <h3 style="text-align:center;"><i class="sticky note icon"></i>関連するプロジェクト</h3>
       
       <hr></hr>

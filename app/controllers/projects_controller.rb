@@ -13,8 +13,14 @@ class ProjectsController < ApplicationController
 
   # 検索結果の表示用
   def index
+<<<<<<< HEAD
     # ページネーション付き
   
+=======
+    @results = @q.result(distinct: true)
+    @users_rank = User.users_rank
+    @num = 0
+>>>>>>> d6ea2108ce17f22a511972823cd852cc1a4ef791
   end
 
   def create

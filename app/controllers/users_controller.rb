@@ -11,14 +11,6 @@ class UsersController < ApplicationController
   end
   
   def show_entry
-    # 自分のIDが含まれるエントリーを全て取得
-    # エントリーのプロジェクトIDからプロジェクトを取得
-    @entring_projects = []
-    @my_entries = Entry.where(user_id: @user.id)
-    @my_entries.each do |entry|
-      project = Project.find_by(id: entry.project_id)
-      @entring_projects.push(project)
-    end
   end
   
   def show_member
@@ -33,7 +25,7 @@ class UsersController < ApplicationController
         # 後でmodelに移行!
         def set_user
           @user = User.find(params[:id])
-          @projects = Project.where(:user_id => @user.id)
+          @user_projects = Project.where(:user_id => @user.id)
           # 右サイドのソーシャルスタイルカードを表示するデータ
           @socialstyle = Socialstyle.find_by(name: @user.socialstyle)
           
@@ -41,7 +33,7 @@ class UsersController < ApplicationController
           # いいねがついてるプロジェクトを取得
           # いいねがついてるプロジェクトを日付が新しい順に5件まで取得
           @populars = []
-          @projects.each do |project|
+          @user_projects.each do |project|
             if project.likes.count > 0
               @populars.push(project)
             end
@@ -52,10 +44,49 @@ class UsersController < ApplicationController
           # 自分のプロジェクトを全て取得
           # そのプロジェクトのIDが含まれる応募を取得
           @new_apps = []
-          @projects.each do |project|
+          @user_projects.each do |project|
             new_app = Entry.find_by(project_id: project.id)
-            @new_apps.push(new_app) if !new_app.nil?
+            @new_apps.push(new_app) if !new_app.nil? && new_app.status == 0
           end
+          
+          # 採用データ
+          # 自分のプロジェクトを全て取得
+          # そのプロジェクトのIDが含まれる応募 & ステータスが0(承認非承認の可否なし)を取得
+          @recruit_projects = []
+          @user_projects.each do |project|
+            recruit_projects = Entry.where(project_id: project.id)
+            recruit_projects.each do |recruit_project|
+              if !recruit_project.nil? && recruit_project.status == 0 && recruit_project.owner_id == 0
+                @recruit_projects.push(recruit_project)
+              end
+            end
+          end
+          
+          # 自分のIDが含まれるエントリーを全て取得
+          # エントリーのプロジェクトIDからプロジェクトを取得
+          @entring_projects = []
+          @my_entries = Entry.where(user_id: @user.id)
+          @my_entries.each do |entry|
+            project = Project.find_by(id: entry.project_id)
+            @entring_projects.push(project)
+          end
+          
+          # メンバーの取得
+          member_ids = []
+          @members = []
+          @user_entries = Entry.where(owner_id: @user.id, status: 1)
+            @user_entries.each do |member|
+              member_ids.push(member.project_id)
+            end
+
+          member_ids.uniq.each do |member_id|
+            member = Entry.find_by(id: member_id)
+            @members.push(member) if !member.nil?
+          end
+
+          # ピックしたプロジェクトを表示
+          # 
+          @picks = @user.pick_projects
         end
 
 end

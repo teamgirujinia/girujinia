@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 20170731050459) do
   create_table "entries", force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "user_id", null: false
-    t.integer "owner_id", null: false
+    t.integer "owner_id", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.string "pairs", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_entries_on_project_id"

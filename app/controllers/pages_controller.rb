@@ -5,13 +5,13 @@ class PagesController < ApplicationController
 
   
   def index
-    @projects = Project.all.reverse
+    @projects = Project.all
   end
   
   # 急上昇
   # いいね / PV ?
   def sudden
-    @projects = Project.all.reverse
+    @projects = Project.all
   end
 
   # 募集中
