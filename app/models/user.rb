@@ -28,6 +28,7 @@ class User < ApplicationRecord
     self.likes.exists?(project_id: project.id)
   end
 
+<<<<<<< HEAD
          has_many :picks, dependent: :destroy
          has_many :pick_projects, through: :picks, source: :project
 
@@ -41,6 +42,21 @@ class User < ApplicationRecord
   # rankの数値が高い順に取得
   def self.users_rank
       self.all.order("experience_value").first(10)
+=======
+
+  # 既存のパスワードを入力せずにプロフィール編集可能に
+  def update_without_current_password(params, *options)
+     params.delete(:current_password)
+
+     if params[:password].blank? && params[:password_confirmation].blank?
+       params.delete(:password)
+       params.delete(:password_confirmation)
+     end
+
+     result = update_attributes(params, *options)
+     clean_up_passwords
+     result
+>>>>>>> hotfixes
   end
 
 end

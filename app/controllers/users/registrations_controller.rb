@@ -59,4 +59,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  # 既存のパスワードを入力せずにプロフィール編集可能に
+  protected
+    def update_resource(resource, params)
+      resource.update_without_current_password(params)
+    end
+
+    # プロフィール変更後myページにリダイレクト
+    def after_update_path_for(resource)
+      edit_user_registration_path
+    end
 end

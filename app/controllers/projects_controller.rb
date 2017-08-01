@@ -13,7 +13,8 @@ class ProjectsController < ApplicationController
 
   # 検索結果の表示用
   def index
-    @results = @q.result(distinct: true)
+    # ページネーション付き
+    @results = @q.result(distinct: true).page(params[:page])
   end
 
   def create
@@ -74,4 +75,5 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:create_title, :period, :capacity, :content, :work_method, :communication, :job_first, :user_id, :job_secound, :job_third, :lang1, :lang2, :lang3, :dev_type, :tool).merge(user_id: current_user.id)
     end
+
 end

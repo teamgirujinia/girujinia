@@ -31,19 +31,23 @@ Rails.application.routes.draw do
       get :pick_posts
     end
   end
+<<<<<<< HEAD
   
   
+=======
+
+>>>>>>> hotfixes
   root 'pages#index'
   
   resources :socialstyles
   resources :tags do
   end
-  
+
   # お問い合わせ
   get 'contact' => 'contact#index'
   post 'contact/confirm' => 'contact#confirm'
   post 'contact/thanks' => 'contact#thanks'
-  
+
   # ホーム関連ページ
   get 'sudden' => 'pages#sudden'
   get 'wanted' => 'pages#wanted'

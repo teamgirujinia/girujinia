@@ -1,10 +1,14 @@
-
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
+<<<<<<< HEAD
       
       <!--左サイド-->
       <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
+=======
+      <h3 style="text-align:center;">
+        <i class="users icon"></i>ユーザーランキング</h3>
+>>>>>>> hotfixes
       <div class="ui segments">
         <% @users_rank.each do |user| %>
           <div class="ui segment">
@@ -33,6 +37,7 @@
     
     <!--フィード-->
     <div class="ten wide column">
+<<<<<<< HEAD
       <%= render "shares/main", projects: projects, page: page %>
     </div>
     
@@ -70,15 +75,100 @@
           <% end %>
           
           
-      </div>
+=======
 
-      <h3><i class="rocket icon"></i>人気の言語</h3>
-      <hr></hr>
-      
-      <div class="popular_lang word-break">
-        a
+      <%= render 'projects/search' %>
+
+      <% if page == 1 %>
+      <div class="search">
+        検索結果
+        <%= projects.count %>
+        件
+      </div><br>
+      <% end %>
+
+      <% projects.each do |project| %>
+
+      <div class="timeline">
+        <span class="timeline_font_tt"><%= link_to "#{project.create_title.truncate(42)}", project %></span>
+        <hr></hr>
+        <span class="timeline_font_st"><%= project.content.truncate(249) %></span>
+        <hr></hr>
+
+        <div class="table_size">
+          <table class="ui very basic table">
+            <tbody>
+              <tr>
+                <td>募集人数:
+                  <%= project.capacity%></td>
+                <td>期間:
+                  <%= project.period %></td>
+                <td>募集職種:
+                  <%= project.job_first %></td>
+                <td><%= time_ago_in_words(project.created_at) +"前" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><br>
+
+        <hr></hr>
+
+        <div class="timeline_icon">
+          <%= link_to project.user, class: "" do %>
+          <%= image_tag(project.user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
+          <span class="my_name"><%= project.user.user_name %></span>
+          <% end %>
+        </div>
       </div>
-      
-    </div>
+      <% end %>
+    </p>
   </div>
+  <div class="three wide column">
+    <div class="ui segments">
+      <% if page == 3%>
+      <div class="ui segment tertiary">
+        <p>
+          <i class="line chart icon"></i>
+          <%= link_to "急上昇", sudden_path %></p>
+>>>>>>> hotfixes
+      </div>
+    <% else %>
+      <div class="ui segment">
+        <p>
+          <i class="line chart icon"></i>
+          <%= link_to "急上昇", sudden_path %></p>
+      </div>
+      <% end %>
+      <div class="ui red segment">
+        <p>
+          <i class="user icon"></i>
+          募集中</p>
+      </div>
+      <div class="ui blue segment">
+        <p>
+          <i class="users icon"></i>
+          進行中</p>
+      </div>
+      <div class="ui green segment">
+        <p>
+          <i class="fire icon"></i>
+          ニュース</p>
+      </div>
+      <div class="ui yellow segment">
+        <p>
+          <i class="flag icon"></i>
+          キャンペーン</p>
+      </div>
+    </div>
+
+    <h3>
+      <i class="rocket icon"></i>人気の言語</h3>
+    <hr></hr>
+
+    <div class="popular_lang word-break">
+      a
+    </div>
+
+  </div>
+</div>
 </div>

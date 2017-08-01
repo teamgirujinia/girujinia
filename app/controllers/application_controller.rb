@@ -19,11 +19,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:user_name, :profile, :socialstyle, :facebook, :twitter, :qiita, :teratail, :git, :blog, :address, :age])
   end
 
-  # プロフィール変更後myページにリダイレクト
-  def after_update_path_for(resource)
-    user_path
-  end
-  
+
     # 検索
   def set_ransack
     @q        = Project.search(params[:q])
@@ -43,11 +39,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def update_resource(resource, params)
-  #     resource.update_without_password(params)
-  # end
-  #
-  # def params
-  #   params(:user).permit(:user_name, :email)
-  # end
 end
