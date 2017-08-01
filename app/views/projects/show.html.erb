@@ -184,6 +184,19 @@
       </table>
     </div>
     <div class="three wide column">
+      
+      <div class="ui card">
+        <div class="image">
+          <%= image_tag(@project.user.gravatar_url) %>
+        </div>
+        <div class="content">
+          <span class="header"><%= @project.user.user_name %></span>
+          <div class="meta">
+            <span class="date"><i class="child icon"></i><%= @project.user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
+          </div>
+        </div>
+      </div>
+  
       <h3 style="text-align:center;"><i class="sticky note icon"></i>関連するプロジェクト</h3>
       
       <hr></hr>

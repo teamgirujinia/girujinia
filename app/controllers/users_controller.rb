@@ -54,8 +54,12 @@ class UsersController < ApplicationController
           # そのプロジェクトのIDが含まれる応募 & ステータスが0(承認非承認の可否なし)を取得
           @recruit_projects = []
           @user_projects.each do |project|
-            recruit_project = Entry.find_by(project_id: project.id)
-            @recruit_projects.push(recruit_project) if !recruit_project.nil? && recruit_project.status == 0 && recruit_project.owner_id == 0
+            recruit_projects = Entry.where(project_id: project.id)
+            recruit_projects.each do |recruit_project|
+              if !recruit_project.nil? && recruit_project.status == 0 && recruit_project.owner_id == 0
+                @recruit_projects.push(recruit_project)
+              end
+            end
           end
           
           # 自分のIDが含まれるエントリーを全て取得
@@ -68,8 +72,18 @@ class UsersController < ApplicationController
           end
           
           # メンバーの取得
-          @members = Entry.where(owner_id: @user.id, status: 1)
-          
+          member_ids = []
+          @members = []
+          @user_entries = Entry.where(owner_id: @user.id, status: 1)
+            @user_entries.each do |member|
+              member_ids.push(member.project_id)
+            end
+
+          member_ids.uniq.each do |member_id|
+            member = Entry.find_by(id: member_id)
+            @members.push(member) if !member.nil?
+          end
+
           # ピックしたプロジェクトを表示
           # 
           @picks = @user.pick_projects

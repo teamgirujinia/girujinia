@@ -15,6 +15,11 @@ User.create!(user_name:  "girujinia",
              email: "girujinia@gmail.com",
              password:              "sgirujinia",
              password_confirmation: "sgirujinia")
+
+User.create!(user_name:  "寒河江2",
+             email: "zettainiakiramenaizo@gmail.com",
+             password:              "s19930528",
+             password_confirmation: "s19930528")
              
              
 # タグ（言語）の作成
