@@ -6,3 +6,5 @@ run Rails.application
 after :each do
     
 end
+
+git config --global user.email johndoe@example.com
