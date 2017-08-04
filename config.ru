@@ -3,8 +3,8 @@
 require_relative 'config/environment'
 
 run Rails.application
-after :each do
+# after :each do
     
-end
+# end
 
-git config --global user.email johndoe@example.com
+# git config --global user.email johndoe@example.com

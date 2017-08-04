@@ -7,18 +7,9 @@ class Project < ApplicationRecord
     
     # -----------------------------------------------------------------------------------
     belongs_to :user
-<<<<<<< HEAD
-    has_many :comments, dependent: :destroy # プロジェクトが消失するとコメントも消える
-
-    # いいね機能の likeと関連付け
-    has_many :likes
-
-     # 2の関係
-=======
     has_many :comments, dependent: :destroy
     
     has_many :likes, dependent: :destroy
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
     has_many :liked_users, through: :likes, source: :user
 
     has_many :picks, dependent: :destroy
@@ -43,10 +34,8 @@ class Project < ApplicationRecord
     def entried_by? user
          entries.where(user_id: user.id).exists?
     end
-<<<<<<< HEAD
 
     paginates_per 10 # 11ページ目を分割
-=======
     
     #お気に入りしているかどうかを返す
     def picked_by? user
@@ -57,5 +46,4 @@ class Project < ApplicationRecord
     def liked_by? user
        likes.where(user_id: user.id).exists?
     end
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
 end

@@ -4,15 +4,12 @@ class User < ApplicationRecord
       include Gravtastic
       gravtastic
 
-<<<<<<< HEAD
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :validatable, :omniauthable
-=======
       default_scope -> { order(experience_value: :asc) }
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
 
      # -------------------------------------------------------------------------------------------------------------------
      
@@ -26,7 +23,6 @@ class User < ApplicationRecord
              :recoverable, :rememberable, :trackable, :validatable,
              :confirmable, :lockable
 
-<<<<<<< HEAD
       # 関連付け
          has_many :projects, dependent: :destroy
          has_many :comments
@@ -37,7 +33,6 @@ class User < ApplicationRecord
   def already_liked?(project)
     self.likes.exists?(project_id: project.id)
   end
-=======
 
      # -------------------------------------------------------------------------------------------------------------------
      
@@ -70,7 +65,6 @@ class User < ApplicationRecord
       end
   
   
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
 
 
   # 既存のパスワードを入力せずにプロフィール編集可能に

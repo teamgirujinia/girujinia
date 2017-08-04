@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'certified' # sslの設定
+# gem 'certified' # sslの設定
 gem 'omniauth-facebook'
 gem 'kaminari' # データの分割
 gem 'devise'
@@ -18,7 +18,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -28,8 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt' # 3.1.7だとエラーになるためバージョン修正
+gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt' # windows環境 3.1.7だとエラーになるためバージョン修正
 
 gem 'unicorn', :group => :server # サーバ指定追加 (windowsではunicornが使えない)
 
@@ -56,13 +55,9 @@ group :development, :test do
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
   gem 'sqlite3' # 追加
-<<<<<<< HEAD
   gem 'rubocop' # コーディングルールのチェック
-  gem 'rack'
-=======
   gem 'hirb'         # モデルの出力結果を表形式で表示するGem
   gem 'hirb-unicode' # 日本語などマルチバイト文字の出力時の出力結果のずれに対応
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
 end
 
 group :development do

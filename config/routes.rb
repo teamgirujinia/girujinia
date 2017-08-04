@@ -34,12 +34,9 @@ Rails.application.routes.draw do
       get :pick_projects
     end
   end
-<<<<<<< HEAD
 
-=======
   
   
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
   root 'pages#index'
   
   resources :socialstyles

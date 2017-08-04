@@ -1,14 +1,11 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
-<<<<<<< HEAD
       <h3 style="text-align:center;">
         <i class="users icon"></i>ユーザーランキング</h3>
-=======
       
       <!--左サイド-->
       <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
       <div class="ui segments">
         <% @users_rank.each do |user| %>
           <div class="ui segment">
@@ -37,7 +34,6 @@
     
     <!--フィード-->
     <div class="ten wide column">
-<<<<<<< HEAD
 
       <%= render 'projects/search' %>
 
@@ -94,7 +90,6 @@
         <p>
           <i class="line chart icon"></i>
           <%= link_to "急上昇", sudden_path %></p>
-=======
       <%= render "shares/main", projects: projects, page: page %>
     </div>
     
@@ -132,7 +127,6 @@
           <% end %>
           
           
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
       </div>
     <% else %>
       <div class="ui segment">
