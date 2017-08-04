@@ -5,14 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'certified' # sslの設定
+gem 'omniauth-facebook'
 gem 'kaminari' # データの分割
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
-
-# Use Puma as the app server
-gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -56,7 +55,8 @@ group :development, :test do
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
   gem 'sqlite3' # 追加
-
+  gem 'rubocop' # コーディングルールのチェック
+  gem 'rack'
 end
 
 group :development do
