@@ -1,12 +1,15 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+
 Devise.setup do |config|
+  # figaro gem をインクルード
+  require 'figaro'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.omniauth :facebook, "132392044033826", "1d5366b7d9aad996c394f23bda90ddab"
+  config.omniauth :facebook, ENV['FACEBOOK_API_KEY'], ENV['FACEBOOK_API_SECRET']
 
   config.secret_key = '42e8371ff507297a27897ee02b622ddee4cac6634497516fc06fb75753992e3a7087749301481598aee86c09b57f78679862dfd89748414490f71eeea5d0c150'
   # ================ アカウント認証を5回失敗するとロック ======================
