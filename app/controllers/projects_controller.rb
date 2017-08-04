@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_ransack
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_alart
+
 
   def new
     @project = Project.new
@@ -9,8 +11,14 @@ class ProjectsController < ApplicationController
 
   # 検索結果の表示用
   def index
+<<<<<<< HEAD
     # ページネーション付き
   
+=======
+    @results = @q.result(distinct: true)
+    @users_rank = User.users_rank
+    @num = 0
+>>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
   end
 
   def create

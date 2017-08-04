@@ -2,5 +2,7 @@ class Like < ApplicationRecord
   belongs_to :project
   belongs_to :user
 
-  validates_uniqueness_of :project_id, scope: :user_id
+    validates :user, presence: true
+    validates :user_id, uniqueness: { scope: :project_id }
+    validates :project, presence: true
 end

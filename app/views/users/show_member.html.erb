@@ -1,0 +1,45 @@
+
+
+<div class="ui internally celled grid">
+  <div class="row">
+    
+    <!--左サイドバー-->
+    <%= render "users/left_side" %>
+    
+    <div class="ten wide column">
+      <!--プロフィール & プロフィールリンク-->
+      <%= render 'users/profile' %>
+    
+      <% @members.each do |members| %>
+      
+        <h3 style="text-align:center;"><i class="user circle outline icon"></i><%= members.project.create_title %></h3>
+        
+            <hr></hr>
+        <% members = Entry.where(project_id: members.project_id, status: 1) %>
+        <% members.each do |member| %>
+            
+            <div class="ui cards">
+                <div class="card">
+                  <div class="content">
+                    <%= link_to member.user, class: "item h_100" do %>
+                         <%= image_tag(member.user.gravatar_url, :size => "20x20", :class => "right floated big ui avatar image") %>
+                    <% end %>
+                    <div class="header">
+                      <%= link_to "#{member.user.user_name}", member.user %>
+                    </div>
+                    <div class="description">
+                      <%= link_to "#{member.project.create_title}", member.project %>にジョイン!
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+        <% end %>
+      <% end %>
+    </div>
+    
+    <!--右サイドバー-->
+    <%= render "users/right_side" %>
+    
+  </div>
+</div>

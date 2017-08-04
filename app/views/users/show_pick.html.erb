@@ -1,0 +1,21 @@
+
+
+<div class="ui internally celled grid">
+  <div class="row">
+    
+    <!--左サイドバー-->
+    <%= render "users/left_side" %>
+    
+    <div class="ten wide column">
+      <!--プロフィール & プロフィールリンク-->
+      <%= render 'users/profile' %>
+    
+      <!--フィード-->
+      <%= render "shares/main", projects: @picks, page: 2 %>
+    </div>
+    
+    <!--右サイドバー-->
+    <%= render "users/right_side" %>
+    
+  </div>
+</div>

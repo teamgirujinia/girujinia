@@ -25,5 +25,19 @@ class ApplicationController < ActionController::Base
     @q        = Project.ransack(params[:q])
     @results = @q.result(distinct: true).page(params[:page])
   end
+  
+  
+  # お知らせ
+  def set_alart
+    @projects = Project.all.reverse
+    # 左サイドに新着応募を表示するためのデータ
+    # 自分のプロジェクトを全て取得
+    # そのプロジェクトのIDが含まれる応募を取得
+    @new_apps = []
+    @projects.each do |project|
+      new_app = Entry.find_by(project_id: project.id)
+      @new_apps.push(new_app) if !new_app.nil?
+    end
+  end
 
 end

@@ -1,3 +1,7 @@
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to 'Sign up with Facebook', user_facebook_omniauth_authorize_path %> 
+  <% end -%>
 <%- if controller_name != 'sessions' %>
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end -%>

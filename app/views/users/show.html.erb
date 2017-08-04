@@ -1,129 +1,20 @@
-
+<!--ユーザーの投稿したプロジェクトを表示するページ-->
 
 <div class="ui internally celled grid">
   <div class="row">
-    <div class="three wide column">
-      
-       <%= link_to edit_user_registration_path, class: "fluid ui brown button" do %>
-            <i class="address book icon" style="color: white;"></i>
-            <span class="my_name" style="color: white;">プロフィールを編集する</span>
-       <% end %>
-
-      <div class="ui card">
-        <div class="image">
-          <%= image_tag(@user.gravatar_url) %>
-        </div>
-        <div class="content">
-          <span class="header"><%= @user.user_name %></span>
-          <div class="meta">
-            <span class="date"><i class="child icon"></i><%= @user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
-          </div>
-          <div class="description">
-            Kristy is an art director living in New York.
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            22 Friends
-          </a>
-        </div>
-      </div>
-      
-      <% if @user.id == current_user.id %>
-        <h3 style="text-align:center;"><i class="users icon"></i>新着応募</h3>
-        <hr></hr>
-        
-        <div class="ui feed">
-          <% @new_apps.each do |new_app| %>
-          <div class="event">
-            <div class="label">
-              
-             <%= link_to new_app.user, class: "item h_100" do %>
-                  <%= image_tag(new_app.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
-             <% end %>
-             
-            </div>
-            <div class="content">
-              <div class="date">
-                <%= time_ago_in_words(new_app.project.created_at) +"前"%>
-              </div>
-              <div class="summary">
-                 <%= link_to "#{new_app.user.user_name}",  new_app.user %> が
-                 <%= link_to "#{new_app.project.create_title}",  new_app.project %> に応募しました。
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </div>
-  
-      <% end %>
-      
-      <h3 style="text-align:center;"><i class="users icon"></i>チームメンバー</h3>
-      <hr></hr>
-      
-    </div>
+    
+    <!--左サイドバー-->
+    <%= render "users/left_side" %>
+    
     <div class="ten wide column">
-    <%= render 'users/profile' %>
-
-    <div class="five ui buttons">
-      <button class="ui button">Overview</button>
-      <button class="ui button">Specs</button>
-      <button class="ui button">Warranty</button>
-      <button class="ui button">Reviews</button>
-      <button class="ui button">Support</button>
+      <!--プロフィール & プロフィールリンク-->
+      <%= render 'users/profile' %>
+      <!--フィード-->
+      <%= render "shares/main", projects: @user_projects, page: 2 %>
     </div>
-
-    <br><br>
-
-
-      <% @projects.each do |project| %>
-
-      <div class="timeline">
-        <span class="timeline_font_tt"><%= link_to "#{project.create_title.truncate(42)}", project %></span>
-        <hr></hr>
-        <span class="timeline_font_st"><%= project.content.truncate(249) %></span>
-        <hr></hr>
-
-        <div class="table_size">
-        <table class="ui very basic table">
-          <tbody>
-            <tr>
-              <td>募集人数: <%= project.capacity%></td>
-              <td>期間: <%= project.period %></td>
-              <td>募集職種: <%= project.job_first %></td>
-              <td><%= time_ago_in_words(project.created_at) +"前" %></td>
-            </tr>
-          </tbody>
-        </table>
-        </div><br>
-
-        <hr></hr>
-
-        <div class="timeline_icon">
-          <%= link_to project.user, class: "" do %>
-            <%= image_tag(project.user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
-            <span class="my_name"><%= project.user.user_name %></span>
-          <% end %>
-        </div>
-        
-      </div>
-
-        
-    <% end %>
-    </div>
-    <div class="three wide column">
-      <h3 style="text-align:center;"><i class="user circle outline icon"></i>ソーシャルスタイル</h3>
-      
-      <hr></hr>
-
-      <%= render "users/socialstyle" %>
-      <h3 style="text-align:center;"><i class="write square icon"></i>人気のプロジェクト</h3>
-      
-      <hr></hr>
-      
-      <!--  人気のプロジェクト -->
-      <%= render "shares/side_project", projects: @populars %>
-    </div>
+    
+    <!--右サイドバー-->
+    <%= render "users/right_side" %>
+    
   </div>
 </div>

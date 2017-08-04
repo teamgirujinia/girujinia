@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   before_action :set_ransack
   before_action :set_tag, only: [:destroy, :edit, :update]
+  before_action :set_alart
   http_basic_authenticate_with name: "sgirujinia", password: "sgirujinia"
 
     def new

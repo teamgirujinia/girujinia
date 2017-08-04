@@ -2,17 +2,46 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => {
+   :omniauth_callbacks => "users/omniauth_callbacks",
+   :sessions      => "users/sessions",
+   :passwords     => "users/passwords",
    :registrations => 'users/registrations'
   }
 
+  # プロジェクト
   resources :projects do
+    resource :picks, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy] # いいね機能
     resources :comments, only: [:create, :destroy] # コメントをネスト
-    resources :likes, only: [:create, :destroy] # いいね機能
-    resources :entries, only: [:create, :destroy]
+    resources :entries, only: [:create, :destroy] do
+      member do
+        post 'approval' => 'entries#approval'
+        post 'disapproval' => 'entries#disapproval'
+      end
+    end
+    member do
+       get :pick_users
+    end
   end
 
+  # ユーザー
+  resources :users, only: [:show] do
+    member do
+      get 'show_recruit' => 'users#show_recruit'
+      get 'show_entry' => 'users#show_entry'
+      get 'show_member' => 'users#show_member'
+      get 'show_pick' => 'users#show_pick'
+      get :pick_projects
+    end
+  end
+<<<<<<< HEAD
+
+=======
+  
+  
+>>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
   root 'pages#index'
-  resources :users, only: [:show]
+  
   resources :socialstyles
   resources :tags do
   end
@@ -24,6 +53,8 @@ Rails.application.routes.draw do
 
   # ホーム関連ページ
   get 'sudden' => 'pages#sudden'
+  get 'wanted' => 'pages#wanted'
+  get 'doing' => 'pages#doing'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
