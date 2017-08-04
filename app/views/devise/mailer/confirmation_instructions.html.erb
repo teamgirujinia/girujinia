@@ -4,7 +4,10 @@
 
 <br>
 <h3>下記のアカウント登録を押下すると本登録されます</h3>
-<button><%= link_to 'アカウント登録', confirmation_url(@resource, confirmation_token: @token) %></button>
+
+<button class="massive ui button"><font><font>
+  <%= link_to 'アカウント登録', confirmation_url(@resource, confirmation_token: @token) %>
+</font></font></button>
 <br>
 <h4>※アカウント登録を押下されないと本登録ができていない状態になります</h4>
 
