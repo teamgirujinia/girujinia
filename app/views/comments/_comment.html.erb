@@ -1,22 +1,21 @@
 
-  
-<div class="ui feed">
-  <div class="event">
-    <div class="label">
-       <%= link_to current_user, class: "item h_100" do %>
-            <%= image_tag(comment.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
-       <% end %>
-    </div>
-    <div class="content">
-      <div class="date">
-        3 days ago
+  <div class="ui feed">
+    <div class="event">
+      <div class="label">
+         <%= link_to current_user, class: "item h_100" do %>
+              <%= image_tag(comment.user.gravatar_url, :size => "15x15", :class => "ui avatar image") %>
+         <% end %>
       </div>
-      <div class="summary">
-         <%= link_to "#{comment.user.user_name}", comment.user %>
-      </div>
-      <div class="extra text">
-        <%= comment.content %>
+      <div class="content">
+        <div class="date">
+          3 days ago
+        </div>
+        <div class="summary">
+           <%= link_to "#{comment.user.user_name}", comment.user %>
+        </div>
+        <div class="extra text">
+          <%= comment.content %>
+        </div>
       </div>
     </div>
   </div>
-</div>

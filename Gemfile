@@ -37,6 +37,7 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git' # 
 
 gem 'gravtastic' #ユーザー画像
 
+gem 'rails-i18n' # エラーメッセージの日本語化
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem "ransack"
@@ -55,8 +56,13 @@ group :development, :test do
   gem 'capistrano-rbenv' #追加
   gem 'capistrano-rails' #追加
   gem 'sqlite3' # 追加
+<<<<<<< HEAD
   gem 'rubocop' # コーディングルールのチェック
   gem 'rack'
+=======
+  gem 'hirb'         # モデルの出力結果を表形式で表示するGem
+  gem 'hirb-unicode' # 日本語などマルチバイト文字の出力時の出力結果のずれに対応
+>>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
 end
 
 group :development do

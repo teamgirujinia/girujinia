@@ -1,4 +1,4 @@
-<!--ユーザーの投稿したプロジェクトを表示するページ-->
+
 
 <div class="ui internally celled grid">
   <div class="row">
@@ -9,8 +9,9 @@
     <div class="ten wide column">
       <!--プロフィール & プロフィールリンク-->
       <%= render 'users/profile' %>
+    
       <!--フィード-->
-      <%= render "shares/main", projects: @user_projects, page: 2 %>
+      <%= render "shares/main", projects: @picks, page: 2 %>
     </div>
     
     <!--右サイドバー-->

@@ -1,27 +1,43 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
+<<<<<<< HEAD
       <h3 style="text-align:center;">
         <i class="users icon"></i>ユーザーランキング</h3>
+=======
+      
+      <!--左サイド-->
+      <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
+>>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
       <div class="ui segments">
-        <div class="ui segment">
-          <p>Top</p>
-        </div>
-        <div class="ui segment">
-          <p>Middle</p>
-        </div>
-        <div class="ui segment">
-          <p>Middle</p>
-        </div>
-        <div class="ui segment">
-          <p>Middle</p>
-        </div>
-        <div class="ui segment">
-          <p>Bottom</p>
-        </div>
+        <% @users_rank.each do |user| %>
+          <div class="ui segment">
+            <div class="ui feed">
+              <div class="event">
+                <div class="floating ui red label"><%= @num += 1 %></div>
+                <div class="label">
+                  <%= link_to user, class: "" do %>
+                    <%= image_tag(user.gravatar_url, :size => "25x25", :class => "ui avatar image") %>
+                  <% end %>
+                </div>
+                <div class="content">
+                  <div class="summary">
+                    <%= link_to "#{user.user_name}", user %>　
+                    <%= user.experience_value %>　
+                    <%= user.rank %>　
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
       </div>
     </div>
+    
+    <!--フィード-->
     <div class="ten wide column">
+<<<<<<< HEAD
 
       <%= render 'projects/search' %>
 
@@ -78,6 +94,45 @@
         <p>
           <i class="line chart icon"></i>
           <%= link_to "急上昇", sudden_path %></p>
+=======
+      <%= render "shares/main", projects: projects, page: page %>
+    </div>
+    
+    <!--右サイド-->
+    <div class="three wide column">
+      <div class="ui segments">
+          <% if page == 3 %>
+            <div class="ui segment tertiary">
+              <p><i class="line chart icon"></i>　<%= link_to "急上昇", sudden_path %></p>
+            </div>
+          <% else %>
+            <div class="ui segment">
+              <p><i class="line chart icon"></i>　<%= link_to "急上昇", sudden_path %></p>
+            </div>
+          <% end %>
+          
+          <% if page == 4 %>
+            <div class="ui red segment tertiary">
+              <p><i class="user icon"></i>　<%= link_to "募集中", wanted_path %></p>
+            </div>
+          <% else %>
+            <div class="ui red segment">
+              <p><i class="user icon"></i>　<%= link_to "募集中", wanted_path %></p>
+            </div>
+          <% end %>
+          
+          <% if page == 5 %>
+            <div class="ui blue segment tertiary">
+              <p><i class="users icon"></i>　<%= link_to "進行中", doing_path %></p>
+            </div>
+          <% else %>
+            <div class="ui blue segment">
+              <p><i class="users icon"></i>　<%= link_to "進行中", doing_path %></p>
+            </div>
+          <% end %>
+          
+          
+>>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
       </div>
     <% else %>
       <div class="ui segment">

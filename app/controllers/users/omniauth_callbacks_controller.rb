@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_action :set_ransack
+  before_action :set_alart
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 

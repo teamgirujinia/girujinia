@@ -3,10 +3,33 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
-       <%= render "likes/like" %>
+      <!-- ココ追記 カウントのため -->
+      
+      <table class="ui celled table">
+        <thead>
+          <tr><th><i class="like pink icon"></i></th>
+          <th><i class="unhide icon"></i></th>
+          <th><i class="talk green icon"></i></th>
+          <th><i class="bookmark yellow icon"></i></th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><%= @project.likes.count %></td>
+            <td><%= @project.pv %></td>
+            <td><%= @project.comments.count %></td>
+            <td><%= @project.picks.count %></td>
+          </tr>
+        </tbody>
+      </table>
+       <button class="ui green fluid button"><%= render "likes/like_links", project: @project %></button>
+             
+        <div class="liking_users">
+          <% @project.liked_users.each do |user| %>
+            <%= link_to image_tag(user.gravatar_url, :size => "15x15", :class => "ui rounded mini image"), user %>
+          <% end %> 
+        </div>
     </div>
     <div class="ten wide column">
-
 
       <table class="ui celled striped table word-break">
         <thead>
@@ -104,24 +127,34 @@
         </tbody>
       </table>
       
+      
+      <!--ピック・いいね・応募ボタン-->
+      
       <div class="five ui buttons">
-       <!-- 応募ボタン -->
-       <%= render "entries/entry" %>
-        <button class="ui button">Specs</button>
-        <button class="ui button">Warranty</button>
-        <button class="ui button">Reviews</button>
-        <button class="ui button">Support</button>
-      </div>
-    
-      <div class="ui segments padding10">
-      <%= render @project.comments %>
+        <button class="ui blue basic button"><%= render "picks/pick_links", project: @project %></button>
+        <button class="ui blue basic button"><%= render "likes/like_links", project: @project %></button>
+        <button class="ui blue basic button">
+          <% if @project.status == 1 %>
+            <%= "満員御礼" %>
+          <% else %>
+            <%= render "entries/entry_links", project: @project  %>
+          <% end %>
+        </button>
       </div>
       
+      
+      <!--コメント一覧-->
+      <% if !@project.comments.blank? %>
+        <div class="ui segments padding10">
+          <%= render @project.comments %>
+        </div>
+      <% end %>
+      
+      <!-- コメント入力欄 -->
       <%= render "comments/form" %>
 
 
-        <!-- いいねボタン -->
-        <%= render "likes/like" %>
+
       
       <table class="ui celled padded table">
         <thead>
@@ -151,6 +184,19 @@
       </table>
     </div>
     <div class="three wide column">
+      
+      <div class="ui card">
+        <div class="image">
+          <%= image_tag(@project.user.gravatar_url) %>
+        </div>
+        <div class="content">
+          <span class="header"><%= @project.user.user_name %></span>
+          <div class="meta">
+            <span class="date"><i class="child icon"></i><%= @project.user.created_at.strftime("%Y年%m月%d日にジョイン")%></span>
+          </div>
+        </div>
+      </div>
+  
       <h3 style="text-align:center;"><i class="sticky note icon"></i>関連するプロジェクト</h3>
       
       <hr></hr>

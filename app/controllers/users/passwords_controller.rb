@@ -1,4 +1,6 @@
 class Users::PasswordsController < Devise::PasswordsController
+  before_action :set_ransack
+  before_action :set_alart
   # GET /resource/password/new
   # def new
   #   super

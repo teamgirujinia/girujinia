@@ -17,6 +17,10 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :dev_type
       t.string :tool
       t.integer :pv, null: false, default: 0
+      # 0 = 募集中
+      # 1 = 進行中
+      # 2 = 完了
+      t.integer :status, null: false, default: 0
       
       t.timestamps
     end

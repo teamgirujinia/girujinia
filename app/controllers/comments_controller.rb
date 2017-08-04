@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_ransack
   before_action :authenticate_user!
-  
+  before_action :set_alart
+
   # projectに対するコメントを作成
   def create
     @project = Project.find(params[:project_id]) # idを検索して標識につめる

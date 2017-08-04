@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170803135021) do
+=======
+ActiveRecord::Schema.define(version: 20170731050459) do
+>>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -29,7 +33,9 @@ ActiveRecord::Schema.define(version: 20170803135021) do
   create_table "entries", force: :cascade do |t|
     t.integer "project_id", null: false
     t.integer "user_id", null: false
-    t.integer "owner_id", null: false
+    t.integer "owner_id", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.string "pairs", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_entries_on_project_id"
@@ -45,6 +51,16 @@ ActiveRecord::Schema.define(version: 20170803135021) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "picks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
   create_table "projects", force: :cascade do |t|
     t.string "create_title"
     t.string "period"
@@ -62,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170803135021) do
     t.string "dev_type"
     t.string "tool"
     t.integer "pv", default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -99,6 +116,7 @@ ActiveRecord::Schema.define(version: 20170803135021) do
     t.string "blog", default: "", null: false
     t.string "address", default: "", null: false
     t.string "age", default: "", null: false
+    t.integer "experience_value", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
