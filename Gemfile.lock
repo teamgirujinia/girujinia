@@ -173,7 +173,6 @@ GEM
       activerecord (>= 3.0)
     powerpack (0.1.1)
     public_suffix (2.0.5)
-    puma (3.9.1)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -300,7 +299,6 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   omniauth-facebook
-  puma
   rails (~> 5.1.2)
   rails-i18n
   ransack
