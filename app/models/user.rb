@@ -23,11 +23,6 @@ class User < ApplicationRecord
              :recoverable, :rememberable, :trackable, :validatable,
              :confirmable, :lockable
 
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       # 関連付け
          has_many :projects, dependent: :destroy
          has_many :comments
@@ -42,10 +37,7 @@ class User < ApplicationRecord
   def already_liked?(project)
     self.likes.exists?(project_id: project.id)
   end
-
-<<<<<<< HEAD
-=======
-
+  
          has_many :picks, dependent: :destroy
          has_many :pick_projects, through: :picks, source: :project
 
@@ -75,8 +67,7 @@ class User < ApplicationRecord
      result
 
   end
-=======
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
+
      # -------------------------------------------------------------------------------------------------------------------
      
      # リレーション
@@ -107,12 +98,6 @@ class User < ApplicationRecord
           self.all.order("experience_value").first(10)
       end
   
-  
-<<<<<<< HEAD
-=======
->>>>>>> d6ea2108ce17f22a511972823cd852cc1a4ef791
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
-
 
   # 既存のパスワードを入力せずにプロフィール編集可能に
   def update_without_current_password(params, *options)

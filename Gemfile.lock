@@ -50,17 +50,9 @@ GEM
     airbrussh (1.3.0)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (8.0.0)
-<<<<<<< HEAD
     ast (2.3.0)
     bcrypt (3.1.11)
-=======
-    bcrypt (3.1.11-x64-mingw32)
-    bcrypt-ruby (3.1.1.rc1)
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
     bindex (0.5.0)
-    bootstrap-kaminari-views (0.0.5)
-      kaminari (>= 0.13)
-      rails (>= 3.1)
     builder (3.2.3)
     byebug (9.0.6)
     capistrano (3.9.0)
@@ -77,7 +69,7 @@ GEM
     capistrano-rbenv (2.1.1)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
-    capybara (2.15.0)
+    capybara (2.15.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
@@ -102,15 +94,11 @@ GEM
       warden (~> 1.2.3)
     erubi (1.6.1)
     execjs (2.7.0)
-<<<<<<< HEAD
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
-=======
-    ffi (1.9.18-x64-mingw32)
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     gravtastic (3.2.6)
@@ -146,7 +134,7 @@ GEM
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
     kgio (2.11.0)
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8 (3.16.14.19)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -155,7 +143,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_mime (0.1.3)
+    mini_mime (0.1.4)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     multi_json (1.12.1)
@@ -165,7 +153,6 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
     nio4r (2.1.0)
-<<<<<<< HEAD
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     oauth2 (1.4.0)
@@ -182,10 +169,6 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-=======
-    nokogiri (1.8.0-x64-mingw32)
-      mini_portile2 (~> 2.2.0)
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
     orm_adapter (0.5.0)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -216,21 +199,15 @@ GEM
     rails-i18n (5.0.4)
       i18n (~> 0.7)
       railties (~> 5.0)
-<<<<<<< HEAD
     railties (5.1.3)
       actionpack (= 5.1.3)
       activesupport (= 5.1.3)
-=======
-    railties (5.1.2)
-      actionpack (= 5.1.2)
-      activesupport (= 5.1.2)
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.2)
       rake
-    raindrops (0.18.0)
+    raindrops (0.19.0)
     rake (12.0.0)
     ransack (1.8.3)
       actionpack (>= 3.0)
@@ -263,7 +240,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.4.4)
+    selenium-webdriver (3.5.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     sprockets (3.7.1)
@@ -273,11 +250,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-<<<<<<< HEAD
     sqlite3 (1.3.13)
-=======
-    sqlite3 (1.3.13-x64-mingw32)
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
     sshkit (1.14.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -312,18 +285,10 @@ GEM
       nokogiri (~> 1.3)
 
 PLATFORMS
-<<<<<<< HEAD
   ruby
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-=======
-  x64-mingw32
-
-DEPENDENCIES
-  bcrypt-ruby (= 3.1.1.rc1)
-  bootstrap-kaminari-views
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
   byebug
   capistrano
   capistrano-bundler

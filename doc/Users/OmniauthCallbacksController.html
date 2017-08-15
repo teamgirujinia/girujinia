@@ -239,7 +239,7 @@ after_omniauth_failure_path_for(scope)</p>
 </span>
    <span class='comment'># ユーザ登録まで自動的に実施せず、ユーザ検索のみ実施するように変更
 </span>   <span class='comment'># メソッドはuser.rb側で定義します。
-</span>   <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_find_omniauth'>find_omniauth</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>omniauth.auth</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+</span>   <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find_omniauth'><span class='object_link'><a href="../User.html#find_omniauth-class_method" title="User.find_omniauth (method)">find_omniauth</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>omniauth.auth</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
 
    <span class='comment'>#if @user.persisted?
 </span>   <span class='comment'># 新規ユーザの場合、この時点ではDBレコードが存在しないので以下に変更
@@ -252,7 +252,7 @@ after_omniauth_failure_path_for(scope)</p>
      <span class='comment'>#redirect_to new_user_registration_url
 </span>
      <span class='comment'># 新規ユーザの場合、`ユーザ名`登録用のテンプレートをrender
-</span>     <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span>
+</span>     <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='comment'>#  render &#39;devise/registrations/after_omniauth_signup&#39;
 </span>    <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_new_user_registration_url'>new_user_registration_url</span>
    <span class='kw'>end</span>
@@ -297,7 +297,7 @@ after_omniauth_failure_path_for(scope)</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 16 01:18:24 2017 by
+  Generated on Wed Aug 16 02:06:51 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>

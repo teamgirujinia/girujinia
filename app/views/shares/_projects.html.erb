@@ -1,13 +1,6 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
-<<<<<<< HEAD
-      <h3 style="text-align:center;">
-        <i class="users icon"></i>ユーザーランキング</h3>
-      
-      <!--左サイド-->
-      <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
-=======
 
 
       <!--左サイド-->
@@ -16,7 +9,6 @@
       <h3 style="text-align:center;">
         <i class="users icon"></i>ユーザーランキング</h3>
 
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       <div class="ui segments">
         <% @users_rank.each do |user| %>
           <div class="ui segment">
@@ -45,10 +37,10 @@
 
     <!--フィード-->
     <div class="ten wide column">
-<<<<<<< HEAD
-=======
 
+      <%= render 'projects/search' %>
       <%= render "shares/main", projects: projects, page: page %>
+      
     </div>
 
     <!--右サイド-->
@@ -83,9 +75,8 @@
               <p><i class="users icon"></i>　<%= link_to "進行中", doing_path %></p>
             </div>
           <% end %>
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 
-      <%= render 'projects/search' %>
+      
 
       <% if page == 1 %>
       <div class="search">
@@ -140,7 +131,6 @@
         <p>
           <i class="line chart icon"></i>
           <%= link_to "急上昇", sudden_path %></p>
-<<<<<<< HEAD
       <%= render "shares/main", projects: projects, page: page %>
     </div>
     
@@ -178,9 +168,7 @@
           <% end %>
           
           
-=======
 
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       </div>
     <% else %>
       <div class="ui segment">
