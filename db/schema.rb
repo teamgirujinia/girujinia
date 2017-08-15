@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170803135021) do
+=======
+ActiveRecord::Schema.define(version: 20170731050459) do
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -71,7 +75,6 @@ ActiveRecord::Schema.define(version: 20170803135021) do
     t.string "dev_type"
     t.string "tool"
     t.integer "pv", default: 0, null: false
-    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,7 +112,6 @@ ActiveRecord::Schema.define(version: 20170803135021) do
     t.string "blog", default: "", null: false
     t.string "address", default: "", null: false
     t.string "age", default: "", null: false
-    t.integer "experience_value", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

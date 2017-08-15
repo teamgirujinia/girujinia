@@ -204,7 +204,7 @@
       <pre class="code"><span class="info file"># File 'app/controllers/likes_controller.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
-    <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Project.html" title="Project (class)">Project</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'>Project</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='ivar'>@like</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_likes'>likes</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='label'>project_id:</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='comment'># mail_method(@project.user, &quot;pick&quot;, @project)
 </span>    <span class='ivar'>@like</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
@@ -239,7 +239,7 @@
       <pre class="code"><span class="info file"># File 'app/controllers/likes_controller.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
-    <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Project.html" title="Project (class)">Project</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'>Project</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='ivar'>@like</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_likes'>likes</span><span class='period'>.</span><span class='id identifier rubyid_find_by!'>find_by!</span><span class='lparen'>(</span><span class='label'>project_id:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='ivar'>@like</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
 <span class='kw'>end</span></pre>
@@ -253,7 +253,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 16 00:52:34 2017 by
+  Generated on Wed Aug 16 01:18:23 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>

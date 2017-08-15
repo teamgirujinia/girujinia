@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_ransack
   before_action :set_project, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+
   before_action :set_alart
 
 
@@ -18,7 +20,11 @@ class ProjectsController < ApplicationController
     @results = @q.result(distinct: true)
     @users_rank = User.users_rank
     @num = 0
+<<<<<<< HEAD
 >>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
+=======
+>>>>>>> d6ea2108ce17f22a511972823cd852cc1a4ef791
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
   end
 
   def create
@@ -31,7 +37,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
+
+    # @project.pv = @project.pv + 1
+
     @project.pv = @project.pv + 1 #pvのカウント
+
     @project.save!
 
     #関連のプロジェクトデータ

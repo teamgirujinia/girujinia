@@ -23,17 +23,60 @@ class User < ApplicationRecord
              :recoverable, :rememberable, :trackable, :validatable,
              :confirmable, :lockable
 
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       # 関連付け
          has_many :projects, dependent: :destroy
          has_many :comments
          has_many :likes, dependent: :destroy
          has_many :liked_projects, through: :likes, source: :project
+
+         has_many :entries, dependent: :destroy
+
+
          has_many :entriesm, dependent: :destroy
 
   def already_liked?(project)
     self.likes.exists?(project_id: project.id)
   end
 
+<<<<<<< HEAD
+=======
+
+         has_many :picks, dependent: :destroy
+         has_many :pick_projects, through: :picks, source: :project
+
+
+  def already_liked?(project)
+    self.liked.exists?(project_id: project.id)
+  end
+
+
+  # Homeのユーザーランキングデータの取得
+  # rankの数値が高い順に取得
+  def self.users_rank
+      self.all.order("experience_value").first(10)
+  end
+
+  # 既存のパスワードを入力せずにプロフィール編集可能に
+  def update_without_current_password(params, *options)
+     params.delete(:current_password)
+
+     if params[:password].blank? && params[:password_confirmation].blank?
+       params.delete(:password)
+       params.delete(:password_confirmation)
+     end
+
+     result = update_attributes(params, *options)
+     clean_up_passwords
+     result
+
+  end
+=======
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
      # -------------------------------------------------------------------------------------------------------------------
      
      # リレーション
@@ -65,6 +108,10 @@ class User < ApplicationRecord
       end
   
   
+<<<<<<< HEAD
+=======
+>>>>>>> d6ea2108ce17f22a511972823cd852cc1a4ef791
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 
 
   # 既存のパスワードを入力せずにプロフィール編集可能に

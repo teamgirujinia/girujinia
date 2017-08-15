@@ -1,11 +1,22 @@
 <div class="ui internally celled grid">
   <div class="row">
     <div class="three wide column">
+<<<<<<< HEAD
       <h3 style="text-align:center;">
         <i class="users icon"></i>ユーザーランキング</h3>
       
       <!--左サイド-->
       <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
+=======
+
+
+      <!--左サイド-->
+      <h3 style="text-align:center;"><i class="users icon"></i>ユーザーランキング</h3>
+
+      <h3 style="text-align:center;">
+        <i class="users icon"></i>ユーザーランキング</h3>
+
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       <div class="ui segments">
         <% @users_rank.each do |user| %>
           <div class="ui segment">
@@ -31,9 +42,48 @@
         <% end %>
       </div>
     </div>
-    
+
     <!--フィード-->
     <div class="ten wide column">
+<<<<<<< HEAD
+=======
+
+      <%= render "shares/main", projects: projects, page: page %>
+    </div>
+
+    <!--右サイド-->
+    <div class="three wide column">
+      <div class="ui segments">
+          <% if page == 3 %>
+            <div class="ui segment tertiary">
+              <p><i class="line chart icon"></i>　<%= link_to "急上昇", sudden_path %></p>
+            </div>
+          <% else %>
+            <div class="ui segment">
+              <p><i class="line chart icon"></i>　<%= link_to "急上昇", sudden_path %></p>
+            </div>
+          <% end %>
+
+          <% if page == 4 %>
+            <div class="ui red segment tertiary">
+              <p><i class="user icon"></i>　<%= link_to "募集中", wanted_path %></p>
+            </div>
+          <% else %>
+            <div class="ui red segment">
+              <p><i class="user icon"></i>　<%= link_to "募集中", wanted_path %></p>
+            </div>
+          <% end %>
+
+          <% if page == 5 %>
+            <div class="ui blue segment tertiary">
+              <p><i class="users icon"></i>　<%= link_to "進行中", doing_path %></p>
+            </div>
+          <% else %>
+            <div class="ui blue segment">
+              <p><i class="users icon"></i>　<%= link_to "進行中", doing_path %></p>
+            </div>
+          <% end %>
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 
       <%= render 'projects/search' %>
 
@@ -90,6 +140,7 @@
         <p>
           <i class="line chart icon"></i>
           <%= link_to "急上昇", sudden_path %></p>
+<<<<<<< HEAD
       <%= render "shares/main", projects: projects, page: page %>
     </div>
     
@@ -127,6 +178,9 @@
           <% end %>
           
           
+=======
+
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       </div>
     <% else %>
       <div class="ui segment">
