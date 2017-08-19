@@ -13,18 +13,11 @@ class ProjectsController < ApplicationController
 
   # 検索結果の表示用
   def index
-<<<<<<< HEAD
-    # ページネーション付き
-  
-=======
+
     @results = @q.result(distinct: true)
     @users_rank = User.users_rank
     @num = 0
-<<<<<<< HEAD
->>>>>>> 6faeb48a462799a433ad56c061dc076e1f93e774
-=======
->>>>>>> d6ea2108ce17f22a511972823cd852cc1a4ef791
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
+ 
   end
 
   def create
@@ -50,6 +43,9 @@ class ProjectsController < ApplicationController
     # @relateds = @relateds.where.not(user_id: current_user.id)
     @relateds = @relateds.first(5)
 
+    # 一回の閲覧で2ポイント加算
+    @project.user.experience_value = @project.user.experience_value + 2
+    @project.user.save!
 
     @like = Like.new() # 追記
     @entry = Entry.new()
