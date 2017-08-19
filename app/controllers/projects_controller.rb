@@ -13,22 +13,10 @@ class ProjectsController < ApplicationController
 
   # 検索結果の表示用
   def index
-<<<<<<< HEAD
+    @results = @q.result(distinct: true)
+    @users_rank = User.users_rank
+    @num = 0
 
-    @results = @q.result(distinct: true)
-    @users_rank = User.users_rank
-    @num = 0
- 
-=======
-<<<<<<< HEAD
-    # ページネーション付き
-  
-=======
-    @results = @q.result(distinct: true)
-    @users_rank = User.users_rank
-    @num = 0
->>>>>>> d6ea2108ce17f22a511972823cd852cc1a4ef791
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
   end
 
   def create

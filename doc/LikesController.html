@@ -198,7 +198,16 @@
 6
 7
 8
-9</pre>
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/likes_controller.rb', line 4</span>
@@ -207,7 +216,16 @@
     <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Project.html" title="Project (class)">Project</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='ivar'>@like</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_likes'>likes</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='label'>project_id:</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='comment'># mail_method(@project.user, &quot;pick&quot;, @project)
-</span>    <span class='ivar'>@like</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+</span>    
+    <span class='ivar'>@like</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_user_signed_in?'>user_signed_in?</span>
+      <span class='kw'>unless</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>==</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+          <span class='id identifier rubyid_up_experience'>up_experience</span> <span class='comment'># いいねボタン押下後20ポイントプラス
+</span>      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_up_experience'>up_experience</span> <span class='comment'># いいねボタン押下後20ポイントプラス
+</span>    <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -229,19 +247,35 @@
       <pre class="lines">
 
 
-11
-12
-13
-14
-15</pre>
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/likes_controller.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/likes_controller.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
     <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Project.html" title="Project (class)">Project</a></span></span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='ivar'>@like</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_likes'>likes</span><span class='period'>.</span><span class='id identifier rubyid_find_by!'>find_by!</span><span class='lparen'>(</span><span class='label'>project_id:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:project_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='ivar'>@like</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_user_signed_in?'>user_signed_in?</span>
+      <span class='kw'>unless</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>==</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+          <span class='id identifier rubyid_down_experience'>down_experience</span> <span class='comment'># いいねボタン押下後20ポイントマイナス
+</span>      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_down_experience'>down_experience</span> <span class='comment'># いいねボタン押下後20ポイントマイナス
+</span>    <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -253,7 +287,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Aug 20 00:52:27 2017 by
+  Generated on Sun Aug 20 03:01:48 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>

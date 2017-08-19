@@ -11,11 +11,6 @@ class Project < ApplicationRecord
     has_many :comments, dependent: :destroy # プロジェクトが消失するとコメントも消える
 
 
-<<<<<<< HEAD
-=======
-     # 2の関係
-
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
     has_many :comments, dependent: :destroy
 
     has_many :likes, dependent: :destroy
@@ -53,11 +48,8 @@ class Project < ApplicationRecord
          entries.where(user_id: user.id).exists?
     end
 
-<<<<<<< HEAD
     paginates_per 10 # 11ページ目を分割
     
-=======
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
     #お気に入りしているかどうかを返す
     def picked_by? user
        picks.where(user_id: user.id).exists?
@@ -67,11 +59,4 @@ class Project < ApplicationRecord
     def liked_by? user
        likes.where(user_id: user.id).exists?
     end
-<<<<<<< HEAD
-=======
-
-
-    paginates_per 10 # 11ページ目を分割
-
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 end

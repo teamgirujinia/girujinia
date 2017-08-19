@@ -582,16 +582,16 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_without_current_password'>update_without_current_password</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
    <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:current_password</span><span class='rparen'>)</span>
-
+  
    <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password_confirmation</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span>
      <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:password</span><span class='rparen'>)</span>
      <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:password_confirmation</span><span class='rparen'>)</span>
    <span class='kw'>end</span>
-
+  
    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
    <span class='id identifier rubyid_clean_up_passwords'>clean_up_passwords</span>
    <span class='id identifier rubyid_result'>result</span>
-
+  
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -603,7 +603,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Aug 20 00:52:23 2017 by
+  Generated on Sun Aug 20 03:01:47 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>

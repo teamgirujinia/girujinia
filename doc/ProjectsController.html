@@ -305,17 +305,17 @@
       <pre class="lines">
 
 
+22
 23
 24
 25
 26
 27
 28
-29
-30</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='ivar'>@project</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Project.html" title="Project (class)">Project</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_project_params'>project_params</span><span class='rparen'>)</span>
@@ -345,13 +345,13 @@
       <pre class="lines">
 
 
+71
 72
 73
-74
-75</pre>
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
@@ -377,11 +377,11 @@
       <pre class="lines">
 
 
-59
-60</pre>
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
 <span class='kw'>end</span></pre>
@@ -421,18 +421,16 @@
 17
 18
 19
-20
-21</pre>
+20</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
-
   <span class='ivar'>@results</span> <span class='op'>=</span> <span class='ivar'>@q</span><span class='period'>.</span><span class='id identifier rubyid_result'>result</span><span class='lparen'>(</span><span class='label'>distinct:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='ivar'>@users_rank</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="User.html" title="User (class)">User</a></span></span><span class='period'>.</span><span class='id identifier rubyid_users_rank'><span class='object_link'><a href="User.html#users_rank-class_method" title="User.users_rank (method)">users_rank</a></span></span>
   <span class='ivar'>@num</span> <span class='op'>=</span> <span class='int'>0</span>
- 
+
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -484,6 +482,7 @@
       <pre class="lines">
 
 
+31
 32
 33
 34
@@ -508,11 +507,10 @@
 53
 54
 55
-56
-57</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
 
@@ -560,6 +558,7 @@
       <pre class="lines">
 
 
+61
 62
 63
 64
@@ -567,11 +566,10 @@
 66
 67
 68
-69
-70</pre>
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/projects_controller.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='kw'>if</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_project_params'>project_params</span><span class='rparen'>)</span>
@@ -592,7 +590,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Aug 20 00:52:33 2017 by
+  Generated on Sun Aug 20 03:01:50 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>
