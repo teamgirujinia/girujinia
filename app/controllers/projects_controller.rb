@@ -44,8 +44,13 @@ class ProjectsController < ApplicationController
     @relateds = @relateds.first(5)
 
     # 一回の閲覧で2ポイント加算
-    @project.user.experience_value = @project.user.experience_value + 2
-    @project.user.save!
+    if user_signed_in?
+      unless @project.user_id == current_user.id
+        set_experience # 2 ポイント加算
+      end
+    else
+      set_experience # 2 ポイント加算
+    end
 
     @like = Like.new() # 追記
     @entry = Entry.new()
@@ -82,4 +87,9 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:create_title, :period, :capacity, :content, :work_method, :communication, :job_first, :user_id, :job_secound, :job_third, :lang1, :lang2, :lang3, :dev_type, :tool).merge(user_id: current_user.id)
     end
 
+    #showページを閲覧した場合2ポイント加算
+    def set_experience
+      @project.user.experience_value = @project.user.experience_value + 2
+      @project.user.save!
+    end
 end
