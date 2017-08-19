@@ -34,8 +34,11 @@ Rails.application.routes.draw do
       get :pick_projects
     end
   end
+<<<<<<< HEAD
 
   
+=======
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
   
   root 'pages#index'
 

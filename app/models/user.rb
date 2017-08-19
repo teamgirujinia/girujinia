@@ -23,6 +23,11 @@ class User < ApplicationRecord
              :recoverable, :rememberable, :trackable, :validatable,
              :confirmable, :lockable
 
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       # 関連付け
          has_many :projects, dependent: :destroy
          has_many :comments
@@ -47,6 +52,18 @@ class User < ApplicationRecord
   end
 
 
+<<<<<<< HEAD
+=======
+         has_many :picks, dependent: :destroy
+         has_many :pick_projects, through: :picks, source: :project
+
+
+  def already_liked?(project)
+    self.liked.exists?(project_id: project.id)
+  end
+
+
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
   # Homeのユーザーランキングデータの取得
   # rankの数値が高い順に取得
   def self.users_rank
@@ -65,9 +82,14 @@ class User < ApplicationRecord
      result = update_attributes(params, *options)
      clean_up_passwords
      result
+<<<<<<< HEAD
 
   end
+=======
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 
+  end
+=======
      # -------------------------------------------------------------------------------------------------------------------
      
      # リレーション
@@ -98,6 +120,11 @@ class User < ApplicationRecord
           self.all.order("experience_value").first(10)
       end
   
+<<<<<<< HEAD
+=======
+  
+>>>>>>> d6ea2108ce17f22a511972823cd852cc1a4ef791
+>>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 
   # 既存のパスワードを入力せずにプロフィール編集可能に
   def update_without_current_password(params, *options)
