@@ -1,18 +1,5 @@
 class EntriesController < ApplicationController
     before_action :authenticate_user!
-<<<<<<< HEAD
-    def create
-
-    @project = Project.find(params[:project_id])
-
-    @entry = @project.entries.create(entry_params)
-
-        if @entry.save
-             redirect_to project_path(params[:project_id])
-        else
-             render "show"
-        end
-=======
     before_action :set_request_from
     before_action :set_alart
 
@@ -22,13 +9,34 @@ class EntriesController < ApplicationController
       @entry.pairs = params[:user_id].to_s + @project.user.id.to_s + @project.id.to_s
       # mail_method(@project.user, "pick", @project)
       @entry.save
->>>>>>> develop
+      
+      if user_signed_in?
+        unless @project.user_id == current_user.id
+            # 応募の受信者に1ポイントプラス
+            @project.user.experience_value = @project.user.experience_value + 1 
+            @project.user.save!
+            # 応募者に1ポイントプラス
+            current_user.experience_value = experience_value + 1
+            current_user.save!
+        end
+      end
     end
 
     def destroy
         @entry = Entry.find_by(projec_id: params[:project_id], user_id: current_user.id)
         @entry.destroy
         redirect_to project_path(params[:project_id])
+     
+        if user_signed_in?
+            unless @project.user_id == current_user.id
+                # 応募の受信者に1ポイントマイナス
+                @project.user.experience_value = @project.user.experience_value - 1 
+                @project.user.save!
+                # 応募者に1ポイントマイナス
+                current_user.experience_value = experience_value - 1
+                current_user.save!
+            end
+          end
     end
     
     ## ---------------------------------------------------------------------------------------------------

@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'figaro'
+gem 'figaro' # omniauth を安全に扱うため
 # gem 'certified' # sslの設定
 gem 'omniauth-facebook'
 gem 'kaminari' # データの分割

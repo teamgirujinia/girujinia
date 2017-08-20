@@ -1,11 +1,6 @@
 <!-- ========================= 応募機能  ======================== -->
 <!-- プロジェクトを作成したユーザーには応募ボタンは表示されない -->
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
       <%= button_to '応募を取り消す', project_entry_path(@project), method: :delete, class: :"fluid ui brown button" %>
 
     <%= form_for [@project, @project.entries.build] do |f| %>
@@ -19,20 +14,4 @@
           <%= f.submit '応募' %>
         </p>
   
-  <% end %>
-<<<<<<< HEAD
-=======
-=======
-<%= form_for [@project, @project.entries.build] do |f| %>
-    <!-- user_idを入れる -->
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <!-- project_idを入れる -->
-    <%= f.hidden_field :projec_id, :value => @project.id %>
-    <!-- owner_idを入れる -->
-    <%= f.hidden_field :owner_id, :value => @project.user.id %>
-    <p>
-    <%= f.submit '応募' %>
-  </p>
->>>>>>> develop
->>>>>>> e8a4d621845f19f26ebbdf17e3158f2900bfab6e
 <% end %>
