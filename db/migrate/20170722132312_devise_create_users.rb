@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :encrypted_password, null: false, default: ""
       t.string :profile, null: false, default: ""
       t.string :socialstyle, null: false, default: ""
-      t.string :rank, null: false, default: "E"
+      t.string :rank, null: false, default: "G"
       t.string :facebook, null: false, default: ""
       t.string :twitter, null: false, default: ""
       t.string :qiita, null: false, default: ""

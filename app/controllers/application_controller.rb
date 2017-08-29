@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  
   # ログインしてない場合ログインページ遷移させる。
   # def after_sign_in_path_for(resource)
   #     recruits_show_path
@@ -38,6 +38,9 @@ class ApplicationController < ActionController::Base
       new_app = Entry.find_by(project_id: project.id)
       @new_apps.push(new_app) if !new_app.nil?
     end
+  end
+
+  def rank_update
   end
 
 end

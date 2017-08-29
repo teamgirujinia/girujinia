@@ -92,7 +92,11 @@ class User < ApplicationRecord
             self.all.reverse_order.first(10)
         end
     
-        
+        # ランク更新メソッド
+        def self.rank_update
+          self.update(experience_value: "F")
+        end
+          
 
   
     # 既存のパスワードを入力せずにプロフィール編集可能に
